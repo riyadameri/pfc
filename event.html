@@ -5,611 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INNOVEX 8th Edition | Innovation & Excellence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #FFD700;
-            /* Gold */
-            --accent: #000000;
-            /* Black */
-            --light: #f8f9fa;
-            --dark: #212529;
-            --success: #28a745;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #ffffff;
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader {
-            border: 5px solid var(--light);
-            border-top: 5px solid var(--secondary);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 5px solid var(--secondary);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjE1LDAsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .university-logo {
-            height: 60px;
-            max-width: 100%;
-        }
-
-        .innovax-logo {
-            height: 80px;
-            margin: 0 1rem;
-            border-radius: 50px;
-            max-width: 100%;
-        }
-
-        .club-logos {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .club-logo {
-            height: 50px;
-            background: white;
-            padding: 0.5rem;
-            border-radius: 8px;
-            max-width: 100%;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-            animation: fadeInUp 1s ease;
-            text-transform: uppercase;
-        }
-
-        .hero .edition {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .hero p {
-            font-size: 1rem;
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            animation: fadeInUp 1s ease 0.2s forwards;
-            opacity: 0;
-            padding: 0 1rem;
-        }
-
-        .date-location {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease 0.4s forwards;
-            opacity: 0;
-            flex-wrap: wrap;
-        }
-
-        .date-location div {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            backdrop-filter: blur(5px);
-            font-size: 0.9rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: var(--dark);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.6s forwards;
-            opacity: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            background-color: #ffc107;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 215, 0, 0.2);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-
-            100% {
-                transform: translateY(0) rotate(360deg);
-            }
-        }
-
-        section {
-            padding: 2rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            display: inline-block;
-            position: relative;
-        }
-
-        .section-title h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--secondary);
-            margin: 0.5rem auto 0;
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .about-text {
-            flex: 1;
-            order: 2;
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            order: 1;
-            width: 100%;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .clubs {
-            background-color: var(--light);
-        }
-
-        .club-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        .club-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 350px;
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--secondary);
-        }
-
-        .club-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .club-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .club-info {
-            padding: 1.2rem;
-        }
-
-        .club-info h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .club-info p {
-            font-size: 0.9rem;
-        }
-
-        .registration {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-        }
-
-        .registration .section-title h2 {
-            color: white;
-        }
-
-        .registration .section-title h2::after {
-            background: var(--secondary);
-        }
-
-        .registration-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.7rem 1rem;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.9);
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-        }
-
-        .form-group textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background-color: var(--secondary);
-            color: var(--dark);
-            border: none;
-            padding: 0.9rem 1.5rem;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .submit-btn:hover {
-            background-color: #ffc107;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0;
-            border-top: 5px solid var(--secondary);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .footer-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-content p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            max-width: 90%;
-            width: 500px;
-            text-align: center;
-            position: relative;
-            animation: modalFadeIn 0.5s ease;
-            border-top: 5px solid var(--secondary);
-            margin: 1rem;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        .confirmation-message {
-            margin-bottom: 1rem;
-            color: var(--success);
-            font-weight: 600;
-            padding: 2rem;
-        }
-
-        .agenda {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-
-        .agenda th,
-        .agenda td {
-            padding: 0.8rem;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .agenda th {
-            background-color: var(--secondary);
-            color: var(--dark);
-            font-size: 0.9rem;
-        }
-
-        .agenda tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .agenda tr:hover {
-            background-color: #e9e9e9;
-        }
-
-        @media (min-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .edition {
-                font-size: 1.3rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .date-location div {
-                font-size: 1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-
-            .about-content {
-                flex-direction: row;
-            }
-
-            .about-text {
-                order: 1;
-            }
-
-            .about-image {
-                order: 2;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero .edition {
-                font-size: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-
-            .university-logo {
-                height: 80px;
-            }
-
-            .innovax-logo {
-                height: 100px;
-            }
-
-            .club-logo {
-                height: 60px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -624,33 +22,44 @@
             <div class="floating-element" style="width: 80px; height: 80px; top: 30%; left: 70%;"></div>
             <div class="floating-element" style="width: 120px; height: 120px; top: 70%; left: 20%;"></div>
         </div>
-        <div class="header-bg"></div>
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="https://cdn2.picryl.com/photo/2014/04/12/universite-kasdi-merbah-de-ouargla-723419-small.png"
-                    alt="University Logo" class="university-logo">
-                <img src="https://scontent.falg3-2.fna.fbcdn.net/v/t39.30808-6/485386199_1237662675032266_6211163102112617444_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=dapczdTFofEQ7kNvwF5iqE6&_nc_oc=AdmLfZy0tb-VeUbWN0I3gxx2F4brvMoMDZLOU207fvryx0eOvHPWYiLpc9PeeEKsVgc&_nc_zt=23&_nc_ht=scontent.falg3-2.fna&_nc_gid=4LbXpA5uXQESL5x2EYXuew&oh=00_AfHjfs7MH4ioTTg1y7xT673zstTdvVmfoIL90CBkBqT1Bw&oe=67FCE17C"
-                    alt="INNOVEX Logo" class="innovax-logo">
-                <div class="club-logos">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E0BAQHv6QaZ5vyC5Q/company-logo_200_200/company-logo_200_200/0/1737285098275?e=2147483647&v=beta&t=0sQIvYeIj2RK-4lgClzotswjYDXhaB43tKORUPx6p9s"
-                        alt="Elitech Club" class="club-logo">
-                    <img src="https://scontent.falg3-2.fna.fbcdn.net/v/t39.30808-6/464505756_1449860759210286_7198650598492097745_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=CuXVhytN_kcQ7kNvwGcKqGl&_nc_oc=AdlwuOuYZW_YxR5XgVcqsmnelGdMLh_tqMULvcQ0tia1mNtFFmUyNS8REsYuKF1ymCY&_nc_zt=23&_nc_ht=scontent.falg3-2.fna&_nc_gid=B7axh8HmEEipC5IaCEDULw&oh=00_AfHEZYZqV109-4ZHkBpw8KrcMpET8bEot5mSGrqyXY_dpQ&oe=67FCD111"
-                        alt="Electronic Club" class="club-logo">
+
+        <div class="header-container">
+            <!-- Event Logo -->
+            <img src="assets/pfc-main-logo.jpg"
+                alt="INNOVEX Logo" class="event-logo">
+
+            <!-- Organizers Section -->
+            <div class="organizers-section">
+                <h3 class="organizers-title">Organized By</h3>
+                <div class="logos-container">
+                    <img src="assets/organizers-clubes/electronic.png" alt="Electronic Club" class="club-logo">
+                    <img src="assets/organizers-clubes/elitech.png" alt="Elitech Club" class="club-logo">
+                    <img src="assets/organizers-clubes/scientific-corner.png" alt="University Logo" class="club-logo">
+                </div>
+
+                <h3 class="organizers-title">Sponsored By</h3>
+                <div class="sponsors-container">
+                    <div class="sponsor-logo-container">
+                        <img src="assets/sponsors/dorwa.png" alt="Sponsor 1" class="sponsor-logo">
+                    </div>
+                    <div class="sponsor-logo-container">
+                        <img src="assets/sponsors/exwor.png" alt="Sponsor 2" class="sponsor-logo">
+                    </div>
                 </div>
             </div>
 
-            <div class="hero">
-                <h1>INNOVEX</h1>
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <h1 class="hero-title">INNOVEX</h1>
                 <div class="edition">8th Edition - Innovation & Excellence</div>
-                <p>The premier event for showcasing final cycle projects at the Faculty of New Technologies of
-                    Information and Communication (FNTIC), University of Kasdi Merbah Ouargla</p>
+                <p class="hero-description">The premier event for showcasing final cycle projects at the Faculty of New Technologies of Information and Communication (FNTIC), University of Kasdi Merbah Ouargla</p>
 
-                <div class="date-location">
-                    <div>
+                <div class="event-info">
+                    <div class="info-item">
                         <i class="fas fa-calendar-alt"></i>
                         <span>20-21 April 2025</span>
                     </div>
-                    <div>
+                    <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>UKMO - New University Pole, Media Library</span>
                     </div>
@@ -668,24 +77,19 @@
 
         <div class="about-content">
             <div class="about-text">
-                <p>INNOVEX is the flagship event of the Faculty of New Technologies of Information and Communication
-                    (FNTIC) at Kasdi Merbah University, Ouargla. Now in its 8th edition, this annual exhibition and
-                    conference showcases the innovative final cycle projects of our students.</p>
-                <p>The event brings together students, professors, researchers, and industry professionals to celebrate
-                    technological innovation and excellence. With participation from Elitech Club, Electronic Club, and
-                    other student organizations, INNOVEX 2025 will feature:</p>
-                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                <p>INNOVEX is the flagship event of the Faculty of New Technologies of Information and Communication (FNTIC) at Kasdi Merbah University, Ouargla. Now in its 8th edition, this annual exhibition and conference showcases the innovative final cycle projects of our students.</p>
+                <p>The event brings together students, professors, researchers, and industry professionals to celebrate technological innovation and excellence. With participation from Elitech Club, Electronic Club, and other student organizations, INNOVEX 2025 will feature:</p>
+                <ul>
                     <li>Exhibition of cutting-edge student projects</li>
                     <li>Keynote speeches from industry leaders</li>
                     <li>Technical workshops and panel discussions</li>
                     <li>Networking opportunities with professionals</li>
                     <li>Awards ceremony for outstanding projects</li>
                 </ul>
-                <p style="margin-top: 1rem;">This year's theme: <strong>"INNOVEX and the Student of Kasdi Merbah Who
-                        Founded It"</strong> honors the legacy of student-driven innovation at our university.</p>
+                <p>This year's theme: <strong>"INNOVEX and the Student of Kasdi Merbah Who Founded It"</strong> honors the legacy of student-driven innovation at our university.</p>
             </div>
             <div class="about-image">
-                <img src="https://scontent.falg3-2.fna.fbcdn.net/v/t39.30808-6/481286907_1217286580403209_5360932906664793290_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHhIRK4EXd56fIFmtQiHtB2oJrBnzykebagmsGfPKR5tuISie6P4RxjLuTcQ9VRdHfqajB0xzzgFIM1JzLdWl9E&_nc_ohc=MPtkEAJQHdwQ7kNvwGB61Lr&_nc_oc=AdkmdkjzbxXxzQZE9eZ2A80Uzj4QTn3KtyMJ421wNhopzDbOogbncR_U-NYZZL59u_I&_nc_zt=23&_nc_ht=scontent.falg3-2.fna&_nc_gid=PAXpg9vf-JhPMqeFmwvMqw&oh=00_AfHaVFT1cSPZV3hUyweZfBIDLAS10DEfnFuCTTlCqHxy2w&oe=67FCD258"
+                <img src="assets/eventimages/evex1.jpg"
                     alt="INNOVEX Event">
             </div>
         </div>
@@ -698,23 +102,19 @@
 
         <div class="about-content">
             <div class="about-image">
-                <img src="https://fntic.univ-ouargla.dz/images/CNTIC.png" alt="FNTIC Building">
+                <img src="assets/eventimages/evex2.jpg" alt="FNTIC Building">
             </div>
             <div class="about-text">
-                <p>The Faculty of New Technologies of Information and Communication (FNTIC) at Kasdi Merbah University,
-                    Ouargla is a leading academic institution dedicated to advancing knowledge and innovation in ICT
-                    fields.</p>
-                <p>Established to meet the growing demand for expertise in digital technologies, FNTIC offers programs
-                    that combine theoretical knowledge with practical skills in:</p>
-                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                <p>The Faculty of New Technologies of Information and Communication (FNTIC) at Kasdi Merbah University, Ouargla is a leading academic institution dedicated to advancing knowledge and innovation in ICT fields.</p>
+                <p>Established to meet the growing demand for expertise in digital technologies, FNTIC offers programs that combine theoretical knowledge with practical skills in:</p>
+                <ul>
                     <li>Computer Science</li>
                     <li>Software Engineering</li>
                     <li>Networking</li>
                     <li>Artificial Intelligence</li>
                     <li>Telecommunications</li>
                 </ul>
-                <p style="margin-top: 1rem;">With modern laboratories, research centers, and industry partnerships,
-                    FNTIC prepares students to excel in the rapidly evolving tech industry.</p>
+                <p>With modern laboratories, research centers, and industry partnerships, FNTIC prepares students to excel in the rapidly evolving tech industry.</p>
             </div>
         </div>
     </section>
@@ -726,22 +126,26 @@
 
         <div class="club-cards">
             <div class="club-card">
-                <img src="https://media.licdn.com/dms/image/v2/D4E0BAQHv6QaZ5vyC5Q/company-logo_200_200/company-logo_200_200/0/1737285098275?e=2147483647&v=beta&t=0sQIvYeIj2RK-4lgClzotswjYDXhaB43tKORUPx6p9s"
-                    alt="Elitech Club">
+                <img src="assets/organizers-clubes/elitech.png" alt="Elitech Club">
                 <div class="club-info">
                     <h3>Elitech Club</h3>
-                    <p>Dedicated to fostering technological excellence through workshops, competitions, and
-                        collaborative projects that push the boundaries of innovation.</p>
+                    <p>Dedicated to fostering technological excellence through workshops, competitions, and collaborative projects that push the boundaries of innovation.</p>
                 </div>
             </div>
 
             <div class="club-card">
-                <img src="https://scontent.falg3-2.fna.fbcdn.net/v/t39.30808-6/464505756_1449860759210286_7198650598492097745_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=CuXVhytN_kcQ7kNvwGcKqGl&_nc_oc=AdlwuOuYZW_YxR5XgVcqsmnelGdMLh_tqMULvcQ0tia1mNtFFmUyNS8REsYuKF1ymCY&_nc_zt=23&_nc_ht=scontent.falg3-2.fna&_nc_gid=B7axh8HmEEipC5IaCEDULw&oh=00_AfHEZYZqV109-4ZHkBpw8KrcMpET8bEot5mSGrqyXY_dpQ&oe=67FCD111"
-                    alt="Electronic Club">
+                <img src="assets/organizers-clubes/scientific-corner.png" alt="Science Corner">
+                <div class="club-info">
+                    <h3>Science Corner</h3>
+                    <p>A platform for scientific discussion and knowledge sharing, promoting research and academic excellence among students.</p>
+                </div>
+            </div>
+
+            <div class="club-card">
+                <img src="assets/organizers-clubes/electronic.png">
                 <div class="club-info">
                     <h3>Electronic Club</h3>
-                    <p>Focusing on electronics and hardware innovation, this club bridges the gap between software and
-                        physical computing solutions.</p>
+                    <p>Focusing on electronics and hardware innovation, this club bridges the gap between software and physical computing solutions.</p>
                 </div>
             </div>
         </div>
@@ -749,94 +153,76 @@
 
     <section id="agenda">
         <div class="section-title">
-            <h2>Event Agenda</h2>
+            <h2>Event Agenda and Program</h2>
         </div>
 
-        <h3 style="text-align: center; margin-bottom: 1rem; color: var(--primary);">Day 1 - April 20, 2025</h3>
-        <table class="agenda">
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Activity</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>08:30 – 09:30</td>
-                    <td>Registration and Welcome</td>
-                    <td>Main Hall</td>
-                </tr>
-                <tr>
-                    <td>09:30 – 10:00</td>
-                    <td>Opening Speech by Faculty Dean</td>
-                    <td>Auditorium</td>
-                </tr>
-                <tr>
-                    <td>10:00 – 10:30</td>
-                    <td>Coffee Break</td>
-                    <td>Lounge Area</td>
-                </tr>
-                <tr>
-                    <td>10:40 – 12:30</td>
-                    <td>Discussion Panel 1: Emerging Technologies</td>
-                    <td>Auditorium</td>
-                </tr>
-                <tr>
-                    <td>12:30 – 14:00</td>
-                    <td>Lunch Break & Networking</td>
-                    <td>Dining Area</td>
-                </tr>
-                <tr>
-                    <td>14:00 – 16:00</td>
-                    <td>Discussion Panel 2: Industry Perspectives</td>
-                    <td>Auditorium</td>
-                </tr>
-                <tr>
-                    <td>14:00 – 16:00</td>
-                    <td>Technical Workshops (Parallel Sessions)</td>
-                    <td>Workshop Rooms</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="agenda-container">
+            <div class="agenda-day">
+                <div class="agenda-header">
+                    <h3>Day 1</h3>
+                    <p>April 20, 2025</p>
+                </div>
+                <table class="agenda-table">
+                    <tr>
+                        <td>08:00 – 08:30</td>
+                        <td>Registration and Welcome</td>
+                    </tr>
+                    <tr>
+                        <td>08:30 – 09:30</td>
+                        <td>Opening Speech</td>
+                    </tr>
+                    <tr>
+                        <td>09:30 – 10:00</td>
+                        <td>Coffee Break</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 – 11:30</td>
+                        <td>Discussion Panel</td>
+                    </tr>
+                    <tr>
+                        <td>10:30 – 12:00</td>
+                        <td>Exhibitors and PFC Consulting</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 – 14:00</td>
+                        <td>Lunch Break & Networking</td>
+                    </tr>
+                    <tr>
+                        <td>14:00 – 16:00</td>
+                        <td>Technical Workshops</td>
+                    </tr>
+                </table>
+            </div>
 
-        <h3 style="text-align: center; margin: 2rem 0 1rem; color: var(--primary);">Day 2 - April 21, 2025</h3>
-        <table class="agenda">
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Activity</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>09:00 – 09:30</td>
-                    <td>Keynote Speech</td>
-                    <td>Auditorium</td>
-                </tr>
-                <tr>
-                    <td>09:30 – 11:30</td>
-                    <td>Project Presentations</td>
-                    <td>Exhibition Hall</td>
-                </tr>
-                <tr>
-                    <td>10:30 – 11:30</td>
-                    <td>Coffee Break & Networking</td>
-                    <td>Lounge Area</td>
-                </tr>
-                <tr>
-                    <td>11:30 – 12:00</td>
-                    <td>Event Review</td>
-                    <td>Auditorium</td>
-                </tr>
-                <tr>
-                    <td>12:00 – 14:00</td>
-                    <td>Awards Ceremony & Closing</td>
-                    <td>Auditorium</td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="agenda-day">
+                <div class="agenda-header">
+                    <h3>Day 2</h3>
+                    <p>April 21, 2025</p>
+                </div>
+                <table class="agenda-table">
+                    <tr>
+                        <td>08:30 – 09:00</td>
+                        <td>Keynote Speech</td>
+                    </tr>
+                    <tr>
+                        <td>09:00 – 10:30</td>
+                        <td>Project Presentations</td>
+                    </tr>
+                    <tr>
+                        <td>10:30 – 11:00</td>
+                        <td>Coffee Break & Networking</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 – 11:30</td>
+                        <td>Event Review</td>
+                    </tr>
+                    <tr>
+                        <td>11:30 – 12:00</td>
+                        <td>Awards Ceremony & Closing</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </section>
 
     <section class="registration" id="register">
@@ -847,22 +233,22 @@
         <div class="registration-form">
             <form id="eventRegistrationForm">
                 <div class="form-group">
-                    <label for="fullName">Full Name (As on ID Card)</label>
+                    <label for="fullName">Full Name (As on ID Card) *</label>
                     <input type="text" id="fullName" name="fullName" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="studentId">Student ID Number</label>
+                    <label for="studentId">Student ID Number (without BAC year) *</label>
                     <input type="text" id="studentId" name="studentId" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
+                    <label for="phone">Phone Number *</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="specialization">Specialization</label>
+                    <label for="specialization">Specialization *</label>
                     <input type="text" id="specialization" name="specialization" required>
                 </div>
 
@@ -898,11 +284,8 @@
             <p>University of Kasdi Merbah Ouargla</p>
 
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.instagram.com/innovex.pfc/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/innovex-innovation-excellence-final-cycle-project-event-pfc%C2%A08th%C2%A0edition/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
 
             <p>&copy; 2025 All Rights Reserved</p>
@@ -913,150 +296,59 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="confirmation-message">
-                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem; color: var(--success);"></i>
+                <i class="fas fa-check-circle"></i>
                 <h3>Registration Successful!</h3>
                 <p>Thank you for registering for INNOVEX 8th Edition.</p>
                 <p>Your registration details have been received. We look forward to seeing you at the event!</p>
                 <p><strong>Date:</strong> 20-21 April 2025</p>
-                <p><strong>Location:</strong> UKMO - New University Pole, Media Library</p>
+                <p><strong>Location:</strong> UKMO - New University Pole, Media Library (mediatek)</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Telegram Bot Token and Chat ID
-        const BOT_TOKEN = '7565218404:AAGLn6PEToEb8mhLnQ-NkJoD9t1DVgB_mX0';
-        const CHAT_ID = '1865245287';
-
         // Loading screen
-        window.addEventListener('load', function () {
-            setTimeout(function () {
+        window.addEventListener('load', function() {
+            setTimeout(function() {
                 document.querySelector('.loading-screen').style.opacity = '0';
-                setTimeout(function () {
+                setTimeout(function() {
                     document.querySelector('.loading-screen').style.display = 'none';
                 }, 500);
             }, 1000);
         });
 
-        // Generate random floating elements
-        function createFloatingElements() {
-            const container = document.querySelector('.floating-elements');
-            for (let i = 0; i < 8; i++) {
-                const element = document.createElement('div');
-                element.classList.add('floating-element');
-                const size = Math.floor(Math.random() * 60) + 40;
-                element.style.width = `${size}px`;
-                element.style.height = `${size}px`;
-                element.style.top = `${Math.random() * 100}%`;
-                element.style.left = `${Math.random() * 100}%`;
-                element.style.animationDuration = `${Math.floor(Math.random() * 20) + 10}s`;
-                element.style.animationDelay = `${Math.random() * 5}s`;
-                container.appendChild(element);
-            }
-        }
-
-        createFloatingElements();
-
         // Form submission
-        document.getElementById('eventRegistrationForm').addEventListener('submit', function (e) {
+        document.getElementById('eventRegistrationForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            // Show loading state
-            const submitBtn = document.querySelector('.submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-
-            // Collect form data
-            const formData = {
-                fullName: document.getElementById('fullName').value,
-                studentId: document.getElementById('studentId').value,
-                phone: document.getElementById('phone').value,
-                specialization: document.getElementById('specialization').value,
-                projectTitle: document.getElementById('projectTitle').value,
-                interests: Array.from(document.getElementById('interests').selectedOptions).map(option => option.value),
-                registrationDate: new Date().toISOString()
-            };
-
-            // Generate registration ID
-            const registrationId = 'INVX-' + Math.random().toString(36).substr(2, 8).toUpperCase();
-
-            // Prepare Telegram message
-            const telegramMessage = `
-📢 *New INNOVEX Registration* 📢
-                
-🔹 *Name:* ${formData.fullName}
-🔹 *Student ID:* ${formData.studentId}
-🔹 *Phone:* ${formData.phone}
-🔹 *Specialization:* ${formData.specialization}
-🔹 *Project Title:* ${formData.projectTitle || 'N/A'}
-🔹 *Interests:* ${formData.interests.join(', ') || 'Not specified'}
-                
-🆔 *Registration ID:* ${registrationId}
-📅 *Registered at:* ${new Date(formData.registrationDate).toLocaleString()}
-            `;
-
-            // Send data to Telegram bot (but always show success regardless of the outcome)
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: telegramMessage,
-                    parse_mode: 'Markdown'
-                })
-            })
-                .finally(() => {
-                    // Show success modal
-                    document.getElementById('successModal').style.display = 'flex';
-
-                    // Reset form
-                    document.getElementById('eventRegistrationForm').reset();
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Complete Registration';
-                });
+            
+            // Here you would normally send the form data to your server
+            // For demo purposes, we'll just show the success modal
+            
+            document.getElementById('successModal').style.display = 'flex';
         });
 
         // Close modal
-        document.querySelector('.close-modal').addEventListener('click', function () {
+        document.querySelector('.close-modal').addEventListener('click', function() {
             document.getElementById('successModal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('successModal')) {
+                document.getElementById('successModal').style.display = 'none';
+            }
         });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
-
-        // Animation on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.section-title, .about-content, .club-card, .agenda');
-
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        // Set initial state for animated elements
-        document.querySelectorAll('.section-title, .about-content, .club-card, .agenda').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Run once on page load
     </script>
 </body>
 

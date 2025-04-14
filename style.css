@@ -23,7 +23,7 @@ body {
     line-height: 1.6;
 }
 
-/* Loading Screen */
+/* Loafhero-titleding Screen */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -199,6 +199,7 @@ header {
     letter-spacing: 1px;
     animation: fadeInUp 1s ease;
     font-weight: 700;
+    font-family: "Quantico", sans-serif;
 }
 
 .edition {

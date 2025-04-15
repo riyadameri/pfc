@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOVEX 8th Edition | Registrations Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .registrations-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .registrations-table th {
+            background: rgba(74, 110, 224, 0.7);
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .registrations-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .registrations-table tr:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .action-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-export {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-clear {
+            background: #f44336;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .no-data {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>INNOVEX 8th Edition - Registration Data</h1>
+        
+        <div class="action-buttons">
+            <button class="btn btn-export" id="exportBtn">
+                <i class="fas fa-download"></i> Export as CSV
+            </button>
+            <button class="btn btn-clear" id="clearBtn">
+                <i class="fas fa-trash"></i> Clear All Data
+            </button>
+        </div>
+        
+        <table class="registrations-table">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Student ID</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Specialization</th>
+                    <th>Project Title</th>
+                    <th>Interests</th>
+                    <th>Attendance Days</th>
+                    <th>Registration Date</th>
+                </tr>
+            </thead>
+            <tbody id="registrationsData">
+                <!-- Data will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+        
+        <div id="noDataMessage" class="no-data" style="display: none;">
+            No registration data available.
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registrationsData = document.getElementById('registrationsData');
+            const noDataMessage = document.getElementById('noDataMessage');
+            const exportBtn = document.getElementById('exportBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            
+            // Load and display registration data
+            function loadRegistrationData() {
+                const registrations = JSON.parse(localStorage.getItem('innovexRegistrations')) || [];
+                
+                if (registrations.length === 0) {
+                    document.querySelector('.registrations-table').style.display = 'none';
+                    noDataMessage.style.display = 'block';
+                    return;
+                }
+                
+                noDataMessage.style.display = 'none';
+                document.querySelector('.registrations-table').style.display = 'table';
+                
+                registrationsData.innerHTML = '';
+                
+                registrations.forEach(reg => {
+                    const row = document.createElement('tr');
+                    
+                    row.innerHTML = `
+                        <td>${reg.fullName}</td>
+                        <td>${reg.studentId}</td>
+                        <td>${reg.email}</td>
+                        <td>${reg.phone}</td>
+                        <td>${reg.specialization}</td>
+                        <td>${reg.projectTitle || '-'}</td>
+                        <td>${reg.interests.join(', ')}</td>
+                        <td>${reg.attendance.join(', ')}</td>
+                        <td>${new Date(reg.registrationDate).toLocaleString()}</td>
+                    `;
+                    
+                    registrationsData.appendChild(row);
+                });
+            }
+            
+            // Export data as CSV
+            function exportToCSV() {
+                const registrations = JSON.parse(localStorage.getItem('innovexRegistrations')) || [];
+                if (registrations.length === 0) {
+                    alert('No registration data available to export');
+                    return;
+                }
+                
+                // CSV header
+                let csv = 'Full Name,Student ID,Email,Phone,Specialization,Project Title,Interests,Attendance Days,Registration Date\n';
+                
+                // Add each registration
+                registrations.forEach(reg => {
+                    csv += `"${reg.fullName}","${reg.studentId}","${reg.email}","${reg.phone}","${reg.specialization}","${reg.projectTitle || ''}","${reg.interests.join(', ')}","${reg.attendance.join(', ')}","${new Date(reg.registrationDate).toLocaleString()}"\n`;
+                });
+                
+                // Create download link
+                const blob = new Blob([csv], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.setAttribute('hidden', '');
+                a.setAttribute('href', url);
+                a.setAttribute('download', 'innovex_registrations.csv');
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+            
+            // Clear all data
+            function clearAllData() {
+                if (confirm('Are you sure you want to delete all registration data? This cannot be undone.')) {
+                    localStorage.removeItem('innovexRegistrations');
+                    loadRegistrationData();
+                    alert('All registration data has been cleared');
+                }
+            }
+            
+            // Event listeners
+            exportBtn.addEventListener('click', exportToCSV);
+            clearBtn.addEventListener('click', clearAllData);
+            
+            // Initial load
+            loadRegistrationData();
+        });
+    </script>
+</body>
+</html>

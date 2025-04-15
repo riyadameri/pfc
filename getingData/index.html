@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOVEX Registration Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>INNOVEX 8th Edition Registrations</h1>
+            <div class="subtitle">Admin Dashboard</div>
+        </header>
+
+        <div class="controls">
+            <div class="search-filter">
+                <input type="text" id="searchInput" placeholder="Search registrations...">
+                <select id="filterSelect">
+                    <option value="all">All Registrations</option>
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+                <button id="exportBtn"><i class="fas fa-file-export"></i> Export</button>
+            </div>
+            <button id="refreshBtn"><i class="fas fa-sync-alt"></i> Refresh Data</button>
+        </div>
+
+        <div class="stats-cards">
+            <div class="stat-card total">
+                <h3>Total Registrations</h3>
+                <div class="value" id="totalRegistrations">0</div>
+            </div>
+            <div class="stat-card today">
+                <h3>Today's Registrations</h3>
+                <div class="value" id="todayRegistrations">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Unique Specializations</h3>
+                <div class="value" id="uniqueSpecializations">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>With Projects</h3>
+                <div class="value" id="withProjects">0</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="registrationsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Student ID</th>
+                        <th>Specialization</th>
+                        <th>Project</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+            <div class="loading" id="loadingIndicator">
+                <i class="fas fa-spinner"></i> Loading data...
+            </div>
+            <div class="no-data" id="noData" style="display: none;">
+                No registration data found.
+            </div>
+        </div>
+
+        <div class="pagination" id="pagination">
+            <!-- Pagination will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Registration Detail Modal -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Registration Details</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div id="modalBody">
+                <!-- Details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const BOT_TOKEN = '7565218404:AAGLn6PEToEb8mhLnQ-NkJoD9t1DVgB_mX0';
+        const CHAT_ID = '1865245287';
+        const ITEMS_PER_PAGE = 10;
+
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchRegistrations();
+            
+            // [Keep all your existing event listeners]
+
+        });
+
+        // Fetch registrations from Telegram
+        async function fetchRegistrations() {
+            try {
+                loadingIndicator.style.display = 'flex';
+                noData.style.display = 'none';
+                tableBody.innerHTML = '';
+                
+                // Get updates to find where the bot is sending messages
+                const messages = await fetchTelegramMessages();
+                
+                // Process the messages into registration data
+                allRegistrations = processTelegramData(messages);
+                
+                if (allRegistrations.length === 0) {
+                    noData.innerHTML = `
+                        No registration data found.<br><br>
+                        Please ensure:<br>
+                        1. Your bot is sending registration confirmations to a chat<br>
+                        2. The CHAT_ID (${CHAT_ID}) is correct<br>
+                        3. The bot is not in privacy mode<br><br>
+                        Current chat only contains your messages to the bot.
+                    `;
+                    noData.style.display = 'block';
+                } else {
+                    updateStats();
+                    filterData();
+                }
+            } catch (error) {
+                console.error('Error fetching registrations:', error);
+                loadingIndicator.style.display = 'none';
+                noData.textContent = 'Error loading data. Please check console for details.';
+                noData.style.display = 'block';
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+
+        // Fetch Telegram messages
+        async function fetchTelegramMessages() {
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getUpdates`);
+        const data = await response.json();
+
+        if (!data.ok) {
+            throw new Error('Telegram API error: ' + data.description);
+        }
+
+        console.log('Raw API response:', data); // For debugging
+
+        // Filter messages from the specific channel
+        const channelMessages = data.result
+            .filter(update => 
+                update.message &&
+                update.message.chat &&
+                update.message.chat.id.toString() === CHAT_ID // Ensure the chat ID matches the channel's ID
+            )
+            .map(update => update.message);
+
+        console.log('Messages from the channel:', channelMessages);
+
+        return channelMessages;
+    } catch (error) {
+        console.error('Error fetching Telegram messages:', error);
+        throw error;
+    }
+}
+
+        // Process Telegram messages into registration data
+        function processTelegramData(messages) {
+            return messages.map(msg => {
+                const text = msg.text || '';
+                
+                // Helper function to extract field values
+                const getField = (pattern) => {
+                    const match = text.match(new RegExp(pattern, 'i'));
+                    return match ? match[1].trim() : null;
+                };
+                
+                const name = getField(/Name:\s*([^\n]+)/) || getField(/🔹\s*Name:\s*([^\n]+)/) || 'Unknown';
+                const studentId = getField(/Student ID:\s*([^\n]+)/) || getField(/🔹\s*Student\s*ID:\s*([^\n]+)/) || 'N/A';
+                const phone = getField(/Phone:\s*([^\n]+)/) || getField(/🔹\s*Phone:\s*([^\n]+)/) || 'N/A';
+                const specialization = getField(/Specialization:\s*([^\n]+)/) || getField(/🔹\s*Specialization:\s*([^\n]+)/) || 'Not specified';
+                const projectTitle = getField(/Project Title:\s*([^\n]+)/) || getField(/🔹\s*Project\s*Title:\s*([^\n]+)/);
+                const interestsText = getField(/Interests:\s*([^\n]+)/) || getField(/🔹\s*Interests:\s*([^\n]+)/) || '';
+                const regId = getField(/Registration ID:\s*([^\n]+)/) || getField(/🆔\s*Registration\s*ID:\s*([^\n]+)/) || `MSG-${msg.message_id}`;
+                const dateText = getField(/Registered at:\s*([^\n]+)/) || getField(/📅\s*Registered\s*at:\s*([^\n]+)/);
+                
+                // Parse date
+                let registrationDate = new Date();
+                if (dateText) {
+                    registrationDate = new Date(dateText);
+                    if (isNaN(registrationDate.getTime())) {
+                        registrationDate = new Date(msg.date * 1000);
+                    }
+                }
+                
+                // Clean up project title
+                const cleanProjectTitle = projectTitle && !projectTitle.includes('N/A') ? 
+                    projectTitle.replace(/^N\/A\s*/, '').trim() || null : 
+                    null;
+                
+                // Process interests
+                const interests = interestsText
+                    ? interestsText.split(/[,;]/).map(i => i.trim()).filter(i => i && !i.includes('Not specified'))
+                    : [];
+                
+                return {
+                    id: regId,
+                    fullName: name,
+                    studentId: studentId,
+                    phone: phone,
+                    specialization: specialization,
+                    projectTitle: cleanProjectTitle,
+                    interests: interests,
+                    registrationDate: registrationDate,
+                    rawMessage: text,
+                    messageId: msg.message_id
+                };
+            })
+            .filter(reg => reg.fullName !== 'Unknown')
+            .sort((a, b) => b.registrationDate - a.registrationDate);
+        }
+
+
+        // [Rest of your existing functions (filterData, renderTable, etc.) remain the same]
+        // Filter data based on search and filter criteria
+        function filterData() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filterValue = filterSelect.value;
+            
+            filteredData = allRegistrations.filter(reg => {
+                // Search filter
+                const matchesSearch = 
+                    reg.fullName.toLowerCase().includes(searchTerm) ||
+                    reg.studentId.toLowerCase().includes(searchTerm) ||
+                    reg.specialization.toLowerCase().includes(searchTerm) ||
+                    (reg.projectTitle && reg.projectTitle.toLowerCase().includes(searchTerm));
+                
+                // Date filter
+                const now = new Date();
+                const regDate = reg.registrationDate;
+                let matchesDate = true;
+                
+                if (filterValue === 'today') {
+                    matchesDate = 
+                        regDate.getDate() === now.getDate() &&
+                        regDate.getMonth() === now.getMonth() &&
+                        regDate.getFullYear() === now.getFullYear();
+                } else if (filterValue === 'week') {
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    matchesDate = regDate >= weekAgo;
+                } else if (filterValue === 'month') {
+                    matchesDate = 
+                        regDate.getMonth() === now.getMonth() &&
+                        regDate.getFullYear() === now.getFullYear();
+                }
+                
+                return matchesSearch && matchesDate;
+            });
+            
+            currentPage = 1;
+            renderTable();
+            renderPagination();
+        }
+
+        // Render the table with filtered data
+        function renderTable() {
+            loadingIndicator.style.display = 'none';
+            
+            if (filteredData.length === 0) {
+                noData.style.display = 'block';
+                tableBody.innerHTML = '';
+                return;
+            }
+            
+            noData.style.display = 'none';
+            
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, filteredData.length);
+            const pageData = filteredData.slice(startIndex, endIndex);
+            
+            tableBody.innerHTML = pageData.map(reg => `
+                <tr>
+                    <td>${reg.id}</td>
+                    <td>${reg.fullName}</td>
+                    <td>${reg.studentId}</td>
+                    <td>${reg.specialization}</td>
+                    <td>${reg.projectTitle ? '<span class="badge badge-success">Yes</span>' : '<span class="badge badge-info">No</span>'}</td>
+                    <td>${formatDate(reg.registrationDate)}</td>
+                    <td>
+                        <button class="view-btn" data-id="${reg.id}">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+            
+            // Add event listeners to view buttons
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', () => showDetails(btn.dataset.id));
+            });
+        }
+
+        // Render pagination controls
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
+            
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+            
+            let paginationHTML = '';
+            
+            // Previous button
+            paginationHTML += `
+                <button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            `;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHTML += `
+                    <button class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">
+                        ${i}
+                    </button>
+                `;
+            }
+            
+            // Next button
+            paginationHTML += `
+                <button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+            
+            pagination.innerHTML = paginationHTML;
+            
+            // Add event listeners to page buttons
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentPage = parseInt(btn.dataset.page);
+                    renderTable();
+                    renderPagination();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        }
+
+        // Show details in modal
+        function showDetails(regId) {
+            const registration = allRegistrations.find(reg => reg.id === regId);
+            
+            if (!registration) return;
+            
+            modalBody.innerHTML = `
+                <div class="detail-row">
+                    <div class="detail-label">Registration ID</div>
+                    <div class="detail-value">${registration.id}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Full Name</div>
+                    <div class="detail-value">${registration.fullName}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Student ID</div>
+                    <div class="detail-value">${registration.studentId}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Phone Number</div>
+                    <div class="detail-value">${registration.phone}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Specialization</div>
+                    <div class="detail-value">${registration.specialization}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Project Title</div>
+                    <div class="detail-value">${registration.projectTitle || 'No project submitted'}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Areas of Interest</div>
+                    <div class="detail-value">
+                        <div class="interests-container">
+                            ${registration.interests.length > 0 ? 
+                                registration.interests.map(int => `<span class="interest-tag">${int}</span>`).join('') : 
+                                'No interests specified'}
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Registration Date</div>
+                    <div class="detail-value">${formatDateTime(registration.registrationDate)}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Raw Message</div>
+                    <div class="detail-value" style="white-space: pre-wrap; font-family: monospace;">${registration.rawMessage}</div>
+                </div>
+            `;
+            
+            detailModal.style.display = 'flex';
+        }
+
+        // Update statistics
+        function updateStats() {
+            totalRegistrations.textContent = allRegistrations.length;
+            
+            const today = new Date();
+            const todayCount = allRegistrations.filter(reg => {
+                const regDate = reg.registrationDate;
+                return regDate.getDate() === today.getDate() && 
+                       regDate.getMonth() === today.getMonth() && 
+                       regDate.getFullYear() === today.getFullYear();
+            }).length;
+            todayRegistrations.textContent = todayCount;
+            
+            const specializations = new Set(allRegistrations.map(reg => reg.specialization));
+            uniqueSpecializations.textContent = specializations.size;
+            
+            const withProjectsCount = allRegistrations.filter(reg => reg.projectTitle).length;
+            withProjects.textContent = withProjectsCount;
+        }
+
+        // Export data to CSV
+        function exportData() {
+            if (filteredData.length === 0) {
+                alert('No data to export');
+                return;
+            }
+            
+            const headers = [
+                'Registration ID',
+                'Full Name',
+                'Student ID',
+                'Phone',
+                'Specialization',
+                'Project Title',
+                'Interests',
+                'Registration Date'
+            ];
+            
+            const csvRows = [
+                headers.join(','),
+                ...filteredData.map(reg => [
+                    `"${reg.id}"`,
+                    `"${reg.fullName}"`,
+                    `"${reg.studentId}"`,
+                    `"${reg.phone}"`,
+                    `"${reg.specialization}"`,
+                    `"${reg.projectTitle || ''}"`,
+                    `"${reg.interests.join(', ')}"`,
+                    `"${formatDateTime(reg.registrationDate)}"`
+                ].join(','))
+            ];
+            
+            const csvContent = csvRows.join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `innovex_registrations_${formatDate(new Date())}.csv`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Helper functions
+        function formatDate(date) {
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        function formatDateTime(date) {
+            return date.toLocaleString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+    </script>
+</body>
+</html>

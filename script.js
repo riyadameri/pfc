@@ -1,14 +1,12 @@
-
-
 // Telegram Bot Token and Chat ID
 const BOT_TOKEN = '7565218404:AAGLn6PEToEb8mhLnQ-NkJoD9t1DVgB_mX0';
 const CHAT_ID = '1865245287';
 
 // Loading screen
-window.addEventListener('load', function () {
-    setTimeout(function () {
+window.addEventListener('load', function() {
+    setTimeout(function() {
         document.querySelector('.loading-screen').style.opacity = '0';
-        setTimeout(function () {
+        setTimeout(function() {
             document.querySelector('.loading-screen').style.display = 'none';
         }, 500);
     }, 1000);
@@ -33,10 +31,49 @@ function createFloatingElements() {
 
 createFloatingElements();
 
-// Form submission
-document.getElementById('eventRegistrationForm').addEventListener('submit', function (e) {
+// Form validation and submission
+document.getElementById('eventRegistrationForm').addEventListener('submit', function(e) {
     e.preventDefault();
-
+    
+    // Reset error messages
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+    });
+    
+    let isValid = true;
+    
+    // Validate full name
+    const fullName = document.getElementById('fullName').value.trim();
+    if (fullName === '') {
+        document.getElementById('nameError').style.display = 'block';
+        isValid = false;
+    }
+    
+    // Validate student ID
+    const studentId = document.getElementById('studentId').value.trim();
+    if (studentId.length !== 8 || !/^\d+$/.test(studentId)) {
+        document.getElementById('idError').style.display = 'block';
+        isValid = false;
+    }
+    
+    // Validate phone number
+    const phone = document.getElementById('phone').value.trim();
+    if (phone.length !== 10 || !/^\d+$/.test(phone)) {
+        document.getElementById('phoneError').style.display = 'block';
+        isValid = false;
+    }
+    
+    // Validate specialization
+    const specialization = document.getElementById('specialization').value.trim();
+    if (specialization === '') {
+        document.getElementById('specError').style.display = 'block';
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        return;
+    }
+    
     // Show loading state
     const submitBtn = document.querySelector('.submit-btn');
     submitBtn.disabled = true;
@@ -71,7 +108,7 @@ document.getElementById('eventRegistrationForm').addEventListener('submit', func
 📅 *Registered at:* ${new Date(formData.registrationDate).toLocaleString()}
     `;
 
-    // Send data to Telegram bot (but always show success regardless of the outcome)
+    // Send data to Telegram bot
     fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: 'POST',
         headers: {
@@ -83,53 +120,94 @@ document.getElementById('eventRegistrationForm').addEventListener('submit', func
             parse_mode: 'Markdown'
         })
     })
-        .finally(() => {
-            // Show success modal
-            document.getElementById('successModal').style.display = 'flex';
-
-            // Reset form
-            document.getElementById('eventRegistrationForm').reset();
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Complete Registration';
-        });
+    .finally(() => {
+        // Show success modal
+        document.getElementById('successModal').style.display = 'flex';
+        
+        // Reset form
+        document.getElementById('eventRegistrationForm').reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Complete Registration';
+    });
 });
 
 // Close modal
-document.querySelector('.close-modal').addEventListener('click', function () {
+document.querySelector('.close-modal').addEventListener('click', function() {
     document.getElementById('successModal').style.display = 'none';
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', function(e) {
+    if (e.target === document.getElementById('successModal')) {
+        document.getElementById('successModal').style.display = 'none';
+    }
 });
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
     });
 });
 
-// Animation on scroll
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.section-title, .about-content, .club-card, .agenda');
+// Scroll to top button
+const scrollTopBtn = document.getElementById('scrollTop');
 
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-
-        if (elementPosition < screenPosition) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
-}
-
-// Set initial state for animated elements
-document.querySelectorAll('.section-title, .about-content, .club-card, .agenda').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
 });
 
-window.addEventListener('scroll', animateOnScroll);
-animateOnScroll(); // Run once on page load
+scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Intersection Observer for section animations
+const sections = document.querySelectorAll('section');
+
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+// Add hover effects to agenda items
+const agendaItems = document.querySelectorAll('.agenda-table tr');
+agendaItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.02)';
+        this.style.zIndex = '1';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.zIndex = '';
+    });
+});
+
+// Initial animation trigger
+window.addEventListener('load', function() {
+    animateOnScroll();
+});

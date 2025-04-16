@@ -1,324 +1,364 @@
-:root {
-    --primary: #2c3e50;
-    --secondary: #FFD700;
-    --accent: #000000;
-    --light: #f8f9fa;
-    --dark: #212529;
-    --success: #28a745;
-    --danger: #dc3545;
-    --info: #17a2b8;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <h4 class="text-white">Company Name</h4>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" id="dashboard-link">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="projects-link">
+                                <i class="fas fa-project-diagram me-2"></i>Projects
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="clients-link">
+                                <i class="fas fa-users me-2"></i>Clients
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="team-link">
+                                <i class="fas fa-user-friends me-2"></i>Team
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="reports-link">
+                                <i class="fas fa-chart-bar me-2"></i>Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="settings-link">
+                                <i class="fas fa-cog me-2"></i>Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" id="page-title">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button class="btn btn-sm btn-outline-secondary" id="add-project-btn">
+                            <i class="fas fa-plus me-1"></i>Add Project
+                        </button>
+                    </div>
+                </div>
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    color: var(--dark);
-    line-height: 1.6;
-    padding: 20px;
-}
+                <!-- Dashboard Content -->
+                <div id="dashboard-content">
+                    <div class="row mb-4">
+                        <div class="col-md-3">
+                            <div class="card text-white bg-primary mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Active Projects</h5>
+                                    <p class="card-text display-6" id="active-projects-count">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-success mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Completed Projects</h5>
+                                    <p class="card-text display-6" id="completed-projects-count">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-warning mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pending Payments</h5>
+                                    <p class="card-text display-6" id="pending-payments-count">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-danger mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Overdue Projects</h5>
+                                    <p class="card-text display-6" id="overdue-projects-count">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h5>Recent Projects</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="recent-projects-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Project Name</th>
+                                                    <th>Client</th>
+                                                    <th>Deadline</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Filled by JavaScript -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h5>Upcoming Deadlines</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush" id="upcoming-deadlines">
+                                        <!-- Filled by JavaScript -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-header {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: white;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    border-bottom: 5px solid var(--secondary);
-}
+                <!-- Projects Content -->
+                <div id="projects-content" class="d-none">
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5>All Projects</h5>
+                            <div>
+                                <input type="text" class="form-control form-control-sm" id="project-search" placeholder="Search projects...">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover" id="projects-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Project Name</th>
+                                            <th>Client</th>
+                                            <th>Director</th>
+                                            <th>Deadline</th>
+                                            <th>Delivery Date</th>
+                                            <th>Price</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Filled by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
+                <!-- Add/Edit Project Modal -->
+                <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="projectModalLabel">Add New Project</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="project-form">
+                                    <input type="hidden" id="project-id">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="project-name" class="form-label">Project Name</label>
+                                            <input type="text" class="form-control" id="project-name" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="client-id" class="form-label">Client</label>
+                                            <select class="form-select" id="client-id" required>
+                                                <option value="">Select Client</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="client-director" class="form-label">Client Director</label>
+                                            <input type="text" class="form-control" id="client-director" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="project-type" class="form-label">Project Type</label>
+                                            <select class="form-select" id="project-type" required>
+                                                <option value="development">Development Only</option>
+                                                <option value="development-hosting">Development + Hosting</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <label for="project-deadline" class="form-label">Deadline</label>
+                                            <input type="date" class="form-control" id="project-deadline" required>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="delivery-date" class="form-label">Delivery Date</label>
+                                            <input type="date" class="form-control" id="delivery-date">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="delivery-status" class="form-label">Delivery Status</label>
+                                            <select class="form-select" id="delivery-status" required>
+                                                <option value="not_started">Not Started</option>
+                                                <option value="in_progress">In Progress</option>
+                                                <option value="completed">Completed</option>
+                                                <option value="delivered">Delivered</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="project-price" class="form-label">Project Price ($)</label>
+                                            <input type="number" class="form-control" id="project-price" step="0.01" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="hosting-price" class="form-label">Hosting Price ($/month)</label>
+                                            <input type="number" class="form-control" id="hosting-price" step="0.01" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="initial-price" class="form-label">Initial Payment ($)</label>
+                                            <input type="number" class="form-control" id="initial-price" step="0.01" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="payment-status" class="form-label">Payment Status</label>
+                                            <select class="form-select" id="payment-status" required>
+                                                <option value="unpaid">Unpaid</option>
+                                                <option value="partial">Partial</option>
+                                                <option value="paid">Paid</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="project-details" class="form-label">Project Details</label>
+                                        <textarea class="form-control" id="project-details" rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Team Members</label>
+                                        <div class="team-members-container" id="team-members-container">
+                                            <!-- Team members will be added here -->
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="add-team-member-btn">
+                                            <i class="fas fa-plus me-1"></i>Add Team Member
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="project-causes" class="form-label">Project Causes (Issues/Notes)</label>
+                                        <textarea class="form-control" id="project-causes" rows="2"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="save-project-btn">Save Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-.subtitle {
-    font-size: 1.2rem;
-    color: var(--secondary);
-    margin-bottom: 1rem;
-}
+                <!-- View Project Modal -->
+                <div class="modal fade" id="viewProjectModal" tabindex="-1" aria-labelledby="viewProjectModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="viewProjectModalLabel">Project Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <h4 id="view-project-name"></h4>
+                                        <p class="text-muted" id="view-client-info"></p>
+                                    </div>
+                                    <div class="col-md-6 text-end">
+                                        <span class="badge bg-primary fs-6" id="view-project-status"></span>
+                                        <p class="mt-2"><strong>Deadline:</strong> <span id="view-project-deadline"></span></p>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h6>Financial Information</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <p><strong>Total Price:</strong> $<span id="view-project-price"></span></p>
+                                                <p><strong>Initial Payment:</strong> $<span id="view-initial-price"></span></p>
+                                                <p><strong>Payment Status:</strong> <span id="view-payment-status" class="badge"></span></p>
+                                                <p><strong>Hosting Price:</strong> $<span id="view-hosting-price"></span>/month</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h6>Timeline</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <p><strong>Start Date:</strong> <span id="view-start-date"></span></p>
+                                                <p><strong>Delivery Date:</strong> <span id="view-delivery-date"></span></p>
+                                                <p><strong>Days Remaining:</strong> <span id="view-days-remaining"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h6>Project Details</h6>
+                                    <p id="view-project-details" class="text-muted"></p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h6>Team Members</h6>
+                                    <ul class="list-group" id="view-team-members">
+                                        <!-- Team members will be added here -->
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h6>Project Notes/Issues</h6>
+                                    <p id="view-project-causes" class="text-muted"></p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="edit-project-btn">Edit Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
 
-.controls {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.search-filter {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-input, select, button {
-    padding: 0.7rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
-}
-
-button {
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-button:hover {
-    background-color: var(--secondary);
-    color: var(--dark);
-}
-
-.stats-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.stat-card {
-    background: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    text-align: center;
-    border-top: 4px solid var(--primary);
-}
-
-.stat-card h3 {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 0.5rem;
-}
-
-.stat-card .value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-.stat-card.total .value {
-    color: var(--success);
-}
-
-.stat-card.today .value {
-    color: var(--info);
-}
-
-.table-container {
-    background: white;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-th {
-    background-color: var(--primary);
-    color: white;
-    font-weight: 500;
-    position: sticky;
-    top: 0;
-}
-
-tr:hover {
-    background-color: #f5f5f5;
-}
-
-.badge {
-    display: inline-block;
-    padding: 0.25rem 0.5rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.badge-success {
-    background-color: #d4edda;
-    color: var(--success);
-}
-
-.badge-info {
-    background-color: #d1ecf1;
-    color: var(--info);
-}
-
-.badge-warning {
-    background-color: #fff3cd;
-    color: #856404;
-}
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    gap: 0.5rem;
-}
-
-.pagination button {
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
-
-.pagination button.active {
-    background-color: var(--secondary);
-    color: var(--dark);
-}
-
-.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    font-size: 1.5rem;
-    color: var(--primary);
-}
-
-.loading i {
-    animation: spin 1s linear infinite;
-    margin-right: 0.5rem;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.no-data {
-    text-align: center;
-    padding: 2rem;
-    color: #666;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-}
-
-.modal-header h2 {
-    color: var(--primary);
-}
-
-.close-modal {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-    transition: var(--transition);
-}
-
-.close-modal:hover {
-    color: var(--danger);
-}
-
-.detail-row {
-    margin-bottom: 1rem;
-}
-
-.detail-label {
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 0.25rem;
-}
-
-.detail-value {
-    padding: 0.5rem;
-    background: #f9f9f9;
-    border-radius: 4px;
-}
-
-.interests-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.interest-tag {
-    background-color: #e2e3e5;
-    color: #383d41;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-}
-
-@media (max-width: 768px) {
-    .controls {
-        flex-direction: column;
-    }
-    
-    .search-filter {
-        flex-direction: column;
-    }
-    
-    th, td {
-        padding: 0.75rem 0.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .stat-card {
-        padding: 1rem;
-    }
-    
-    .stat-card .value {
-        font-size: 1.5rem;
-    }
-}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sql.js@1.8.0/dist/sql-wasm.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

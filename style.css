@@ -1483,8 +1483,8 @@ footer::before {
     }
 
     .info-item {
-        max-width: none;
-        width: auto;
+        max-width: 100%;
+        
     }
 
     .cta-buttons {
@@ -1587,4 +1587,9 @@ footer::before {
 
 .fade-in {
     animation: fadeIn 0.5s ease;
+}
+
+.p2{
+    width: 100vw;
+
 }

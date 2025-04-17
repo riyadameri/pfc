@@ -131,19 +131,16 @@ document.getElementById('eventRegistrationForm').addEventListener('submit', func
     });
 });
 
-// Close modal
 document.querySelector('.close-modal').addEventListener('click', function() {
     document.getElementById('successModal').style.display = 'none';
 });
 
-// Close modal when clicking outside
 window.addEventListener('click', function(e) {
     if (e.target === document.getElementById('successModal')) {
         document.getElementById('successModal').style.display = 'none';
     }
 });
 
-// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -154,7 +151,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Scroll to top button
 const scrollTopBtn = document.getElementById('scrollTop');
 
 window.addEventListener('scroll', function() {

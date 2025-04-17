@@ -23,8 +23,8 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -43,6 +43,10 @@
     transform: scale(1.1);
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
@@ -51,6 +55,7 @@ body {
     line-height: 1.7;
     scroll-behavior: smooth;
     position: relative;
+    min-height: 100vh;
 }
 
 /* Loading Screen */
@@ -70,8 +75,8 @@ body {
 
 .loader {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
 }
 
 .loader span {
@@ -88,8 +93,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: var(--secondary);
     border-radius: 50%;
     animation: animate 2s linear infinite;
@@ -126,8 +131,8 @@ body {
     position: absolute;
     display: block;
     list-style: none;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background: rgba(255, 215, 0, 0.2);
     animation: float 25s linear infinite;
     bottom: -150px;
@@ -136,75 +141,75 @@ body {
 
 .particles li:nth-child(1) {
     left: 25%;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     animation-delay: 0s;
 }
 
 .particles li:nth-child(2) {
     left: 10%;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     animation-delay: 2s;
     animation-duration: 12s;
 }
 
 .particles li:nth-child(3) {
     left: 70%;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     animation-delay: 4s;
 }
 
 .particles li:nth-child(4) {
     left: 40%;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     animation-delay: 0s;
     animation-duration: 18s;
 }
 
 .particles li:nth-child(5) {
     left: 65%;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     animation-delay: 0s;
 }
 
 .particles li:nth-child(6) {
     left: 75%;
-    width: 110px;
-    height: 110px;
+    width: 80px;
+    height: 80px;
     animation-delay: 3s;
 }
 
 .particles li:nth-child(7) {
     left: 35%;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     animation-delay: 7s;
 }
 
 .particles li:nth-child(8) {
     left: 50%;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     animation-delay: 15s;
     animation-duration: 45s;
 }
 
 .particles li:nth-child(9) {
     left: 20%;
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     animation-delay: 2s;
     animation-duration: 35s;
 }
 
 .particles li:nth-child(10) {
     left: 85%;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     animation-delay: 0s;
     animation-duration: 11s;
 }
@@ -226,7 +231,7 @@ body {
 header {
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: white;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     position: relative;
     overflow: hidden;
     border-bottom: 5px solid var(--secondary);
@@ -244,12 +249,13 @@ header {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding: 1rem;
 }
 
 /* Event Logo */
 .event-logo {
-    height: 150px;
-    margin-bottom: 2rem;
+    height: 120px;
+    margin-bottom: 1.5rem;
     transition: var(--transition);
     border-radius: 10px;
     box-shadow: var(--shadow);
@@ -274,9 +280,9 @@ header {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     background: rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 15px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -284,10 +290,10 @@ header {
 }
 
 .organizers-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
     color: var(--secondary);
     position: relative;
     padding-bottom: 5px;
@@ -301,8 +307,8 @@ header {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
+    width: 50px;
+    height: 2px;
     background: var(--secondary);
     border-radius: 3px;
 }
@@ -311,12 +317,12 @@ header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .club-logo {
-    height: 80px;
+    height: 60px;
     object-fit: contain;
     transition: var(--transition);
     padding: 0.5rem;
@@ -336,13 +342,13 @@ header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2.5rem;
-    margin-top: 1.5rem;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 .sponsor-logo-container {
     background: rgba(255, 255, 255, 0.9);
-    padding: 0.8rem;
+    padding: 0.6rem;
     border-radius: 8px;
     transition: var(--transition);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -354,7 +360,7 @@ header {
 }
 
 .sponsor-logo {
-    height: 50px;
+    height: 40px;
     object-fit: contain;
     transition: var(--transition);
 }
@@ -362,17 +368,18 @@ header {
 /* Hero Content */
 .hero-content {
     text-align: center;
-    max-width: 900px;
+    max-width: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    padding: 0 1rem;
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-weight: 700;
     font-family: "Quantico", sans-serif;
     text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -393,9 +400,9 @@ header {
 }
 
 .edition {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--secondary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 600;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 1s ease 0.2s forwards, floatText 4s ease-in-out infinite 1s;
@@ -408,9 +415,9 @@ header {
 }
 
 .hero-description {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
     animation: fadeInUp 1s ease 0.4s forwards;
     opacity: 0;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -418,27 +425,31 @@ header {
 
 .event-info {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
     animation: fadeInUp 1s ease 0.6s forwards;
     opacity: 0;
+    width: 100%;
 }
 
 .info-item {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.6rem;
     background: rgba(255, 255, 255, 0.15);
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.2rem;
     border-radius: 50px;
     backdrop-filter: blur(5px);
-    font-size: 1rem;
+    font-size: 0.9rem;
     white-space: nowrap;
     transition: var(--transition);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
 }
 
 .info-item:hover {
@@ -448,17 +459,18 @@ header {
 }
 
 .info-item i {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--secondary);
 }
 
 .cta-buttons {
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     animation: fadeInUp 1s ease 0.8s forwards;
     opacity: 0;
+    width: 100%;
 }
 
 .cta-button {
@@ -467,19 +479,20 @@ header {
     justify-content: center;
     background-color: var(--secondary);
     color: var(--dark);
-    padding: 1rem 2.5rem;
+    padding: 0.9rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     transition: var(--transition);
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     border: 2px solid transparent;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    min-width: 220px;
+    width: 100%;
+    max-width: 250px;
 }
 
 .cta-button.secondary {
@@ -519,7 +532,7 @@ header {
 
 .cta-button i {
     margin-right: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 @keyframes fadeInUp {
@@ -535,7 +548,7 @@ header {
 
 /* Section Styles */
 section {
-    padding: 6rem 1rem;
+    padding: 4rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
     opacity: 0;
@@ -551,25 +564,25 @@ section.visible {
 
 .section-title {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     position: relative;
 }
 
 .section-title h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--primary);
     display: inline-block;
     position: relative;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .section-title h2::after {
     content: '';
     display: block;
-    width: 80px;
-    height: 4px;
+    width: 60px;
+    height: 3px;
     background: linear-gradient(90deg, var(--secondary), var(--primary), var(--secondary));
     background-size: 200% auto;
     margin: 1rem auto 0;
@@ -585,7 +598,7 @@ section.visible {
 .about-content {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .about-text {
@@ -593,10 +606,10 @@ section.visible {
 }
 
 .about-text p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
     transition: var(--transition);
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 .about-text p:hover {
@@ -642,22 +655,23 @@ section.visible {
 }
 
 ul {
-    margin: 1.5rem 0 1.5rem 2rem;
+    margin: 1.2rem 0 1.2rem 1.5rem;
+    padding: 0;
 }
 
 ul li {
-    margin-bottom: 0.8rem;
-    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
     position: relative;
-    padding-left: 2rem;
+    padding-left: 1.8rem;
     transition: var(--transition);
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 ul li::before {
     content: '▹';
     color: var(--secondary);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     position: absolute;
     left: 0;
     top: 0;
@@ -676,14 +690,14 @@ ul li:hover {
 /* Gallery Styles */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 3rem 0;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
 }
 
 .gallery-item {
     position: relative;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -716,8 +730,8 @@ ul li:hover {
 }
 
 .gallery-item:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-item:hover img {
@@ -732,13 +746,13 @@ ul li:hover {
 
 .club-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
 .club-card {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -746,7 +760,7 @@ ul li:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 1.5rem;
     position: relative;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -770,20 +784,20 @@ ul li:hover {
 }
 
 .club-card:hover {
-    transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     background: rgba(255, 255, 255, 0.15);
 }
 
 .club-card img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     border-radius: 50%;
     background: white;
-    padding: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 0.8rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     transition: var(--transition);
     position: relative;
     z-index: 1;
@@ -792,7 +806,7 @@ ul li:hover {
 
 .club-card:hover img {
     transform: rotate(15deg) scale(1.1);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
 }
 
 .club-info {
@@ -802,9 +816,9 @@ ul li:hover {
 }
 
 .club-info h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     transition: var(--transition);
 }
 
@@ -814,7 +828,7 @@ ul li:hover {
 }
 
 .club-info p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.9);
     transition: var(--transition);
 }
@@ -826,15 +840,15 @@ ul li:hover {
 /* Agenda Section */
 .agenda-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
     perspective: 1000px;
 }
 
 .agenda-day {
     background: white;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
     border-top: 5px solid var(--secondary);
@@ -843,14 +857,14 @@ ul li:hover {
 }
 
 .agenda-day:hover {
-    transform: translateY(-15px) rotateX(5deg);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .agenda-header {
     background: var(--primary);
     color: white;
-    padding: 1.5rem;
+    padding: 1.2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -883,15 +897,15 @@ ul li:hover {
 }
 
 .agenda-header h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
     position: relative;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .agenda-header p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     opacity: 0.9;
     position: relative;
 }
@@ -899,6 +913,7 @@ ul li:hover {
 .agenda-table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.9rem;
 }
 
 .agenda-table tr {
@@ -915,24 +930,24 @@ ul li:hover {
 }
 
 .agenda-table th {
-    padding: 1rem;
+    padding: 0.8rem;
     text-align: left;
     background: #f5f5f5;
     color: var(--primary);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .agenda-table td {
-    padding: 1rem;
+    padding: 0.8rem;
     vertical-align: top;
     transition: var(--transition);
 }
 
 .agenda-table tr:hover td {
-    transform: translateX(10px);
+    transform: translateX(8px);
 }
 
 .agenda-table td:first-child {
@@ -977,14 +992,14 @@ ul li:hover {
 
 .workshop-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .workshop-card {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -995,13 +1010,13 @@ ul li:hover {
 }
 
 .workshop-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
     background: rgba(255, 255, 255, 0.15);
 }
 
 .workshop-card-header {
-    padding: 1.5rem;
+    padding: 1.2rem;
     background: rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
@@ -1009,62 +1024,62 @@ ul li:hover {
 
 .workshop-time {
     position: absolute;
-    top: -15px;
-    right: 20px;
+    top: -12px;
+    right: 15px;
     background: var(--secondary);
     color: var(--dark);
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 0.9rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .workshop-card-header h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
     color: var(--secondary);
 }
 
 .workshop-card-header p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     opacity: 0.9;
 }
 
 .workshop-card-body {
-    padding: 1.5rem;
+    padding: 1.2rem;
 }
 
 .workshop-card-body p {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .workshop-instructor {
     display: flex;
     align-items: center;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .workshop-instructor img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 1rem;
+    margin-right: 0.8rem;
     border: 2px solid var(--secondary);
 }
 
 .workshop-instructor-info h4 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.2rem;
 }
 
 .workshop-instructor-info p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0.8;
     margin-bottom: 0;
 }
@@ -1100,13 +1115,13 @@ ul li:hover {
 }
 
 .registration-form {
-    max-width: 700px;
+    max-width: 100%;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 1;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1115,19 +1130,19 @@ ul li:hover {
 
 .registration-form:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     position: relative;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: white;
 }
 
@@ -1135,15 +1150,15 @@ ul li:hover {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 0.8rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: rgba(255, 255, 255, 0.9);
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: var(--transition);
-    border-left: 4px solid transparent;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .form-group input:focus,
@@ -1151,45 +1166,45 @@ ul li:hover {
 .form-group textarea:focus {
     outline: none;
     box-shadow: 0 0 0 3px var(--secondary);
-    border-left: 4px solid var(--secondary);
+    border-left: 3px solid var(--secondary);
     background: white;
 }
 
 .form-group textarea {
-    min-height: 120px;
+    min-height: 100px;
     resize: vertical;
 }
 
 .error-message {
     color: #ff6b6b;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
     display: none;
     position: absolute;
     right: 0;
     top: 0;
     background: rgba(0, 0, 0, 0.7);
-    padding: 0.3rem 0.8rem;
-    border-radius: 5px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
 }
 
 .submit-btn {
     background-color: var(--secondary);
     color: var(--dark);
     border: none;
-    padding: 1.2rem;
-    border-radius: 8px;
+    padding: 1rem;
+    border-radius: 6px;
     font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
     width: 100%;
     text-transform: uppercase;
-    font-size: 1rem;
-    margin-top: 1rem;
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
     position: relative;
     overflow: hidden;
     letter-spacing: 1px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn::before {
@@ -1215,15 +1230,11 @@ ul li:hover {
 .submit-btn:hover {
     background-color: #ffc107;
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .submit-btn:active {
     transform: translateY(2px);
-}
-ul{
-    list-style-type: none;
-
 }
 
 /* Footer Styles */
@@ -1231,7 +1242,7 @@ footer {
     background-color: var(--dark);
     color: white;
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
     border-top: 5px solid var(--secondary);
     position: relative;
 }
@@ -1256,16 +1267,16 @@ footer::before {
 }
 
 .footer-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .footer-content p {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
     opacity: 0.9;
     max-width: 800px;
     margin-left: auto;
@@ -1275,36 +1286,36 @@ footer::before {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    margin: 2rem 0;
+    gap: 1rem;
+    margin: 1.5rem 0;
 }
 
 .social-links a {
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     transition: var(--transition);
     position: relative;
     display: inline-flex;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .social-links a:hover {
     color: var(--secondary);
     transform: translateY(-5px) scale(1.1);
     background: rgba(255, 215, 0, 0.2);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .copyright {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0.7;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 /* Modal Styles */
@@ -1330,10 +1341,10 @@ footer::before {
 
 .modal-content {
     background-color: white;
-    padding: 3rem;
-    border-radius: 15px;
+    padding: 2rem;
+    border-radius: 12px;
     width: 90%;
-    max-width: 600px;
+    max-width: 500px;
     text-align: center;
     position: relative;
     animation: modalFadeIn 0.6s ease;
@@ -1341,7 +1352,7 @@ footer::before {
     max-height: 90vh;
     overflow-y: auto;
     margin: 1rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     transform-style: preserve-3d;
     perspective: 1000px;
 }
@@ -1359,15 +1370,15 @@ footer::before {
 
 .close-modal {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-size: 1.8rem;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
     color: var(--dark);
     transition: var(--transition);
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.05);
 }
@@ -1379,16 +1390,16 @@ footer::before {
 }
 
 .confirmation-message {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: var(--success);
     font-weight: 600;
-    padding: 1rem;
+    padding: 0.8rem;
     position: relative;
 }
 
 .confirmation-message i {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
     color: var(--success);
     display: block;
     animation: bounce 1s ease infinite;
@@ -1396,21 +1407,21 @@ footer::before {
 
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-10px); }
 }
 
 .confirmation-message h3 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--primary);
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .confirmation-message p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: var(--dark);
     font-weight: normal;
-    line-height: 1.8;
-    font-size: 1.1rem;
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
 .confirmation-message strong {
@@ -1420,10 +1431,10 @@ footer::before {
 /* Scroll to top button */
 .scroll-top {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
     background: var(--secondary);
     color: var(--dark);
     border-radius: 50%;
@@ -1435,8 +1446,8 @@ footer::before {
     opacity: 0;
     visibility: hidden;
     z-index: 999;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-size: 1.3rem;
 }
 
 .scroll-top.visible {
@@ -1448,11 +1459,11 @@ footer::before {
     transform: translateY(-5px) scale(1.1);
     background: var(--primary);
     color: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
+/* Responsive Adjustments for Tablets */
+@media (min-width: 576px) {
     .hero-title {
         font-size: 3rem;
     }
@@ -1464,639 +1475,102 @@ footer::before {
     .section-title h2 {
         font-size: 2.2rem;
     }
-}
 
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .edition {
-        font-size: 1.2rem;
-    }
-    
-    .hero-description {
-        font-size: 1.1rem;
-    }
-    
-    .event-logo {
-        height: 130px;
-    }
-    
-    .club-logo {
-        height: 70px;
-    }
-    
-    .section-title h2 {
-        font-size: 2rem;
-    }
-
-    .about-content {
-        flex-direction: column;
-    }
-
-    .about-text {
-        padding-right: 0;
-        margin-bottom: 2rem;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cta-button {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .edition {
-        font-size: 1.1rem;
-    }
-    
-    .hero-description {
-        font-size: 1rem;
-    }
-    
-    .event-logo {
-        height: 110px;
-    }
-    
-    .club-logo {
-        height: 60px;
-    }
-    
-    .section-title h2 {
-        font-size: 1.8rem;
-    }
-
-    .info-item {
-        width: 100%;
-        text-align: center;
+    .event-info {
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
     }
 
-    .agenda-day {
-        min-width: 100%;
+    .info-item {
+        max-width: none;
+        width: auto;
     }
 
-    .modal-content {
-        padding: 2rem 1rem;
-    }
-
-    .confirmation-message h3 {
-        font-size: 1.5rem;
-    }
-
-    .confirmation-message p {
-        font-size: 1rem;
-    }
-}
-:root {
-    --primary: #2c3e50;
-    --secondary: #FFD700;
-    --accent: #000000;
-    --light: #f8f9fa;
-    --dark: #212529;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-    --gradient: linear-gradient(135deg, var(--primary), var(--accent));
-    --scrollbar-thumb: var(--secondary);
-    --scrollbar-track: #f1f1f1;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 16px;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    color: var(--dark);
-    overflow-x: hidden;
-    line-height: 1.6;
-    position: relative;
-    min-height: 100vh;
-}
-
-/* Dashboard Layout */
-.dashboard-container {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-.sidebar {
-    background: var(--primary);
-    color: white;
-    padding: 1rem;
-    width: 100%;
-    order: 2;
-}
-
-.main-content {
-    flex: 1;
-    padding: 1rem;
-}
-
-/* Header Styles */
-.main-header {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5rem;
-}
-
-.header-left h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.header-left p {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.header-right {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.search-box {
-    display: flex;
-    flex: 1;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-    font-size: 0.9rem;
-}
-
-.search-box button {
-    background: var(--secondary);
-    color: var(--dark);
-    border: none;
-    padding: 0 1rem;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-}
-
-.notification-bell {
-    position: relative;
-    font-size: 1.2rem;
-    color: var(--primary);
-}
-
-.notification-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: var(--danger);
-    color: white;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Stats Cards */
-.dashboard-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.stat-card {
-    background: white;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: var(--shadow);
-    display: flex;
-    align-items: center;
-}
-
-.stat-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    color: white;
-    font-size: 1.2rem;
-}
-
-.stat-info h3 {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.3rem;
-}
-
-.stat-info p {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-/* Filters Section */
-.filters-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.filter-group label {
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
-    color: #666;
-}
-
-.filter-group select {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
-.export-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 0.7rem 1rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-/* Table Styles */
-.students-table-container {
-    overflow-x: auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
-}
-
-.students-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-}
-
-.students-table th, 
-.students-table td {
-    padding: 0.8rem;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-.students-table th {
-    background: #f5f5f5;
-    color: var(--primary);
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.students-table tr:hover {
-    background: #f9f9f9;
-}
-
-.action-btn {
-    background: none;
-    border: none;
-    color: var(--primary);
-    cursor: pointer;
-    margin-right: 0.5rem;
-    font-size: 1rem;
-}
-
-.action-btn:hover {
-    color: var(--secondary);
-}
-
-/* Table Footer */
-.table-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-}
-
-.pagination-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
-
-.pagination-controls button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.pagination-controls button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-.modal-content {
-    background: white;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 500px;
-    padding: 1.5rem;
-    position: relative;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.close-modal {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-}
-
-.modal-body {
-    margin-top: 1rem;
-}
-
-.modal-row {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.modal-col {
-    flex: 1;
-}
-
-.modal-full-col {
-    margin-bottom: 1rem;
-}
-
-.modal-actions {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.modal-actions button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.edit-btn {
-    background: var(--info);
-    color: white;
-}
-
-.delete-btn {
-    background: var(--danger);
-    color: white;
-}
-
-.contact-btn {
-    background: var(--success);
-    color: white;
-}
-
-/* Sidebar Styles */
-.sidebar-header {
-    text-align: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 1rem;
-}
-
-.sidebar-header h2 {
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.sidebar-header p {
-    font-size: 0.8rem;
-    opacity: 0.8;
-    margin-top: 0.3rem;
-}
-
-.sidebar-nav ul {
-    list-style: none;
-}
-
-.sidebar-nav li {
-    margin-bottom: 0.5rem;
-}
-
-.sidebar-nav a {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.8rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    border-radius: 4px;
-    transition: var(--transition);
-}
-
-.sidebar-nav a:hover, 
-.sidebar-nav li.active a {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.sidebar-footer {
-    margin-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1rem;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.user-profile img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.user-profile h4 {
-    font-size: 0.9rem;
-}
-
-.user-profile p {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
-
-.logout-btn {
-    width: 100%;
-    padding: 0.7rem;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.logout-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* Responsive Adjustments */
-@media (min-width: 576px) {
-    .filters-section {
+    .cta-buttons {
         flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-end;
+        justify-content: center;
     }
-    
-    .filter-group {
-        flex: 1;
-        min-width: 150px;
+
+    .club-cards {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
-    .export-btn {
-        margin-top: 0;
+
+    .agenda-container {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
-    .modal-row {
-        flex-direction: row;
+
+    .workshop-cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Responsive Adjustments for Desktops */
 @media (min-width: 768px) {
-    .dashboard-container {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .edition {
+        font-size: 1.4rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .event-logo {
+        height: 150px;
+    }
+    
+    .club-logo {
+        height: 80px;
+    }
+    
+    .section-title h2 {
+        font-size: 2.5rem;
+    }
+
+    .about-content {
         flex-direction: row;
     }
-    
-    .sidebar {
-        width: 250px;
-        order: 0;
+
+    .about-text {
+        padding-right: 2rem;
     }
-    
-    .main-content {
-        padding: 1.5rem;
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-    
-    .main-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+
+    .club-cards {
+        grid-template-columns: repeat(3, 1fr);
     }
-    
-    .header-right {
-        margin-top: 0;
-    }
-    
-    .search-box {
-        flex: 0 0 250px;
-    }
-    
-    .table-footer {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .pagination-controls {
-        margin-top: 0;
+
+    .workshop-cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 992px) {
-    .sidebar {
-        width: 300px;
+    .hero-title {
+        font-size: 4rem;
     }
     
-    .main-content {
-        padding: 2rem;
+    .edition {
+        font-size: 1.5rem;
     }
     
-    .header-left h1 {
-        font-size: 1.8rem;
+    .hero-description {
+        font-size: 1.2rem;
     }
     
-    .students-table {
-        font-size: 1rem;
+    .section-title h2 {
+        font-size: 2.8rem;
+    }
+
+    .workshop-cards {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 

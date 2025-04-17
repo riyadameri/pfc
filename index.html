@@ -8,25 +8,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="loading-screen">
-        <div class="loader"></div>
+        <div class="loader">
+            <span style="--i:1"></span>
+            <span style="--i:2"></span>
+            <span style="--i:3"></span>
+            <span style="--i:4"></span>
+            <span style="--i:5"></span>
+            <span style="--i:6"></span>
+            <span style="--i:7"></span>
+            <span style="--i:8"></span>
+            <span style="--i:9"></span>
+            <span style="--i:10"></span>
+        </div>
     </div>
 
-    <header>
-        <div class="floating-elements">
-            <div class="floating-element" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
-            <div class="floating-element" style="width: 150px; height: 150px; top: 60%; left: 80%;"></div>
-            <div class="floating-element" style="width: 80px; height: 80px; top: 30%; left: 70%;"></div>
-            <div class="floating-element" style="width: 120px; height: 120px; top: 70%; left: 20%;"></div>
-        </div>
+    <ul class="particles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 
+    <header>
         <div class="header-container">
             <!-- Event Logo -->
             <img src="assets/Artboard 1.svg"
@@ -56,7 +73,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">INNOVEX</h1>
                 <div class="edition">8th Edition - Innovation & Excellence</div>
-                <p class="hero-description">The first event for showcasing final cycle projects at the Faculty of New Technologies of Information and Communication (FNTIC), University of Kasdi Merbah Ouargla</p>
+                <p class="hero-description">The premier event for showcasing final cycle projects at the Faculty of New Technologies of Information and Communication (FNTIC), University of Kasdi Merbah Ouargla. Join us for two days of innovation, networking, and technological excellence.</p>
 
                 <div class="event-info">
                     <div class="info-item">
@@ -67,9 +84,20 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <span>UKMO - New University Pole, Media Library</span>
                     </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <span>500+ Expected Participants</span>
+                    </div>
                 </div>
 
-                <a href="#register" class="cta-button">Register Now</a>
+                <div class="cta-buttons">
+                    <a href="#register" class="cta-button">
+                        <i class="fas fa-user-plus"></i> Register Now
+                    </a>
+                    <a href="#workshops" class="cta-button secondary">
+                        <i class="fas fa-laptop-code"></i> Workshop Info
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -81,16 +109,19 @@
 
         <div class="about-content">
             <div class="about-text">
-                <p>INNOVEX is the flagship event of the Faculty of New Technologies of Information and Communication (FNTIC) at Kasdi Merbah University, Ouargla. Now in its 8th edition, this annual exhibition and conference showcases the innovative final cycle projects of our students.</p>
-                <p>The event brings together students, professors, researchers, and industry professionals to celebrate technological innovation and excellence. With participation from Elitech Club, Electronic Club, and other student organizations, INNOVEX 2025 will feature:</p>
+                <p>INNOVEX is the flagship event of the Faculty of New Technologies of Information and Communication (FNTIC) at Kasdi Merbah University, Ouargla. Now in its 8th edition, this annual exhibition and conference has become the premier platform for showcasing the innovative final cycle projects of our talented students.</p>
+                <p>The event brings together students, professors, researchers, and industry professionals to celebrate technological innovation and excellence. With participation from Elitech Club, Electronic Club, and other student organizations, INNOVEX 2025 promises to be the most exciting edition yet, featuring:</p>
                 <ul>
-                    <li>Exhibition of cutting-edge student projects</li>
-                    <li>Keynote speeches from industry leaders</li>
-                    <li>Technical workshops and panel discussions</li>
-                    <li>Networking opportunities with professionals</li>
-                    <li>Awards ceremony for outstanding projects</li>
+                    <li>Exhibition of cutting-edge student projects across various ICT disciplines</li>
+                    <li>Keynote speeches from renowned industry leaders and academic experts</li>
+                    <li>Interactive technical workshops and hands-on training sessions</li>
+                    <li>Panel discussions on emerging technologies and industry trends</li>
+                    <li>Networking opportunities with professionals and potential employers</li>
+                    <li>Awards ceremony recognizing outstanding projects and innovations</li>
+                    <li>Career development sessions and recruitment opportunities</li>
                 </ul>
-                <p>This year's theme: <strong>"INNOVEX and the Student of Kasdi Merbah Who Founded It"</strong> honors the legacy of student-driven innovation at our university.</p>
+                <p>This year's theme: <strong>"INNOVEX and the Student of Kasdi Merbah Who Founded It"</strong> honors the legacy of student-driven innovation at our university while inspiring the next generation of tech leaders.</p>
+                <p>Whether you're a student looking to showcase your work, an industry professional seeking fresh talent, or simply passionate about technology, INNOVEX 2025 offers something for everyone.</p>
             </div>
             <div class="about-image">
                 <img src="assets/dep.jpg"
@@ -109,19 +140,25 @@
                 <img src="assets/eventimages/evex3.jpg" alt="FNTIC Building">
             </div>
             <div class="about-text">
-                <p>The Faculty of New Technologies of Information and Communication (FNTIC) at Kasdi Merbah University, Ouargla is a leading academic institution dedicated to advancing knowledge and innovation in ICT fields.</p>
-                <p>Established to meet the growing demand for expertise in digital technologies, FNTIC offers programs that combine theoretical knowledge with practical skills in:</p>
+                <p>The Faculty of New Technologies of Information and Communication (FNTIC) at Kasdi Merbah University, Ouargla is a leading academic institution dedicated to advancing knowledge and innovation in ICT fields. Established in response to the growing demand for expertise in digital technologies, FNTIC has quickly become a hub for technological education and research in the region.</p>
+                <p>Our faculty offers cutting-edge programs that combine theoretical knowledge with practical skills in:</p>
                 <ul>
-                    <li>Computer Science</li>
-                    <li>Software Engineering</li>
-                    <li>Networking</li>
-                    <li>Artificial Intelligence</li>
-                    <li>Telecommunications</li>
+                    <li>Computer Science and Software Engineering</li>
+                    <li>Artificial Intelligence and Data Science</li>
+                    <li>Networking and Cybersecurity</li>
+                    <li>Telecommunications and IoT</li>
+                    <li>Embedded Systems and Electronics</li>
+                    <li>Cloud Computing and Distributed Systems</li>
                 </ul>
-                
-                <p>With modern laboratories, research centers, and industry partnerships, FNTIC prepares students to excel in the rapidly evolving tech industry.</p>
+                <p>FNTIC boasts state-of-the-art facilities including:</p>
+                <ul>
+                    <li>Modern computer labs with high-performance workstations</li>
+                    <li>Specialized laboratories for networking, electronics, and embedded systems</li>
+                    <li>Research centers focusing on emerging technologies</li>
+                    <li>Collaboration spaces for student projects and innovation</li>
+                </ul>
+                <p>Through strong industry partnerships and a commitment to practical learning, FNTIC prepares students to excel in the rapidly evolving tech industry, equipping them with the skills needed to become the innovators and leaders of tomorrow.</p>
             </div>
-
         </div>
 
         <div class="gallery">
@@ -156,7 +193,7 @@
                 <img src="assets/organizers-clubes/elitech.png" alt="Elitech Club">
                 <div class="club-info">
                     <h3>Elitech Club</h3>
-                    <p>Dedicated to fostering technological excellence through workshops, competitions, and collaborative projects that push the boundaries of innovation.</p>
+                    <p>Dedicated to fostering technological excellence through workshops, hackathons, and collaborative projects that push the boundaries of innovation. Elitech Club provides students with opportunities to develop practical skills, work on real-world challenges, and connect with industry professionals. Our members have won numerous national competitions and implemented impactful community projects.</p>
                 </div>
             </div>
 
@@ -164,17 +201,15 @@
                 <img src="assets/organizers-clubes/scientific-corner.png" alt="Science Corner">
                 <div class="club-info">
                     <h3>Science Corner</h3>
-                    <p>
-                       Empowering students to bridge academic knowledge with practical innovations in oil & gas, IT, robotics, and emerging technologies, fostering a culture of creativity and industry collaboration.
-                    </p>
+                    <p>Empowering students to bridge academic knowledge with practical innovations in oil & gas, IT, robotics, and emerging technologies. Science Corner organizes regular seminars, research groups, and innovation challenges to stimulate scientific thinking and technological creativity. We foster a culture of innovation through hands-on projects and industry collaboration.</p>
                 </div>
             </div>
 
             <div class="club-card">
-                <img src="assets/organizers-clubes/electronic.png">
+                <img src="assets/organizers-clubes/electronic.png" alt="Electronic Club">
                 <div class="club-info">
                     <h3>Electronic Club</h3>
-                    <p>Focusing on electronics and hardware innovation, this club bridges the gap between software and physical computing solutions.</p>
+                    <p>Focusing on electronics and hardware innovation, this club bridges the gap between software and physical computing solutions. From embedded systems to IoT devices, our members gain hands-on experience with cutting-edge hardware technologies. We organize workshops, build competitions, and collaborative projects that bring electronic innovations to life.</p>
                 </div>
             </div>
         </div>
@@ -195,37 +230,41 @@
                     <thead>
                         <tr>
                             <th>TIME</th>
-                            <th>TOPIC</th>
+                            <th>PROGRAM</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>08:00 – 08:30</td>
-                            <td>Registration and Welcome</td>
+                            <td>Registration and Welcome Coffee</td>
                         </tr>
                         <tr>
                             <td>08:30 – 09:30</td>
-                            <td>Opening Speech</td>
+                            <td>Opening Ceremony with University Officials and Guest Speakers</td>
                         </tr>
                         <tr>
                             <td>09:30 – 10:00</td>
-                            <td>Coffee Break</td>
+                            <td>Coffee Break & Networking</td>
                         </tr>
                         <tr>
                             <td>10:00 – 11:00</td>
-                            <td>Exhibitors and PFC Consulting</td>
+                            <td>Project Exhibition Setup and Initial Presentations</td>
                         </tr>
                         <tr>
                             <td>11:00 – 12:30</td>
-                            <td>Discussion Panel</td>
+                            <td>Keynote Speech: "The Future of Technology in Algeria"</td>
                         </tr>
                         <tr>
                             <td>12:30 – 14:00</td>
-                            <td>Lunch Break & Networking</td>
+                            <td>Lunch Break & Networking Session</td>
                         </tr>
                         <tr>
                             <td>14:00 – 16:00</td>
-                            <td>Technical Workshops</td>
+                            <td>Technical Workshops (Parallel Sessions)</td>
+                        </tr>
+                        <tr>
+                            <td>16:00 – 17:30</td>
+                            <td>Project Demonstrations and Judging</td>
                         </tr>
                     </tbody>
                 </table>
@@ -240,29 +279,41 @@
                     <thead>
                         <tr>
                             <th>TIME</th>
-                            <th>TOPIC</th>
+                            <th>PROGRAM</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>08:30 – 09:00</td>
-                            <td>Keynote Speech</td>
+                            <td>Morning Coffee & Project Viewing</td>
                         </tr>
                         <tr>
                             <td>09:00 – 10:30</td>
-                            <td>Project Presentations</td>
+                            <td>Industry Panel: "Career Paths in Technology"</td>
                         </tr>
                         <tr>
                             <td>10:30 – 11:00</td>
-                            <td>Coffee Break & Consulting</td>
+                            <td>Coffee Break & Project Consultations</td>
                         </tr>
                         <tr>
-                            <td>11:00 – 11:30</td>
-                            <td>Event Review</td>
+                            <td>11:00 – 12:30</td>
+                            <td>Final Project Presentations (Top Selected Projects)</td>
                         </tr>
                         <tr>
-                            <td>11:30 – 12:00</td>
-                            <td>Awards Ceremony & Closing</td>
+                            <td>12:30 – 13:30</td>
+                            <td>Lunch Break</td>
+                        </tr>
+                        <tr>
+                            <td>13:30 – 14:30</td>
+                            <td>Workshop: "From Student to Professional"</td>
+                        </tr>
+                        <tr>
+                            <td>14:30 – 15:30</td>
+                            <td>Closing Ceremony & Awards Presentation</td>
+                        </tr>
+                        <tr>
+                            <td>15:30 – 16:00</td>
+                            <td>Networking & Farewell</td>
                         </tr>
                     </tbody>
                 </table>
@@ -270,9 +321,11 @@
         </div>
     </section>
 
+
+
     <section class="registration" id="register">
         <div class="section-title">
-            <h2>Registration</h2>
+            <h2>Event Registration</h2>
         </div>
 
         <div class="registration-form">
@@ -317,27 +370,168 @@
                         <option value="cloud">Cloud Computing</option>
                         <option value="electronics">Electronics</option>
                         <option value="networking">Networking</option>
+                        <option value="mobile">Mobile Development</option>
+                        <option value="robotics">Robotics</option>
                     </select>
                 </div>
 
-                <button type="submit" class="submit-btn">Complete Registration</button>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-user-plus"></i> Complete Registration
+                </button>
             </form>
         </div>
     </section>
 
+    <section class="workshop-section" id="workshops">
+        <div class="section-title">
+            <h2>Featured Workshops</h2>
+        </div>
+
+        <div class="workshop-cards">
+            <div class="workshop-card">
+                <br><br><br>
+
+                <div class="workshop-card-header">
+                    <div class="workshop-time">FIRST HOUR</div>
+                    <h3>SELF BRANDING</h3>
+                    <p>By ASALA DOB</p>
+                </div>
+                <div class="workshop-card-body">
+                    <p>This workshop will teach you how to build and maintain a powerful personal brand in the digital age. Learn strategies for online presence, professional networking, and personal marketing that will set you apart in the competitive tech industry.</p>
+                    <p>Key topics include LinkedIn optimization, personal website creation, digital portfolio development, and effective self-presentation techniques for career advancement.</p>
+                    <div class="workshop-instructor">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="ASALA DOB">
+                        <div class="workshop-instructor-info">
+                            <h4>ASALA DOB</h4>
+                            <p>Personal Branding Expert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <br><br>
+                <div class="workshop-card-header">
+                    <div class="workshop-time">FIRST HOUR</div>
+                    <h3>From Classroom to Career</h3>
+                    <p>By KARIM KHELIFI</p>
+                </div>
+                <div class="workshop-card-body">
+                    <p>This practical workshop focuses on bridging the gap between academic learning and professional requirements. Discover how to translate your classroom knowledge into real-world skills that employers value.</p>
+                    <p>Participants will learn about industry expectations, essential workplace skills, project management methodologies, and how to effectively showcase their abilities to potential employers.</p>
+                    <div class="workshop-instructor">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="KARIM KHELIFI">
+                        <div class="workshop-instructor-info">
+                            <h4>KARIM KHELIFI</h4>
+                            <p>Tech Industry Leader</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <br><br><br>
+                <div class="workshop-card-header">
+                    <div class="workshop-time">SECOND HOUR</div>
+                    <h3>From Home Town to the World</h3>
+                    <p>By FARID HADJ SAID</p>
+                </div>
+                <div class="workshop-card-body">
+                    <p>This inspiring session will show you how to leverage your local skills and knowledge to compete on a global scale. Learn strategies for remote work, international collaboration, and building a career without geographical limitations.</p>
+                    <p>The workshop covers global tech trends, remote work platforms, cultural considerations in international teams, and how to position yourself for global opportunities while based in Algeria.</p>
+                    <div class="workshop-instructor">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="FARID HADJ SAID">
+                        <div class="workshop-instructor-info">
+                            <h4>FARID HADJ SAID</h4>
+                            <p>International Tech Consultant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <br><br><br>
+                <div class="workshop-card-header">
+                    <div class="workshop-time">SECOND HOUR</div>
+                    <h3>FPGA & VHDL Programming</h3>
+                    <p>By ADEM MELLOUKA</p>
+                </div>
+                <div class="workshop-card-body">
+                    <p>This technical workshop provides hands-on experience with Field Programmable Gate Arrays (FPGAs) and VHDL programming. Perfect for students interested in hardware design, embedded systems, and digital electronics.</p>
+                    <p>Participants will learn the fundamentals of FPGA architecture, VHDL syntax and structure, simulation techniques, and practical applications in modern electronics design.</p>
+                    <div class="workshop-instructor">
+                        <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="ADEM MELLOUKA">
+                        <div class="workshop-instructor-info">
+                            <h4>ADEM MELLOUKA</h4>
+                            <p>Embedded Systems Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top: 3rem;">
+            <h2>Workshop Registration</h2>
+        </div>
+
+        <div class="registration-form">
+            <form id="workshopRegistrationForm">
+                <div class="form-group">
+                    <label for="workshopFullName">Full Name (As on ID Card) *</label>
+                    <input type="text" id="workshopFullName" name="fullName" required>
+                    <div class="error-message" id="workshopNameError">Please enter your full name</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="workshopStudentId">Student ID Number (without BAC year) *</label>
+                    <input type="text" id="workshopStudentId" name="studentId" required minlength="8" maxlength="8">
+                    <div class="error-message" id="workshopIdError">Student ID must be exactly 8 characters</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="workshopPhone">Phone Number *</label>
+                    <input type="tel" id="workshopPhone" name="phone" required minlength="10" maxlength="10">
+                    <div class="error-message" id="workshopPhoneError">Phone number must be exactly 10 digits</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="workshopSpecialization">Specialization *</label>
+                    <input type="text" id="workshopSpecialization" name="specialization" required>
+                    <div class="error-message" id="workshopSpecError">Please enter your specialization</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="workshopSelection">Select Workshop *</label>
+                    <select id="workshopSelection" name="workshop" required>
+                        <option value="">-- Select a Workshop --</option>
+                        <option value="asala-dob">FIRST HOUR: ASALA DOB - SELF BRANDING</option>
+                        <option value="karim-khelifi">FIRST HOUR: KARIM KHELIFI - From Classroom to Career</option>
+                        <option value="farid-hadj-said">SECOND HOUR: FARID HADJ SAID - From Home Town to the World</option>
+                        <option value="adem-mellouka">SECOND HOUR: ADEM MELLOUKA - FPGA & VHDL Programming</option>
+                    </select>
+                    <div class="error-message" id="workshopError">Please select a workshop</div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-laptop-code"></i> Register for Workshop
+                </button>
+            </form>
+        </div>
+    </section>
     <footer>
         <div class="footer-content">
             <h3>INNOVEX 8th Edition</h3>
-            <p>Innovation & Excellence</p>
+            <p>Innovation & Excellence - Celebrating Student Achievement in Technology</p>
             <p>Faculty of New Technologies of Information and Communication (FNTIC)</p>
             <p>University of Kasdi Merbah Ouargla</p>
 
             <div class="social-links">
                 <a href="https://www.instagram.com/innovex.pfc/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/innovex-innovation-excellence-final-cycle-project-event-pfc%C2%A08th%C2%A0edition/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/ntic0depart0elect0et0telecom?locale=ru_RU" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             </div>
 
-            <p>&copy; 2025 All Rights Reserved</p>
+            <p class="copyright">&copy; 2025 INNOVEX Organizing Committee. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -351,6 +545,7 @@
                 <p>Your registration details have been received. We look forward to seeing you at the event!</p>
                 <p><strong>Date:</strong> 20-21 April 2025</p>
                 <p><strong>Location:</strong> UKMO - New University Pole, Media Library (mediatech)</p>
+                <p>You will receive a confirmation email with further details shortly.</p>
             </div>
         </div>
     </div>
@@ -358,8 +553,6 @@
     <div class="scroll-top" id="scrollTop">
         <i class="fas fa-arrow-up"></i>
     </div>
-
     <script src="script.js"></script>
 </body>
-
 </html>

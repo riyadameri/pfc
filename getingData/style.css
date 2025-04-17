@@ -1,364 +1,768 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Management System</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
-                <div class="position-sticky pt-3">
-                    <div class="text-center mb-4">
-                        <h4 class="text-white">Company Name</h4>
-                    </div>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#" id="dashboard-link">
-                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="projects-link">
-                                <i class="fas fa-project-diagram me-2"></i>Projects
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="clients-link">
-                                <i class="fas fa-users me-2"></i>Clients
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="team-link">
-                                <i class="fas fa-user-friends me-2"></i>Team
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="reports-link">
-                                <i class="fas fa-chart-bar me-2"></i>Reports
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="settings-link">
-                                <i class="fas fa-cog me-2"></i>Settings
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #1cc88a;
+    --warning-color: #f6c23e;
+    --danger-color: #e74a3b;
+    --dark-color: #5a5c69;
+    --light-color: #f8f9fc;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #b7c0cd;
+    --sidebar-active: #4e73df;
+}
 
-            <!-- Main Content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2" id="page-title">Dashboard</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <button class="btn btn-sm btn-outline-secondary" id="add-project-btn">
-                            <i class="fas fa-plus me-1"></i>Add Project
-                        </button>
-                    </div>
-                </div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-                <!-- Dashboard Content -->
-                <div id="dashboard-content">
-                    <div class="row mb-4">
-                        <div class="col-md-3">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Active Projects</h5>
-                                    <p class="card-text display-6" id="active-projects-count">0</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card text-white bg-success mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Completed Projects</h5>
-                                    <p class="card-text display-6" id="completed-projects-count">0</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card text-white bg-warning mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Pending Payments</h5>
-                                    <p class="card-text display-6" id="pending-payments-count">0</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card text-white bg-danger mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Overdue Projects</h5>
-                                    <p class="card-text display-6" id="overdue-projects-count">0</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
 
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <h5>Recent Projects</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover" id="recent-projects-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Project Name</th>
-                                                    <th>Client</th>
-                                                    <th>Deadline</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <!-- Filled by JavaScript -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <h5>Upcoming Deadlines</h5>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="list-group list-group-flush" id="upcoming-deadlines">
-                                        <!-- Filled by JavaScript -->
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
 
-                <!-- Projects Content -->
-                <div id="projects-content" class="d-none">
-                    <div class="card mb-4">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5>All Projects</h5>
-                            <div>
-                                <input type="text" class="form-control form-control-sm" id="project-search" placeholder="Search projects...">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover" id="projects-table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Project Name</th>
-                                            <th>Client</th>
-                                            <th>Director</th>
-                                            <th>Deadline</th>
-                                            <th>Delivery Date</th>
-                                            <th>Price</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Filled by JavaScript -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+}
 
-                <!-- Add/Edit Project Modal -->
-                <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="projectModalLabel">Add New Project</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="project-form">
-                                    <input type="hidden" id="project-id">
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label for="project-name" class="form-label">Project Name</label>
-                                            <input type="text" class="form-control" id="project-name" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="client-id" class="form-label">Client</label>
-                                            <select class="form-select" id="client-id" required>
-                                                <option value="">Select Client</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label for="client-director" class="form-label">Client Director</label>
-                                            <input type="text" class="form-control" id="client-director" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="project-type" class="form-label">Project Type</label>
-                                            <select class="form-select" id="project-type" required>
-                                                <option value="development">Development Only</option>
-                                                <option value="development-hosting">Development + Hosting</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-md-4">
-                                            <label for="project-deadline" class="form-label">Deadline</label>
-                                            <input type="date" class="form-control" id="project-deadline" required>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="delivery-date" class="form-label">Delivery Date</label>
-                                            <input type="date" class="form-control" id="delivery-date">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="delivery-status" class="form-label">Delivery Status</label>
-                                            <select class="form-select" id="delivery-status" required>
-                                                <option value="not_started">Not Started</option>
-                                                <option value="in_progress">In Progress</option>
-                                                <option value="completed">Completed</option>
-                                                <option value="delivered">Delivered</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label for="project-price" class="form-label">Project Price ($)</label>
-                                            <input type="number" class="form-control" id="project-price" step="0.01" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="hosting-price" class="form-label">Hosting Price ($/month)</label>
-                                            <input type="number" class="form-control" id="hosting-price" step="0.01" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-md-6">
-                                            <label for="initial-price" class="form-label">Initial Payment ($)</label>
-                                            <input type="number" class="form-control" id="initial-price" step="0.01" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="payment-status" class="form-label">Payment Status</label>
-                                            <select class="form-select" id="payment-status" required>
-                                                <option value="unpaid">Unpaid</option>
-                                                <option value="partial">Partial</option>
-                                                <option value="paid">Paid</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="project-details" class="form-label">Project Details</label>
-                                        <textarea class="form-control" id="project-details" rows="3"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Team Members</label>
-                                        <div class="team-members-container" id="team-members-container">
-                                            <!-- Team members will be added here -->
-                                        </div>
-                                        <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="add-team-member-btn">
-                                            <i class="fas fa-plus me-1"></i>Add Team Member
-                                        </button>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="project-causes" class="form-label">Project Causes (Issues/Notes)</label>
-                                        <textarea class="form-control" id="project-causes" rows="2"></textarea>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="save-project-btn">Save Project</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+.sidebar-header {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-                <!-- View Project Modal -->
-                <div class="modal fade" id="viewProjectModal" tabindex="-1" aria-labelledby="viewProjectModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="viewProjectModalLabel">Project Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row mb-4">
-                                    <div class="col-md-6">
-                                        <h4 id="view-project-name"></h4>
-                                        <p class="text-muted" id="view-client-info"></p>
-                                    </div>
-                                    <div class="col-md-6 text-end">
-                                        <span class="badge bg-primary fs-6" id="view-project-status"></span>
-                                        <p class="mt-2"><strong>Deadline:</strong> <span id="view-project-deadline"></span></p>
-                                    </div>
-                                </div>
-                                
-                                <div class="row mb-4">
-                                    <div class="col-md-6">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h6>Financial Information</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <p><strong>Total Price:</strong> $<span id="view-project-price"></span></p>
-                                                <p><strong>Initial Payment:</strong> $<span id="view-initial-price"></span></p>
-                                                <p><strong>Payment Status:</strong> <span id="view-payment-status" class="badge"></span></p>
-                                                <p><strong>Hosting Price:</strong> $<span id="view-hosting-price"></span>/month</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h6>Timeline</h6>
-                                            </div>
-                                            <div class="card-body">
-                                                <p><strong>Start Date:</strong> <span id="view-start-date"></span></p>
-                                                <p><strong>Delivery Date:</strong> <span id="view-delivery-date"></span></p>
-                                                <p><strong>Days Remaining:</strong> <span id="view-days-remaining"></span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mb-4">
-                                    <h6>Project Details</h6>
-                                    <p id="view-project-details" class="text-muted"></p>
-                                </div>
-                                
-                                <div class="mb-4">
-                                    <h6>Team Members</h6>
-                                    <ul class="list-group" id="view-team-members">
-                                        <!-- Team members will be added here -->
-                                    </ul>
-                                </div>
-                                
-                                <div>
-                                    <h6>Project Notes/Issues</h6>
-                                    <p id="view-project-causes" class="text-muted"></p>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="edit-project-btn">Edit Project</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
+.sidebar-header h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sql.js@1.8.0/dist/sql-wasm.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+.sidebar-header h2 i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.sidebar-header p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    padding: 20px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.sidebar-nav a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-nav li.active a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-left: 3px solid var(--primary-color);
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.user-profile h4 {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+.user-profile p {
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--sidebar-text);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.logout-btn i {
+    margin-right: 8px;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex-grow: 1;
+    padding: 20px 30px;
+    overflow-x: hidden;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-left h1 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.header-left p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    margin-right: 20px;
+}
+
+.search-box input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    width: 250px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.search-box input:focus {
+    border-color: var(--primary-color);
+}
+
+.search-box button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #3a56c7;
+}
+
+.notification-bell {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-bell i {
+    color: var(--dark-color);
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--danger-color);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Dashboard Stats */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.stat-info h3 {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.stat-info p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Filters Section */
+.filters-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.filter-group select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    min-width: 180px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.filter-group select:focus {
+    border-color: var(--primary-color);
+}
+
+.export-btn {
+    padding: 8px 15px;
+    background-color: white;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.export-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.export-btn i {
+    margin-right: 8px;
+}
+
+/* Students Table */
+.students-table-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.students-table thead {
+    background-color: #f8f9fc;
+}
+
+.students-table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--dark-color);
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.students-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e3e6f0;
+    font-size: 0.9rem;
+    color: #5a5c69;
+}
+
+.students-table tbody tr:hover {
+    background-color: #f8f9fc;
+}
+
+.students-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-active {
+    background-color: rgba(28, 200, 138, 0.1);
+    color: var(--secondary-color);
+}
+
+.status-pending {
+    background-color: rgba(246, 194, 62, 0.1);
+    color: var(--warning-color);
+}
+
+.action-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-right: 5px;
+    font-size: 0.8rem;
+}
+
+.view-btn {
+    background-color: rgba(78, 115, 223, 0.1);
+    color: var(--primary-color);
+}
+
+.view-btn:hover {
+    background-color: rgba(78, 115, 223, 0.2);
+}
+
+.edit-btn {
+    background-color: rgba(28, 200, 138, 0.1);
+    color: var(--secondary-color);
+}
+
+.edit-btn:hover {
+    background-color: rgba(28, 200, 138, 0.2);
+}
+
+.delete-btn {
+    background-color: rgba(231, 74, 59, 0.1);
+    color: var(--danger-color);
+}
+
+.delete-btn:hover {
+    background-color: rgba(231, 74, 59, 0.2);
+}
+
+/* Table Footer */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+}
+
+.pagination-controls button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background-color: #f8f9fc;
+    border-color: #ccc;
+}
+
+.pagination-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-controls #currentPage {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 600px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #6c757d;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--danger-color);
+}
+
+.modal-body {
+    margin-top: 20px;
+}
+
+.modal-row {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.modal-col {
+    flex: 1;
+}
+
+.modal-full-col {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.modal-body p {
+    margin-bottom: 10px;
+}
+
+.modal-body strong {
+    color: var(--dark-color);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.modal-actions button i {
+    margin-right: 8px;
+}
+
+.edit-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #17a673;
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #d62c1a;
+}
+
+.contact-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.contact-btn:hover {
+    background-color: #3a56c7;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 80px;
+        overflow: hidden;
+    }
+    
+    .sidebar-header h2, 
+    .sidebar-header p,
+    .sidebar-nav a span,
+    .user-profile div,
+    .logout-btn span {
+        display: none;
+    }
+    
+    .sidebar-nav a {
+        display: flex;
+        justify-content: center;
+        padding: 15px 0;
+    }
+    
+    .sidebar-nav a i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+    
+    .user-profile {
+        justify-content: center;
+    }
+    
+    .logout-btn {
+        justify-content: center;
+    }
+    
+    .logout-btn i {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .header-right {
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    .search-box input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    
+    .sidebar-nav {
+        display: flex;
+        padding: 0;
+    }
+    
+    .sidebar-nav ul {
+        display: flex;
+        width: 100%;
+    }
+    
+    .sidebar-nav li {
+        flex: 1;
+        margin-bottom: 0;
+    }
+    
+    .sidebar-nav a {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 5px;
+        font-size: 0.7rem;
+    }
+    
+    .sidebar-nav a i {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+    
+    .sidebar-footer {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .filters-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .filter-group select {
+        width: 100%;
+    }
+    
+    .export-btn {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .table-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .pagination-controls {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+}

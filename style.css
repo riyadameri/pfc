@@ -1,3 +1,15 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+    min-zoom: 1.0;
+    max-zoom: 1.0;
+    user-zoom: fixed;
+}
 :root {
     --primary: #2c3e50;
     --secondary: #FFD700;
@@ -13,6 +25,40 @@
     --gradient: linear-gradient(135deg, var(--primary), var(--accent));
     --scrollbar-thumb: var(--secondary);
     --scrollbar-track: #f1f1f1;
+}
+@-ms-viewport { width: device-width; }
+@-o-viewport { width: device-width; }
+@viewport { width: device-width; }
+
+/* Add this to prevent unwanted scaling */
+@media screen and (max-width: 767px) {
+    html {
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+    }
+    
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Ensure all sections properly fill space */
+section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix for iOS viewport */
+@supports (-webkit-touch-callout: none) {
+    body {
+        /* iOS specific fix */
+        min-height: -webkit-fill-available;
+    }
+    
+    header {
+        min-height: -webkit-fill-available;
+    }
 }
 
 * {
@@ -39,7 +85,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #ffc107;
+    background: #073dff;
     transform: scale(1.1);
 }
 
@@ -56,6 +102,11 @@ body {
     scroll-behavior: smooth;
     position: relative;
     min-height: 100vh;
+}
+
+body.loading {
+    overflow: hidden;
+    height: 100vh;
 }
 
 /* Loading Screen */
@@ -115,6 +166,7 @@ body {
         transform: scale(0);
     }
 }
+
 
 /* Floating Particles */
 .particles {
@@ -227,17 +279,12 @@ body {
     }
 }
 
-/* Header Styles */
 header {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: white;
-    padding: 1.5rem 1rem;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 5px solid var(--secondary);
     min-height: 100vh;
-    display: flex;
-    align-items: center;
+    height: 100%;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .header-container {
@@ -1483,8 +1530,8 @@ footer::before {
     }
 
     .info-item {
-        max-width: none;
-        width: auto;
+        max-width: 100%;
+        
     }
 
     .cta-buttons {
@@ -1588,3 +1635,4 @@ footer::before {
 .fade-in {
     animation: fadeIn 0.5s ease;
 }
+

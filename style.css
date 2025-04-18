@@ -1595,3 +1595,9 @@ footer::before {
     animation: fadeIn 0.5s ease;
 }
 
+.ul {
+    list-style: none;
+    list-style-type: none;
+    padding-left: 0; /* optional: removes indentation */
+  
+}

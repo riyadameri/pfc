@@ -1596,7 +1596,6 @@ footer::before {
 }
 
 .ul {
-    list-style: none;
     list-style-type: none;
     padding-left: 0; /* optional: removes indentation */
   

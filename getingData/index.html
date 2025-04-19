@@ -8,651 +8,407 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css">
     <style>
-        :root {
-            --primary-color: #4e73df;
-            --primary-light: #e8f0fe;
-            --secondary-color: #1cc88a;
-            --secondary-light: #e6f7f0;
-            --warning-color: #f6c23e;
-            --warning-light: #fef8e6;
-            --danger-color: #e74a3b;
-            --danger-light: #fdecea;
-            --dark-color: #2d3748;
-            --dark-light: #4a5568;
-            --light-color: #f8f9fc;
-            --sidebar-bg: #2c3e50;
-            --sidebar-dark: #1a252f;
-            --sidebar-text: #b7c0cd;
-            --sidebar-active: #4e73df;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
+        /* Your CSS styles here */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #f5f7fa;
-            color: var(--dark-color);
-            line-height: 1.6;
+            background-color: #f8f9fc;
+            color: #333;
         }
 
         .dashboard-container {
             display: flex;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* Sidebar Styles */
         .sidebar {
-            width: 280px;
-            background-color: var(--sidebar-bg);
-            color: var(--sidebar-text);
+            width: 250px;
+            background-color: #4e73df;
+            color: white;
+            padding: 20px 0;
             display: flex;
             flex-direction: column;
-            transition: var(--transition);
-            position: relative;
-            z-index: 10;
-            height: 100vh;
-            position: fixed;
         }
 
         .sidebar-header {
-            padding: 1.5rem;
+            padding: 0 20px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            flex-shrink: 0;
         }
 
-        .sidebar-nav {
-            flex: 1;
-            overflow: hidden;
+        .sidebar-header h2 {
+            font-size: 1.2rem;
             display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar-nav ul {
-            list-style: none;
-            overflow-y: auto;
-            flex: 1;
-            padding-bottom: 1rem;
-        }
-
-        .sidebar-footer {
-            padding: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: var(--sidebar-dark);
-            flex-shrink: 0;
-        }
-
-        /* Main Content Styles */
-        .main-content {
-            flex-grow: 1;
-            padding: 2rem;
-            overflow-x: hidden;
-            background-color: var(--light-color);
-            margin-left: 280px;
-            min-height: 100vh;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 1199px) {
-            .sidebar {
-                width: 80px;
-            }
-            .main-content {
-                margin-left: 80px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .main-content {
-                margin-left: 0;
-            }
-        }
-        .sidebar-header h2 i {
-            margin-right: 0.75rem;
-            color: var(--primary-color);
-            font-size: 1.25em;
+            align-items: center;
+            gap: 10px;
         }
 
         .sidebar-header p {
             font-size: 0.8rem;
             opacity: 0.8;
-            letter-spacing: 0.5px;
+            margin-top: 5px;
         }
 
         .sidebar-nav {
-            flex-grow: 1;
-            padding: 1rem 0;
-            overflow-y: auto;
-        }
-
-        .sidebar-nav::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .sidebar-nav::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 3px;
+            flex: 1;
+            padding: 20px 0;
         }
 
         .sidebar-nav ul {
             list-style: none;
         }
 
-        .sidebar-nav li {
-            margin-bottom: 0.25rem;
-        }
-
-        .sidebar-nav a {
+        .sidebar-nav li a {
             display: flex;
             align-items: center;
-            padding: 0.75rem 1.5rem;
-            color: var(--sidebar-text);
+            gap: 10px;
+            padding: 12px 20px;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: var(--transition);
-            border-left: 4px solid transparent;
-            font-size: 0.95rem;
+            transition: all 0.3s;
         }
 
-        .sidebar-nav a:hover {
-            background-color: rgba(255, 255, 255, 0.05);
+        .sidebar-nav li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
-        }
-
-        .sidebar-nav a i {
-            margin-right: 1rem;
-            width: 20px;
-            text-align: center;
-            font-size: 1.1em;
         }
 
         .sidebar-nav li.active a {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
             color: white;
-            border-left: 4px solid var(--primary-color);
-            font-weight: 500;
         }
 
         .sidebar-footer {
-            padding: 1.5rem;
+            padding: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            background-color: var(--sidebar-dark);
         }
 
         .user-profile {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .user-profile img {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            margin-right: 0.75rem;
             object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .user-profile h4 {
-            color: white;
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .user-profile p {
-            font-size: 0.75rem;
-            opacity: 0.7;
-            letter-spacing: 0.3px;
+            font-size: 0.8rem;
+            opacity: 0.8;
         }
 
         .logout-btn {
             width: 100%;
-            padding: 0.65rem;
+            padding: 10px;
             background-color: rgba(255, 255, 255, 0.1);
-            color: var(--sidebar-text);
+            color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.85rem;
-            font-weight: 500;
+            gap: 8px;
+            transition: all 0.3s;
         }
 
         .logout-btn:hover {
             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f8f9fc;
+        }
+
+        .tab-navigation {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background-color: #4e73df;
             color: white;
         }
 
-        .logout-btn i {
-            margin-right: 0.5rem;
-            font-size: 1em;
+        .tab-content {
+            display: none;
         }
 
-        /* Main Content Styles */
-        .main-content {
-            flex-grow: 1;
-            padding: 2rem;
-            overflow-x: hidden;
-            background-color: var(--light-color);
+        .tab-content.active {
+            display: block;
         }
 
         .main-header {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .main-header {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
         .header-left h1 {
-            font-size: 1.75rem;
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            color: #333;
         }
 
         .header-left p {
-            color: var(--dark-light);
-            font-size: 0.95rem;
-            opacity: 0.9;
+            color: #6c757d;
+            font-size: 0.9rem;
         }
 
         .header-right {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            width: 100%;
-        }
-
-        @media (min-width: 576px) {
-            .header-right {
-                flex-direction: row;
-                align-items: center;
-            }
+            align-items: center;
+            gap: 15px;
         }
 
         .search-box {
             display: flex;
-            flex-grow: 1;
-            max-width: 400px;
+            align-items: center;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
         }
 
         .search-box input {
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px 0 0 8px;
-            width: 100%;
+            padding: 8px 15px;
+            border: none;
             outline: none;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .search-box input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.2);
+            width: 200px;
         }
 
         .search-box button {
-            padding: 0 1.25rem;
-            background-color: var(--primary-color);
+            padding: 8px 15px;
+            background-color: #4e73df;
             color: white;
             border: none;
-            border-radius: 0 8px 8px 0;
             cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .search-box button:hover {
-            background-color: #3a56c7;
         }
 
         .notification-bell {
             position: relative;
-            width: 42px;
-            height: 42px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-
-        .notification-bell:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .notification-bell i {
-            color: var(--dark-color);
-            font-size: 1.1rem;
         }
 
         .notification-count {
             position: absolute;
-            top: -3px;
-            right: -3px;
-            background-color: var(--danger-color);
+            top: -5px;
+            right: -5px;
+            background-color: #e74a3b;
             color: white;
-            width: 20px;
-            height: 20px;
             border-radius: 50%;
+            width: 18px;
+            height: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.7rem;
-            font-weight: bold;
         }
 
-        /* Dashboard Stats */
         .dashboard-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .stat-card {
             background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 5px;
+            padding: 20px;
             display: flex;
             align-items: center;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: 1px solid var(--border-color);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            gap: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
         }
 
         .stat-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
             color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
         }
 
         .stat-info h3 {
-            font-size: 0.95rem;
-            color: var(--dark-light);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 5px;
         }
 
         .stat-info p {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--dark-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
         }
 
-        /* Filters Section */
         .filters-section {
-            background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
             display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
-            gap: 1rem;
-            align-items: flex-end;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
+            align-items: center;
         }
 
         .filter-group {
             display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            min-width: 180px;
+            align-items: center;
+            gap: 10px;
         }
 
         .filter-group label {
-            font-size: 0.85rem;
-            color: var(--dark-light);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            font-size: 0.9rem;
+            color: #6c757d;
         }
 
         .filter-group select {
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background-color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
             outline: none;
-            transition: var(--transition);
-            font-size: 0.95rem;
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            background-size: 1em;
-        }
-
-        .filter-group select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.2);
+            background-color: white;
         }
 
         .export-btn {
-            padding: 0.75rem 1.25rem;
-            background-color: white;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            border-radius: 8px;
+            padding: 8px 15px;
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            transition: var(--transition);
             display: flex;
             align-items: center;
-            font-weight: 500;
-            margin-left: auto;
-            flex-shrink: 0;
+            gap: 8px;
+            transition: all 0.3s;
         }
 
         .export-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
+            background-color: #3a5bbf;
         }
 
-        .export-btn i {
-            margin-right: 0.5rem;
-        }
-
-        /* Students Table */
         .students-table-container {
             background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            overflow-x: auto;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
         }
 
         .students-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 800px;
-        }
-
-        .students-table thead {
-            background-color: var(--light-color);
         }
 
         .students-table th {
-            padding: 1rem;
             text-align: left;
+            padding: 12px 15px;
+            background-color: #f8f9fc;
+            color: #6c757d;
             font-weight: 600;
-            color: var(--dark-color);
             font-size: 0.9rem;
-            border-bottom: 2px solid var(--border-color);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .students-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.95rem;
-            color: var(--dark-color);
-            vertical-align: middle;
-        }
-
-        .students-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .students-table tbody tr:hover {
-            background-color: var(--light-color);
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 0.35rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-
-        .status-active {
-            background-color: var(--secondary-light);
-            color: var(--secondary-color);
-        }
-
-        .status-pending {
-            background-color: var(--warning-light);
-            color: var(--warning-color);
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
         }
 
         .action-btn {
-            padding: 0.5rem 0.75rem;
+            padding: 6px 12px;
+            border-radius: 5px;
             border: none;
-            border-radius: 6px;
             cursor: pointer;
-            transition: var(--transition);
-            margin-right: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-        }
-
-        .action-btn i {
-            margin-right: 0.25rem;
+            gap: 5px;
+            font-size: 0.8rem;
+            transition: all 0.3s;
         }
 
         .view-btn {
-            background-color: var(--primary-light);
-            color: var(--primary-color);
+            background-color: #4e73df;
+            color: white;
         }
 
         .view-btn:hover {
-            background-color: rgba(78, 115, 223, 0.2);
+            background-color: #3a5bbf;
         }
 
         .edit-btn {
-            background-color: var(--secondary-light);
-            color: var(--secondary-color);
+            background-color: #f6c23e;
+            color: white;
         }
 
         .edit-btn:hover {
-            background-color: rgba(28, 200, 138, 0.2);
+            background-color: #dda20a;
         }
 
         .delete-btn {
-            background-color: var(--danger-light);
-            color: var(--danger-color);
+            background-color: #e74a3b;
+            color: white;
         }
 
         .delete-btn:hover {
-            background-color: rgba(231, 74, 59, 0.2);
+            background-color: #be2617;
         }
 
-        /* Table Footer */
         .table-footer {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--dark-light);
-        }
-
-        @media (min-width: 576px) {
-            .table-footer {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
         }
 
         .pagination-info {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            color: #6c757d;
         }
 
         .pagination-controls {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
         }
 
         .pagination-controls button {
-            width: 36px;
-            height: 36px;
-            border: 1px solid var(--border-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
             background-color: white;
-            border-radius: 8px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
-        }
-
-        .pagination-controls button:hover:not(:disabled) {
-            background-color: var(--light-color);
-            border-color: var(--primary-color);
-            color: var(--primary-color);
         }
 
         .pagination-controls button:disabled {
@@ -660,14 +416,118 @@
             cursor: not-allowed;
         }
 
-        .pagination-controls #currentPage {
-            font-weight: 600;
-            color: var(--dark-color);
-            min-width: 30px;
-            text-align: center;
+        .pagination-controls span {
+            font-size: 0.9rem;
         }
 
-        /* Modal Styles */
+        .analytics-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .chart-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-card h3 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        .workshop-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .workshop-card h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .workshop-card p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .workshop-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .workshop-stat {
+            text-align: center;
+            padding: 15px;
+            background-color: #f8f9fc;
+            border-radius: 5px;
+            flex: 1;
+        }
+
+        .workshop-stat h4 {
+            font-size: 1.5rem;
+            color: #4e73df;
+            margin-bottom: 5px;
+        }
+
+        .workshop-stat p {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin: 0;
+        }
+
+        .workshop-participants h4 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .participant-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .participant-item:last-child {
+            border-bottom: none;
+        }
+
+        .participant-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .participant-info h5 {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .participant-info p {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin: 0;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -679,64 +539,35 @@
             z-index: 1000;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .modal-content {
             background-color: white;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 640px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 2rem;
+            border-radius: 5px;
+            width: 600px;
+            max-width: 90%;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             position: relative;
-            box-shadow: var(--shadow-lg);
-            animation: fadeIn 0.3s ease;
         }
 
         .close-modal {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.75rem;
-            color: var(--dark-light);
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: var(--transition);
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .close-modal:hover {
-            color: var(--danger-color);
-            background-color: var(--danger-light);
+            color: #6c757d;
         }
 
         .modal-body {
-            margin-top: 1rem;
+            margin-top: 20px;
         }
 
         .modal-row {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 576px) {
-            .modal-row {
-                flex-direction: row;
-            }
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .modal-col {
@@ -745,444 +576,89 @@
 
         .modal-full-col {
             width: 100%;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .modal-body p {
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
         }
 
         .modal-body strong {
-            color: var(--dark-color);
-            font-weight: 600;
-            display: inline-block;
-            min-width: 120px;
+            color: #333;
         }
 
         .modal-actions {
             display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        @media (min-width: 576px) {
-            .modal-actions {
-                flex-direction: row;
-                justify-content: flex-end;
-            }
-        }
-
-        .modal-actions button {
-            padding: 0.75rem 1.25rem;
+        .contact-btn {
+            padding: 8px 15px;
+            background-color: #1cc88a;
+            color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: var(--transition);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 500;
-            font-size: 0.95rem;
+            gap: 8px;
+            transition: all 0.3s;
         }
 
-        .modal-actions button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .modal-actions button i {
-            margin-right: 0.5rem;
-        }
-
-        .modal-actions .edit-btn {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .modal-actions .edit-btn:hover {
+        .contact-btn:hover {
             background-color: #17a673;
         }
 
-        .modal-actions .delete-btn {
-            background-color: var(--danger-color);
-            color: white;
-        }
-
-        .modal-actions .delete-btn:hover {
-            background-color: #d62c1a;
-        }
-
-        .modal-actions .contact-btn {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .modal-actions .contact-btn:hover {
-            background-color: #3a56c7;
-        }
-
-        /* Analytics Section */
-        .analytics-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (min-width: 992px) {
-            .analytics-section {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .chart-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-        }
-
-        .chart-card h3 {
-            font-size: 1.1rem;
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .chart-container {
-            position: relative;
-            height: 300px;
-            width: 100%;
-        }
-
-        /* Workshop Section */
-        .workshop-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-        }
-
-        .workshop-card h3 {
-            font-size: 1.2rem;
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .workshop-card p {
-            color: var(--dark-light);
-            margin-bottom: 1rem;
-        }
-
-        .workshop-stats {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .workshop-stat {
-            background-color: var(--light-color);
-            padding: 0.75rem;
-            border-radius: 8px;
-            flex: 1;
-            text-align: center;
-        }
-
-        .workshop-stat h4 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.25rem;
-        }
-
-        .workshop-stat p {
-            font-size: 0.8rem;
-            color: var(--dark-light);
-            margin-bottom: 0;
-        }
-
-        .workshop-participants {
-            margin-top: 1rem;
-        }
-
-        .workshop-participants h4 {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .participant-item {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .participant-item:last-child {
-            border-bottom: none;
-        }
-
-        .participant-item img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 1rem;
-            object-fit: cover;
-        }
-
-        .participant-info h5 {
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .participant-info p {
-            font-size: 0.8rem;
-            color: var(--dark-light);
-            margin-bottom: 0;
-        }
-
-        /* Responsive Enhancements */
-        @media (max-width: 1199px) {
-            .sidebar {
-                width: 80px;
-                overflow: hidden;
-            }
-            
-            .sidebar-header h2, 
-            .sidebar-header p,
-            .sidebar-nav a span,
-            .user-profile div,
-            .logout-btn span {
-                display: none;
-            }
-            
-            .sidebar-nav a {
-                display: flex;
-                justify-content: center;
-                padding: 1rem 0;
-                border-left: none;
-            }
-            
-            .sidebar-nav li.active a {
-                border-left: none;
-                position: relative;
-            }
-            
-            .sidebar-nav li.active a::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-                width: 4px;
-                background-color: var(--primary-color);
-            }
-            
-            .sidebar-nav a i {
-                margin-right: 0;
-                font-size: 1.3rem;
-            }
-            
-            .user-profile {
-                justify-content: center;
-                padding: 0.5rem 0;
-            }
-            
-            .user-profile img {
-                margin-right: 0;
-                width: 36px;
-                height: 36px;
-            }
-            
-            .logout-btn {
-                justify-content: center;
-                padding: 0.75rem;
-            }
-            
-            .logout-btn i {
-                margin-right: 0;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 991px) {
-            .main-content {
-                padding: 1.5rem;
-            }
-            
+        @media (max-width: 1200px) {
             .dashboard-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .stat-card {
-                padding: 1.25rem;
-            }
-            
-            .stat-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 1.3rem;
-            }
-            
-            .stat-info p {
-                font-size: 1.5rem;
-            }
-
             .analytics-section {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             .dashboard-container {
                 flex-direction: column;
             }
             
             .sidebar {
                 width: 100%;
-                height: auto;
-                padding: 1rem 0;
+                padding: 10px;
             }
             
             .sidebar-nav {
-                display: flex;
-                padding: 0;
-                overflow-x: auto;
-            }
-            
-            .sidebar-nav ul {
-                display: flex;
-                width: 100%;
-                padding: 0 0.5rem;
-            }
-            
-            .sidebar-nav li {
-                flex: 0 0 auto;
-                margin-bottom: 0;
-            }
-            
-            .sidebar-nav a {
-                flex-direction: column;
-                align-items: center;
-                padding: 0.75rem 1rem;
-                font-size: 0.8rem;
-                border-radius: 6px;
-                margin: 0 0.25rem;
-            }
-            
-            .sidebar-nav li.active a::before {
                 display: none;
             }
             
-            .sidebar-nav li.active a {
-                background-color: var(--primary-color);
-                color: white;
-            }
-            
-            .sidebar-nav a i {
-                font-size: 1.1rem;
-                margin-bottom: 0.25rem;
-            }
-            
-            .sidebar-footer {
-                display: none;
-            }
-            
-            .main-content {
-                padding: 1.25rem;
-            }
-            
-            .filters-section {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .filter-group {
-                min-width: 100%;
-            }
-            
-            .export-btn {
-                margin-left: 0;
-                width: 100%;
-            }
-            
-            .students-table th, 
-            .students-table td {
-                padding: 0.75rem;
-            }
-        }
-
-        @media (max-width: 575px) {
             .dashboard-stats {
                 grid-template-columns: 1fr;
             }
             
-            .stat-card {
+            .filters-section {
                 flex-direction: column;
-                text-align: center;
+                align-items: flex-start;
             }
             
-            .stat-icon {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-            
-            .header-left h1 {
-                font-size: 1.5rem;
-            }
-            
-            .modal-content {
-                padding: 1.5rem;
-            }
-            
-            .modal-body strong {
-                min-width: 100px;
-                display: block;
-                margin-bottom: 0.25rem;
-            }
-
-            .workshop-stats {
+            .modal-row {
                 flex-direction: column;
+                gap: 0;
             }
         }
+        .workshop-time-section {
+    margin-bottom: 30px;
+}
 
-        /* Tab Navigation */
-        .tab-navigation {
-            display: flex;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .tab-btn {
-            padding: 0.75rem 1.5rem;
-            background: none;
-            border: none;
-            border-bottom: 3px solid transparent;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--dark-light);
-            transition: var(--transition);
-        }
-
-        .tab-btn.active {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
-        }
-
-        .tab-btn:hover:not(.active) {
-            color: var(--dark-color);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
+.time-slot-header {
+    color: #4e73df;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4e73df;
+}
     </style>
 </head>
 <body>
@@ -1295,11 +771,16 @@
                         <label for="interest-filter">Interest:</label>
                         <select id="interest-filter">
                             <option value="all">All Interests</option>
-                            <option value="AI">Artificial Intelligence</option>
-                            <option value="Robotics">Robotics</option>
-                            <option value="Sustainability">Sustainability</option>
-                            <option value="Healthcare">Healthcare</option>
-                            <option value="Finance">Finance</option>
+                            <option value="ai">Artificial Intelligence</option>
+                            <option value="web">Web Development</option>
+                            <option value="cyber">Cybersecurity</option>
+                            <option value="data">Data Science</option>
+                            <option value="iot">IoT</option>
+                            <option value="cloud">Cloud Computing</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="networking">Networking</option>
+                            <option value="mobile">Mobile Development</option>
+                            <option value="robotics">Robotics</option>
                         </select>
                     </div>
                     <div class="filter-group">
@@ -1435,63 +916,15 @@
                         <h1>Workshop Management</h1>
                         <p>View and manage workshop registrations</p>
                     </div>
+                    
+
                     <div class="header-right">
                         <button class="export-btn"><i class="fas fa-plus"></i> Add Workshop</button>
                     </div>
                 </header>
 
-                <div class="workshop-card">
-                    <h3>FPGA & VHDL Programming</h3>
-                    <p>Learn the fundamentals of FPGA design and VHDL programming for embedded systems.</p>
-                    
-                    <div class="workshop-stats">
-                        <div class="workshop-stat">
-                            <h4 id="workshop1Total">0</h4>
-                            <p>Total Registrations</p>
-                        </div>
-                        <div class="workshop-stat">
-                            <h4 id="workshop1Today">0</h4>
-                            <p>Today</p>
-                        </div>
-                        <div class="workshop-stat">
-                            <h4 id="workshop1Capacity">50</h4>
-                            <p>Capacity</p>
-                        </div>
-                    </div>
-                    
-                    <div class="workshop-participants">
-                        <h4>Recent Registrations</h4>
-                        <div id="workshop1Participants">
-                            <!-- Participants will be loaded here -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="workshop-card">
-                    <h3>Introduction to AI and Machine Learning</h3>
-                    <p>Discover the basics of artificial intelligence and machine learning applications.</p>
-                    
-                    <div class="workshop-stats">
-                        <div class="workshop-stat">
-                            <h4 id="workshop2Total">0</h4>
-                            <p>Total Registrations</p>
-                        </div>
-                        <div class="workshop-stat">
-                            <h4 id="workshop2Today">0</h4>
-                            <p>Today</p>
-                        </div>
-                        <div class="workshop-stat">
-                            <h4 id="workshop2Capacity">50</h4>
-                            <p>Capacity</p>
-                        </div>
-                    </div>
-                    
-                    <div class="workshop-participants">
-                        <h4>Recent Registrations</h4>
-                        <div id="workshop2Participants">
-                            <!-- Participants will be loaded here -->
-                        </div>
-                    </div>
+                <div id="workshopsContainer">
+                    <!-- Workshops will be dynamically added here -->
                 </div>
             </div>
         </main>
@@ -1528,2290 +961,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-    <script>
-        const BOT_TOKEN = '7565218404:AAGLn6PEToEb8mhLnQ-NkJoD9t1DVgB_mX0';
-        const CHAT_ID = '1865245287';
-        const API_URL = 'https://api.telegram.org/bot' + BOT_TOKEN;
-
-        // Sample data including all the provided registrations
-        
-        let studentsData = [
-    {
-        registrationId: 'INVX-MUAVVOMA',
-        fullName: 'Hadjseyd Narimen',
-        studentId: '39567518',
-        phone: '0675386373',
-        specialization: 'English',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-16T21:42:18'
-    },
-    {
-        registrationId: 'INVX-8CVRA55G',
-        fullName: 'Hadjseyd Merina',
-        studentId: '39316014',
-        phone: '0699632722',
-        specialization: 'french student',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-16T21:45:31'
-    },
-    {
-        registrationId: 'INVX-DWE2TML7',
-        fullName: 'Youssef',
-        studentId: '39521314',
-        phone: '0696717277',
-        specialization: 'الكتروتيكنيك',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-16T21:47:43'
-    },
-    {
-        registrationId: 'INVX-Q4OM3G1B',
-        fullName: 'ISmail Attab',
-        studentId: '39047459',
-        phone: '0660857973',
-        specialization: 'Computer science',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'cloud'],
-        registrationDate: '2025-04-16T22:55:06'
-    },
-    {
-        registrationId: 'INVX-P9J2G7RY',
-        fullName: 'BENETTOUATI Mohammed zakaria',
-        studentId: '39314310',
-        phone: '0697851037',
-        specialization: 'Electric engineering',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'electronics', 'networking'],
-        registrationDate: '2025-04-16T23:31:16'
-    },
-    {
-        registrationId: 'INVX-YDUQ7RLC',
-        fullName: 'Malek Louahem',
-        studentId: '39339013',
-        phone: '0542822113',
-        specialization: 'Science economic',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-16T23:45:14'
-    },
-    {
-        registrationId: 'INVX-4X9T7AK8',
-        fullName: 'Ouissal Biaa',
-        studentId: '39057236',
-        phone: '0665164630',
-        specialization: 'Renewable energies in mechanics',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T07:32:49'
-    },
-    {
-        registrationId: 'INVX-BJMDZT50',
-        fullName: 'Oumelkhir MESSAOUDI',
-        studentId: '39058591',
-        phone: '0673437237',
-        specialization: 'Électronique système Embarqué',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T09:27:16'
-    },
-    {
-        registrationId: 'INVX-CVEF6V8T',
-        fullName: 'SAYAH YAKOUB',
-        studentId: '39287316',
-        phone: '0669481751',
-        specialization: 'Oil and gas production',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-17T11:06:20'
-    },
-    {
-        registrationId: 'INVX-511T1LUZ',
-        fullName: 'Nouciba bouaka',
-        studentId: '39048315',
-        phone: '0699731012',
-        specialization: 'Electronique',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T11:55:23'
-    },
-    {
-        registrationId: 'INVX-NNZBFRPH',
-        fullName: 'bougrine mohammed elarbi',
-        studentId: '39089758',
-        phone: '0697423131',
-        specialization: 'INSTRUMONTATIONS',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-17T12:35:55'
-    },
-    {
-        registrationId: 'INVX-LSYRNGK3',
-        fullName: 'Kadai mohammed',
-        studentId: '20213102',
-        phone: '0664139461',
-        specialization: 'System et instrumentation',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T14:02:46'
-    },
-    {
-        registrationId: 'INVX-CA3FLUUC',
-        fullName: 'Bouchakour chaima',
-        studentId: '39053356',
-        phone: '0664084223',
-        specialization: 'Master 1 électronique',
-        projectTitle: 'IA drone',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T14:04:59'
-    },
-    {
-        registrationId: 'INVX-U2JN8N5X',
-        fullName: 'bouterfif manar',
-        studentId: '39048518',
-        phone: '0659158487',
-        specialization: 'droit d\'affaire',
-        projectTitle: 'Maraa online',
-        interests: ['networking'],
-        registrationDate: '2025-04-17T14:08:30'
-    },
-    {
-        registrationId: 'INVX-1ZBCPWJW',
-        fullName: 'Bouhnk Doua',
-        studentId: '39059396',
-        phone: '0655878701',
-        specialization: 'Aoutomatique',
-        projectTitle: 'WASTE SORTINE MACHINE',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T14:08:34'
-    },
-    {
-        registrationId: 'INVX-RGY0MTMF',
-        fullName: 'Adnane hamada',
-        studentId: '10996110',
-        phone: '0656231880',
-        specialization: 'Instrument et system',
-        projectTitle: 'EdraQ club',
-        interests: ['ai', 'web', 'electronics'],
-        registrationDate: '2025-04-17T14:11:02'
-    },
-    {
-        registrationId: 'INVX-5K06O3CN',
-        fullName: 'Brahmi doua',
-        studentId: '39577807',
-        phone: '0555305425',
-        specialization: 'informatique',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T14:18:49'
-    },
-    {
-        registrationId: 'INVX-ZMEESAED',
-        fullName: 'Salsabil Benhammouda',
-        studentId: '39055574',
-        phone: '0674734782',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T14:25:10'
-    },
-    {
-        registrationId: 'INVX-Z6FGJ1RA',
-        fullName: 'Reguig kanza',
-        studentId: '39045983',
-        phone: '0656554437',
-        specialization: 'Telecommunications',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T14:27:35'
-    },
-    {
-        registrationId: 'INVX-8CGX7GLE',
-        fullName: 'MONCEF BENRAS',
-        studentId: '39047661',
-        phone: '0667215130',
-        specialization: 'Instrumentation',
-        projectTitle: 'Scmdd',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T14:31:10'
-    },
-    {
-        registrationId: 'INVX-6YQ00929',
-        fullName: 'Larouci Mohamed abdeldjalil',
-        studentId: '39048913',
-        phone: '0663009923',
-        specialization: 'Automatique',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T14:49:18'
-    },
-    {
-        registrationId: 'INVX-PQCRRT6P',
-        fullName: 'Toufik Salhi',
-        studentId: '39049986',
-        phone: '0665727635',
-        specialization: 'Instrumentation',
-        projectTitle: 'N/A',
-        interests: ['ai', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T14:56:03'
-    },
-    {
-        registrationId: 'INVX-5F03QAPW',
-        fullName: 'Kadri abdelbaki',
-        studentId: '39051273',
-        phone: '0798986899',
-        specialization: 'instrumentation M1',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T15:00:33'
-    },
-    {
-        registrationId: 'INVX-WR5J6K70',
-        fullName: 'Selloum mohamed amine',
-        studentId: '35010685',
-        phone: '0774834991',
-        specialization: 'Médecine',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T15:09:44'
-    },
-    {
-        registrationId: 'INVX-T8X64PC8',
-        fullName: 'Ghettas Amina Wafa',
-        studentId: '39055167',
-        phone: '0698815956',
-        specialization: 'Automation and systems',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T15:19:53'
-    },
-    {
-        registrationId: 'INVX-AKJ7KFUD',
-        fullName: 'Ouddane ahmed louai',
-        studentId: '39059588',
-        phone: '0658611093',
-        specialization: 'L3 auto',
-        projectTitle: 'جهاز تحكم ذكي للأجهزة عن بعد',
-        interests: ['ai', 'web', 'data', 'electronics'],
-        registrationDate: '2025-04-17T15:22:17'
-    },
-    {
-        registrationId: 'INVX-L2RJPJM6',
-        fullName: 'Ouddane hossin',
-        studentId: '39059588',
-        phone: '0658611093',
-        specialization: 'Auto',
-        projectTitle: 'جهاز تحكم ذكي للأجهزة عن بعد',
-        interests: ['ai', 'cyber', 'data', 'cloud'],
-        registrationDate: '2025-04-17T15:23:20'
-    },
-    {
-        registrationId: 'INVX-ING7RE5S',
-        fullName: 'Benchenna Youcef',
-        studentId: '39047690',
-        phone: '0667454671',
-        specialization: 'M2 Electronic of Embedded Systems',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T15:36:37'
-    },
-    {
-        registrationId: 'INVX-0V9YKK8G',
-        fullName: 'Kachi djemoi',
-        studentId: '39059374',
-        phone: '0657459433',
-        specialization: 'Elctronique',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T15:46:50'
-    },
-    {
-        registrationId: 'INVX-NKA9EAXX',
-        fullName: 'bouzidi abdelkahar',
-        studentId: '39046468',
-        phone: '0672525505',
-        specialization: 'electronic',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T15:48:06'
-    },
-    {
-        registrationId: 'INVX-LSRK9Y9K',
-        fullName: 'Koull oussama',
-        studentId: '39050678',
-        phone: '0795701360',
-        specialization: 'Embedded systems electronic',
-        projectTitle: 'N/A',
-        interests: ['ai', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T15:52:49'
-    },
-    {
-        registrationId: 'INVX-Q0VDPGYY',
-        fullName: 'Lamri Abdlatif',
-        studentId: '09061044',
-        phone: '0664006515',
-        specialization: 'Instrument',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-17T16:03:30'
-    },
-    {
-        registrationId: 'INVX-BTB5XD7P',
-        fullName: 'Ben ghoulia ichrak',
-        studentId: '39333812',
-        phone: '0667405795',
-        specialization: 'Raffinage et pétrochimie',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T16:39:22'
-    },
-    {
-        registrationId: 'INVX-51YMBYIN',
-        fullName: 'Kezzal ouissam',
-        studentId: '39299806',
-        phone: '0779347079',
-        specialization: 'L2 electronics',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T16:57:11'
-    },
-    {
-        registrationId: 'INVX-XCIDRC8Q',
-        fullName: 'عوزير غدير علي',
-        studentId: '39064770',
-        phone: '0666788038',
-        specialization: 'الكترونيك',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T16:59:22'
-    },
-    {
-        registrationId: 'INVX-T1UP551A',
-        fullName: 'Benaid hala',
-        studentId: '39338404',
-        phone: '0669472573',
-        specialization: 'Génie civil',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T17:03:54'
-    },
-    {
-        registrationId: 'INVX-ULWFK346',
-        fullName: 'BENBRAHIM AYOUB',
-        studentId: '39344015',
-        phone: '0668722813',
-        specialization: 'Petroleum Instrumentation',
-        projectTitle: 'N/A',
-        interests: ['data', 'iot', 'networking'],
-        registrationDate: '2025-04-17T17:04:10'
-    },
-    {
-        registrationId: 'INVX-R83M8E1Q',
-        fullName: '202239577504',
-        studentId: '39577504',
-        phone: '0696290036',
-        specialization: 'Automatique',
-        projectTitle: 'Smart car',
-        interests: [],
-        registrationDate: '2025-04-17T17:08:30'
-    },
-    {
-        registrationId: 'INVX-8ZV0S4IM',
-        fullName: 'Guemmoula Seif Eddine',
-        studentId: '39323809',
-        phone: '0668426902',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-17T17:08:39'
-    },
-    {
-        registrationId: 'INVX-AA548B0L',
-        fullName: 'Abdeljawad abdi',
-        studentId: '39048447',
-        phone: '0549614815',
-        specialization: 'Électronique',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T17:08:58'
-    },
-    {
-        registrationId: 'INVX-063CHDYW',
-        fullName: 'bougherara oussama',
-        studentId: '39057970',
-        phone: '0796506447',
-        specialization: 'electronics, embedded systems',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T17:09:59'
-    },
-    {
-        registrationId: 'INVX-R252QKOV',
-        fullName: 'ahmed beddaif',
-        studentId: '39077349',
-        phone: '0675593780',
-        specialization: 'Electronic systems',
-        projectTitle: 'Protection automatisée des distributeurs',
-        interests: [],
-        registrationDate: '2025-04-17T17:11:42'
-    },
-    {
-        registrationId: 'INVX-4DL2JHZE',
-        fullName: 'Haoued Mouissa Zouhair',
-        studentId: '39052700',
-        phone: '0665153640',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T17:12:50'
-    },
-    {
-        registrationId: 'INVX-58G5CB7Q',
-        fullName: 'ahmed beddaif',
-        studentId: '39077349',
-        phone: '0675593780',
-        specialization: 'Electronic systems',
-        projectTitle: 'Protection automatisée des distributeurs',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T17:13:26'
-    },
-    {
-        registrationId: 'INVX-UBWMWFET',
-        fullName: 'Khemgani Mohammed Arafa',
-        studentId: '39045425',
-        phone: '0675278804',
-        specialization: 'Electronic Embedded systems',
-        projectTitle: 'N/A',
-        interests: ['ai', 'cyber', 'data', 'iot', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T17:25:52'
-    },
-    {
-        registrationId: 'INVX-N67DY9P6',
-        fullName: 'Chebouat bilal',
-        studentId: '39031232',
-        phone: '0666295378',
-        specialization: 'Automatic',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T17:20:33'
-    },
-    {
-        registrationId: 'INVX-UHQ5120J',
-        fullName: 'Bouchiba sakina',
-        studentId: '39334309',
-        phone: '0658656868',
-        specialization: 'Génie civil',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T17:24:30'
-    },
-    {
-        registrationId: 'INVX-TM31V1Z2',
-        fullName: 'Meriouma houssam elddine',
-        studentId: '39337612',
-        phone: '0676586860',
-        specialization: 'automatic',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T17:28:42'
-    },
-    {
-        registrationId: 'INVX-EH7DWSZ5',
-        fullName: 'Bourenane mohammed saleh',
-        studentId: '39050927',
-        phone: '0675305163',
-        specialization: 'Automatique',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T17:29:09'
-    },
-    {
-        registrationId: 'INVX-J8CMT20Q',
-        fullName: 'Zatout Ahmed Aymane',
-        studentId: '39045319',
-        phone: '0674957201',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: ['ai', 'iot', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T17:34:53'
-    },
-    {
-        registrationId: 'INVX-M5CUAYAG',
-        fullName: 'Djarroudib nour Melek',
-        studentId: '39345011',
-        phone: '0558918966',
-        specialization: 'Petroleum instrumentation',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'networking'],
-        registrationDate: '2025-04-17T17:38:19'
-    },
-    {
-        registrationId: 'INVX-11PFBK19',
-        fullName: 'AKCHICHE Mohamed Aymen',
-        studentId: '39307705',
-        phone: '0698841788',
-        specialization: 'Computer science',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'data'],
-        registrationDate: '2025-04-17T18:02:43'
-    },
-    {
-        registrationId: 'INVX-WBLOP524',
-        fullName: 'Yagoub Zakaria',
-        studentId: '39543406',
-        phone: '0696901404',
-        specialization: 'Electronics',
-        projectTitle: 'N/A',
-        interests: ['ai', 'electronics'],
-        registrationDate: '2025-04-17T18:24:18'
-    },
-    {
-        registrationId: 'INVX-JW5D0C7Y',
-        fullName: 'Anfalbouhafs',
-        studentId: '39052698',
-        phone: '0676113209',
-        specialization: 'الكترونيك',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T18:26:02'
-    },
-    {
-        registrationId: 'INVX-IG3AYWGD',
-        fullName: 'Rouibi khalil',
-        studentId: '39294917',
-        phone: '0672841123',
-        specialization: 'Wired and wireless telecommunications',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'iot', 'cloud', 'networking'],
-        registrationDate: '2025-04-17T18:51:16'
-    },
-    {
-        registrationId: 'INVX-KUBLYIV2',
-        fullName: 'Louaar Abdelkader',
-        studentId: '39346011',
-        phone: '0662490967',
-        specialization: 'Petroleum instrumentation',
-        projectTitle: 'N/A',
-        interests: ['ai', 'electronics'],
-        registrationDate: '2025-04-17T19:20:08'
-    },
-    {
-        registrationId: 'INVX-I1V2FY3P',
-        fullName: 'Hocine Bekhdidja',
-        studentId: '39335701',
-        phone: '0699758713',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T19:32:16'
-    },
-    {
-        registrationId: 'INVX-QH9PNPUD',
-        fullName: 'Khaled Bekhdidja',
-        studentId: '39335701',
-        phone: '0699758713',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T19:34:23'
-    },
-    {
-        registrationId: 'INVX-Z0GM7FDS',
-        fullName: 'Fella Sayah',
-        studentId: '39306816',
-        phone: '0697512401',
-        specialization: 'Electronic',
-        projectTitle: 'The Smart Safety Helmet',
-        interests: [],
-        registrationDate: '2025-04-17T19:36:34'
-    },
-    {
-        registrationId: 'INVX-E9D7TVDK',
-        fullName: 'Laid Sayah',
-        studentId: '39306816',
-        phone: '0697512401',
-        specialization: 'Electronic',
-        projectTitle: 'The Smart Safety Helmet',
-        interests: [],
-        registrationDate: '2025-04-17T19:38:44'
-    },
-    {
-        registrationId: 'INVX-TGQ82TOH',
-        fullName: 'Bahhou Cherifa',
-        studentId: '39338708',
-        phone: '0664374662',
-        specialization: 'Electronics',
-        projectTitle: 'Solar powered WiFi irrigation',
-        interests: ['web', 'iot', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T19:57:11'
-    },
-    {
-        registrationId: 'INVX-E03Q41NB',
-        fullName: 'Dida hani',
-        studentId: '39336114',
-        phone: '0669266573',
-        specialization: 'Télécommunications',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T19:57:32'
-    },
-    {
-        registrationId: 'INVX-9OLTOXOJ',
-        fullName: 'Boutbila Hocine',
-        studentId: '39338708',
-        phone: '0664374662',
-        specialization: 'Electronics',
-        projectTitle: 'Solar powered WiFi irrigation',
-        interests: ['web', 'iot', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T19:59:20'
-    },
-    {
-        registrationId: 'INVX-MWMCTYPK',
-        fullName: 'Yasser Bouidia',
-        studentId: '39306014',
-        phone: '0792443000',
-        specialization: 'Electromechanic',
-        projectTitle: 'N/A',
-        interests: ['cyber', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T20:17:49'
-    },
-    {
-        registrationId: 'INVX-VA5NHVQW',
-        fullName: 'Messaoudi Ikram',
-        studentId: '39059370',
-        phone: '0674536842',
-        specialization: 'Autou',
-        projectTitle: '3D Scanner',
-        interests: ['ai', 'electronics'],
-        registrationDate: '2025-04-17T20:25:40'
-    },
-    {
-        registrationId: 'INVX-TU6YIQRL',
-        fullName: 'Djaadi',
-        studentId: '39047469',
-        phone: '0697619294',
-        specialization: 'Electronique (Licence telecomonicatoin)',
-        projectTitle: 'Smart bracelet in the medical field',
-        interests: [],
-        registrationDate: '2025-04-17T20:26:20'
-    },
-    {
-        registrationId: 'INVX-2I0BIEHE',
-        fullName: 'Reddas feriel',
-        studentId: '39306910',
-        phone: '0665510612',
-        specialization: 'Genie civil',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-17T20:27:46'
-    },
-    {
-        registrationId: 'INVX-24YZI02X',
-        fullName: 'Hani Dida',
-        studentId: '39336114',
-        phone: '0666503117',
-        specialization: 'Télécommuications',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T20:30:25'
-    },
-    {
-        registrationId: 'INVX-J58NMJ21',
-        fullName: 'Hani Dida',
-        studentId: '39336114',
-        phone: '0666503117',
-        specialization: 'Télécommunications',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T20:31:28'
-    },
-    {
-        registrationId: 'INVX-ZOPJBRT5',
-        fullName: 'Belkhir Maria',
-        studentId: '39055744',
-        phone: '0673422543',
-        specialization: 'Electronic',
-        projectTitle: 'Intelligent Water Tank Level Control',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T20:33:00'
-    },
-    {
-        registrationId: 'INVX-B8SPBAJ2',
-        fullName: 'Maou Mayar malak',
-        studentId: '39344917',
-        phone: '0559436999',
-        specialization: 'Petroleum instrumentation',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'networking'],
-        registrationDate: '2025-04-17T20:40:35'
-    },
-    {
-        registrationId: 'INVX-09D9MBTX',
-        fullName: 'اولا سالم سمية',
-        studentId: '39306603',
-        phone: '0696949051',
-        specialization: 'اتصالات سلكيلةولاسلكية',
-        projectTitle: 'نظام التحكم الذكي للاجهزة عن بعد',
-        interests: ['ai'],
-        registrationDate: '2025-04-17T21:04:14'
-    },
-    {
-        registrationId: 'INVX-ITQQKHC9',
-        fullName: 'Tati Mebrouka',
-        studentId: '39338114',
-        phone: '0696082285',
-        specialization: 'Télécom',
-        projectTitle: 'Car barcode',
-        interests: ['networking'],
-        registrationDate: '2025-04-17T21:22:24'
-    },
-    {
-        registrationId: 'INVX-TIIPDO8T',
-        fullName: 'Douadi wail',
-        studentId: '39345102',
-        phone: '0554680664',
-        specialization: 'Instrumentation pétrolière',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T21:26:58'
-    },
-    {
-        registrationId: 'INVX-SJGCJZMP',
-        fullName: 'Marouane boussiha',
-        studentId: '39047056',
-        phone: '0655950454',
-        specialization: 'Electronique',
-        projectTitle: 'Guest',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T21:27:58'
-    },
-    {
-        registrationId: 'INVX-5R74CRS4',
-        fullName: 'DOB ELMAZOUZI',
-        studentId: '39056459',
-        phone: '0676410888',
-        specialization: 'TELECOMMUNICATION',
-        projectTitle: 'N/A',
-        interests: ['cyber', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T21:30:07'
-    },
-    {
-        registrationId: 'INVX-LKQPY780',
-        fullName: 'Imad Eddine BENSALEM',
-        studentId: '39050854',
-        phone: '0563615683',
-        specialization: 'Instrumentation and systems',
-        projectTitle: 'N/A',
-        interests: ['ai', 'iot', 'electronics'],
-        registrationDate: '2025-04-17T21:33:20'
-    },
-    {
-        registrationId: 'INVX-0SKJNXWY',
-        fullName: 'BEKAKRA AHMED RAMZI',
-        studentId: '39051486',
-        phone: '0656309839',
-        specialization: 'Embedded systems',
-        projectTitle: 'N/A',
-        interests: ['ai', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T21:37:23'
-    },
-    {
-        registrationId: 'INVX-V6H744HN',
-        fullName: 'Madoui hizia',
-        studentId: '39063661',
-        phone: '0654446536',
-        specialization: 'Telecommunication',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T21:52:43'
-    },
-    {
-        registrationId: 'INVX-HF029YZN',
-        fullName: 'حاجي عبد العفو',
-        studentId: '39335703',
-        phone: '0674981523',
-        specialization: 'هندسة ميكانيكية',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T22:02:08'
-    },
-    {
-        registrationId: 'INVX-271O64L8',
-        fullName: 'Dida hani',
-        studentId: '39336114',
-        phone: '0666503117',
-        specialization: 'Télécommunications',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T22:20:01'
-    },
-    {
-        registrationId: 'INVX-VANOV7WX',
-        fullName: 'Nesrine farsi',
-        studentId: '24534665',
-        phone: '0660099020',
-        specialization: 'Electrostatics',
-        projectTitle: 'As visiter',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T22:34:52'
-    },
-    {
-        registrationId: 'INVX-U8QZ5326',
-        fullName: 'Korichi maria chiraze',
-        studentId: '39299404',
-        phone: '0549864959',
-        specialization: 'Informatique',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T22:39:08'
-    },
-    {
-        registrationId: 'INVX-4PXJXR6O',
-        fullName: 'Benmahcene Achouak Ranine',
-        studentId: '39293317',
-        phone: '0699669003',
-        specialization: 'Système d\'information',
-        projectTitle: 'N/A',
-        interests: ['web'],
-        registrationDate: '2025-04-17T22:42:19'
-    },
-    {
-        registrationId: 'INVX-9L6Q69G6',
-        fullName: 'BOULIF Yasser Abdeladhim',
-        studentId: '39046408',
-        phone: '0672596570',
-        specialization: 'Industrial computer science',
-        projectTitle: 'N/A',
-        interests: ['ai', 'cyber', 'cloud'],
-        registrationDate: '2025-04-17T22:44:18'
-    },
-    {
-        registrationId: 'INVX-PI7NBE4L',
-        fullName: 'Nesrine Rouabeh',
-        studentId: '39318704',
-        phone: '0696365616',
-        specialization: 'Informatique',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-17T22:44:32'
-    },
-    {
-        registrationId: 'INVX-8F1GICYT',
-        fullName: 'MAKHLOUF ABDELMOKIT HAZEM IHAB',
-        studentId: '38029789',
-        phone: '0792754670',
-        specialization: 'Electronic',
-        projectTitle: 'CICADA',
-        interests: ['web'],
-        registrationDate: '2025-04-17T22:46:13'
-    },
-    {
-        registrationId: 'INVX-VK0B7WTJ',
-        fullName: 'طواهرية العربي',
-        studentId: '31195501',
-        phone: '0697587634',
-        specialization: 'Electronic',
-        projectTitle: 'The Smart Safety Helmet',
-        interests: [],
-        registrationDate: '2025-04-17T22:49:30'
-    },
-    {
-        registrationId: 'INVX-BH2EJXD8',
-        fullName: 'بن زيدان الشارف',
-        studentId: '31195501',
-        phone: '0697587634',
-        specialization: 'electronic',
-        projectTitle: 'The smart safety helmet',
-        interests: [],
-        registrationDate: '2025-04-17T22:51:18'
-    },
-    {
-        registrationId: 'INVX-U0BCNBW3',
-        fullName: 'Aoun douaa',
-        studentId: '39056490',
-        phone: '0667908406',
-        specialization: 'Électronique',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-17T22:51:38'
-    },
-    {
-        registrationId: 'INVX-3J6CQG4R',
-        fullName: 'Khouloud rabia',
-        studentId: '39286205',
-        phone: '0657588091',
-        specialization: 'Informatique',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
-        registrationDate: '2025-04-17T22:55:43'
-    },
-    {
-        registrationId: 'INVX-2MO8BAS5',
-        fullName: 'Hassani fatma zohra',
-        studentId: '39294907',
-        phone: '0660038619',
-        specialization: 'Electronic',
-        projectTitle: 'Smart safety helmet',
-        interests: [],
-        registrationDate: '2025-04-17T22:59:44'
-    },
-    {
-        registrationId: 'INVX-PO6NHYTJ',
-        fullName: 'Bechouni sofiane',
-        studentId: '39294907',
-        phone: '0660038619',
-        specialization: 'الكترونيك',
-        projectTitle: 'The Smart safety helmet',
-        interests: [],
-        registrationDate: '2025-04-17T23:01:11'
-    },
-    {
-        registrationId: 'INVX-GAAULS6Q',
-        fullName: 'kesbi Malak',
-        studentId: '39052090',
-        phone: '0664513616',
-        specialization: 'Informatique',
-        projectTitle: 'N/A',
-        interests: ['networking'],
-        registrationDate: '2025-04-17T23:11:26'
-    },
-    {
-        registrationId: 'INVX-2CV0PWU9',
-        fullName: 'Kina sara',
-        studentId: '39346217',
-        phone: '0791690620',
-        specialization: 'computer science',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-17T23:11:43'
-    },
-    {
-        registrationId: 'INVX-WUXB2IBR',
-        fullName: 'Ayet errahmane hadjadj',
-        studentId: '39047458',
-        phone: '0672720811',
-        specialization: 'accounting',
-        projectTitle: 'N/A',
-        interests: ['ai', 'cyber', 'electronics', 'networking'],
-        registrationDate: '2025-04-18T00:02:28'
-    },
-    {
-        registrationId: 'INVX-3J8M4VJ1',
-        fullName: 'Hadji Boutheina',
-        studentId: '39306304',
-        phone: '0698141401',
-        specialization: 'Auto',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-18T00:22:51'
-    },
-    {
-        registrationId: 'INVX-ZZY2QY0G',
-        fullName: 'بخديجة عباس',
-        studentId: '00000000',
-        phone: '0665747730',
-        specialization: 'لايوجد',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T00:24:06'
-    },
-    {
-        registrationId: 'INVX-9HVO8OUW',
-        fullName: 'mohamed',
-        studentId: '35255808',
-        phone: '0671029295',
-        specialization: 'hydrocarbons',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'robotics'],
-        registrationDate: '2025-04-18T00:46:16'
-    },
-    {
-        registrationId: 'INVX-Z7ZPWPV9',
-        fullName: 'Sekher soujoud',
-        studentId: '39050063',
-        phone: '0664755623',
-        specialization: 'Electronics of embedded systems',
-        projectTitle: 'Hand tracking',
-        interests: ['ai', 'data', 'electronics'],
-        registrationDate: '2025-04-18T00:49:05'
-    },
-    {
-        registrationId: 'INVX-YMVNNXZI',
-        fullName: 'Maroua benameur',
-        studentId: '39048333',
-        phone: '0656393525',
-        specialization: 'Electronique système embarqué',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T00:49:54'
-    },
-    {
-        registrationId: 'INVX-CY2PBN2R',
-        fullName: 'Saidat zohra',
-        studentId: '39091601',
-        phone: '0669870484',
-        specialization: 'Télécomminicatiom',
-        projectTitle: 'Obstacle auto detecting car',
-        interests: [],
-        registrationDate: '2025-04-18T00:50:05'
-    },
-    {
-        registrationId: 'INVX-POD5QD7A',
-        fullName: 'Moumene issam Eddine ayoub',
-        studentId: '39045845',
-        phone: '0659945165',
-        specialization: 'Automation',
-        projectTitle: 'Smart watering for plastic houses',
-        interests: ['electronics', 'robotics'],
-        registrationDate: '2025-04-18T01:18:14'
-    },
-    {
-        registrationId: 'INVX-F8A9TEKL',
-        fullName: 'Moumene said',
-        studentId: '39058017',
-        phone: '0659945165',
-        specialization: 'Automation',
-        projectTitle: 'N/A',
-        interests: ['robotics'],
-        registrationDate: '2025-04-18T01:20:25'
-    },
-    {
-        registrationId: 'INVX-LE53H300',
-        fullName: 'Adamou Mohammed Rafik',
-        studentId: '39056668',
-        phone: '0796392935',
-        specialization: 'Instrumentation',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T01:25:17'
-    },
-    {
-        registrationId: 'INVX-ACJT0C1F',
-        fullName: 'Abderrazak nadjri',
-        studentId: '39046076',
-        phone: '0672465184',
-        specialization: 'First Master in Energy and Petroleum Law',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T01:29:44'
-    },
-    {
-        registrationId: 'INVX-FXLVGSYV',
-        fullName: 'Gharbi Aridj',
-        studentId: '39300912',
-        phone: '0666262886',
-        specialization: 'Télécommunication',
-        projectTitle: 'Rank Easy',
-        interests: ['ai', 'web', 'data', 'mobile', 'robotics'],
-        registrationDate: '2025-04-18T02:01:00'
-    },
-    {
-        registrationId: 'INVX-MLRUIQB7',
-        fullName: 'SALHI merouane',
-        studentId: '39058965',
-        phone: '0672718901',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T02:24:47'
-    },
-    {
-        registrationId: 'INVX-XNL44VI1',
-        fullName: 'Khenchouche Mohamed islam',
-        studentId: '35711819',
-        phone: '0665104428',
-        specialization: 'Hydrocarbures',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T03:43:11'
-    },
-    {
-        registrationId: 'INVX-Y4XA5OOD',
-        fullName: 'فيصل عبد السلام محجوبي',
-        studentId: '39050117',
-        phone: '0669079333',
-        specialization: 'Electronics of embedded systems',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T04:23:16'
-    },
-    {
-        registrationId: 'INVX-Z9RTZVMR',
-        fullName: 'Mohammed elhadi Gouas',
-        studentId: '39294107',
-        phone: '0699691393',
-        specialization: 'Ai engineering',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
-        registrationDate: '2025-04-18T05:24:35'
-    },
-    {
-        registrationId: 'INVX-4FQ25N2Q',
-        fullName: 'Lyna Elhella',
-        studentId: '39314213',
-        phone: '0655091219',
-        specialization: 'Ingénieur informatique',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
-        registrationDate: '2025-04-18T05:24:50'
-    },
-    {
-        registrationId: 'INVX-ZT9DFGDB',
-        fullName: 'zeyd salhi',
-        studentId: '39546905',
-        phone: '0672283359',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T05:39:10'
-    },
-    {
-        registrationId: 'INVX-1QM2IPK8',
-        fullName: 'Benhammouda Salsabil',
-        studentId: '39055574',
-        phone: '0674734782',
-        specialization: 'Electronic',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T06:21:46'
-    },
-    {
-        registrationId: 'INVX-JZ11FPA1',
-        fullName: 'Yahia Hathat',
-        studentId: '30012022',
-        phone: '0659141361',
-        specialization: 'Automatic and industrial computing',
-        projectTitle: 'Deep learning',
-        interests: ['ai'],
-        registrationDate: '2025-04-18T08:37:16'
-    },
-    {
-        registrationId: 'INVX-YDVY3G3K',
-        fullName: 'MOKADEM ABDELKADER',
-        studentId: '39059508',
-        phone: '0658006357',
-        specialization: 'Electrical Engineering',
-        projectTitle: 'Smart Home',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T08:49:17'
-    },
-    {
-        registrationId: 'INVX-IHPGX04C',
-        fullName: 'MOKADEM Abdelkader',
-        studentId: '39059508',
-        phone: '0658006357',
-        specialization: 'Electrical Engineering',
-        projectTitle: 'Smart Home',
-        interests: ['iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-18T08:53:03'
-    },
-    {
-        registrationId: 'INVX-58M9NJHI',
-        fullName: 'Khazene nidhal',
-        studentId: '39380015',
-        phone: '0669812957',
-        specialization: 'computer science',
-        projectTitle: 'N/A',
-        interests: ['mobile'],
-        registrationDate: '2025-04-18T09:20:04'
-    },
-    {
-        registrationId: 'INVX-HQR3AW00',
-        fullName: 'طواهرية مريم هاجر',
-        studentId: '31195501',
-        phone: '0697587634',
-        specialization: 'Electronic',
-        projectTitle: 'The smart safety helmet',
-        interests: [],
-        registrationDate: '2025-04-18T09:25:38'
-    },
-    {
-        registrationId: 'INVX-96Y980ZM',
-        fullName: 'Lakhdariabdelfettah',
-        studentId: '39355104',
-        phone: '0658629923',
-        specialization: 'Petrochemical industries',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
-        registrationDate: '2025-04-18T09:29:20'
-    },
-    {
-        registrationId: 'INVX-NIN73J2V',
-        fullName: 'ZENKHRI BELKHIR',
-        studentId: '39289406',
-        phone: '0666696232',
-        specialization: 'Electronic',
-        projectTitle: 'Water quality Monitoring',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T09:44:48'
-    },
-    {
-        registrationId: 'INVX-V4YOWYYU',
-        fullName: 'Belalem Mohamed Elassaad',
-        studentId: '37002853',
-        phone: '0553800148',
-        specialization: 'Instrumentation',
-        projectTitle: 'N/A',
-        interests: ['cyber', 'electronics', 'networking'],
-        registrationDate: '2025-04-18T09:48:45'
-    },
-    {
-        registrationId: 'INVX-O3MJKBWT',
-        fullName: 'benhadda abdelaziz',
-        studentId: '39297811',
-        phone: '0541048891',
-        specialization: 'electronique',
-        projectTitle: 'Water Quality Monitoring',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T09:49:53'
-    },
-    {
-        registrationId: 'INVX-HNA80Y9W',
-        fullName: 'Ben abddalh abd elmonauim',
-        studentId: '39537010',
-        phone: '0658836060',
-        specialization: 'AutomaTic',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T09:56:52'
-    },
-    {
-        registrationId: 'INVX-OPEMJ0NY',
-        fullName: 'Aidli Meriem',
-        studentId: '39058246',
-        phone: '0671928284',
-        specialization: 'Computer Science',
-        projectTitle: 'N/A',
-        interests: ['data'],
-        registrationDate: '2025-04-18T10:05:27'
-    },
-    {
-        registrationId: 'INVX-HINHQXKL',
-        fullName: 'Khelil mohammed Hachem',
-        studentId: '39307120',
-        phone: '0667576143',
-        specialization: 'Geology',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'data', 'electronics', 'mobile'],
-        registrationDate: '2025-04-18T10:17:26'
-    },
-    {
-        registrationId: 'INVX-CVMOST9X',
-        fullName: 'Abdi houssem eddine',
-        studentId: '39346210',
-        phone: '0540431977',
-        specialization: 'Oil and gas production',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'networking', 'robotics'],
-        registrationDate: '2025-04-18T10:21:40'
-    },
-    {
-        registrationId: 'INVX-PCSTLWTB',
-        fullName: 'Gheribi mohammed anes',
-        studentId: '39045343',
-        phone: '0664483544',
-        specialization: 'Automation',
-        projectTitle: 'N/A',
-        interests: ['ai', 'robotics'],
-        registrationDate: '2025-04-18T10:40:45'
-    },
-    {
-        registrationId: 'INVX-XWT8NSAN',
-        fullName: 'GHRAB ABDALLAH',
-        studentId: '39335904',
-        phone: '0784191995',
-        specialization: 'Instrumentation',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T10:43:09'
-    },
-    {
-        registrationId: 'INVX-9MU5IDBE',
-        fullName: 'Aitsoura Melissa',
-        studentId: '39345804',
-        phone: '0662000461',
-        specialization: 'Instrumentation pétrolière',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T10:44:17'
-    },
-    {
-        registrationId: 'INVX-XOJWVZO0',
-        fullName: 'Ihsene boualati',
-        studentId: '39314802',
-        phone: '0655301678',
-        specialization: 'Informatique',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
-        registrationDate: '2025-04-18T10:54:02'
-    },
-    {
-        registrationId: 'INVX-9ZK8QR60',
-        fullName: 'Zouweyna Chebouki',
-        studentId: '39405304',
-        phone: '0542731391',
-        specialization: 'Automation',
-        projectTitle: 'Arduino-based Sewer Drain Shield',
-        interests: ['iot', 'electronics'],
-        registrationDate: '2025-04-18T10:54:19'
-    },
-    {
-        registrationId: 'INVX-DLUPM0MD',
-        fullName: 'Mengaa lahcene',
-        studentId: '39349716',
-        phone: '0557000976',
-        specialization: 'Instrumentation petrolique',
-        projectTitle: 'N/A',
-        interests: ['robotics'],
-        registrationDate: '2025-04-18T10:59:10'
-    },
-    {
-        registrationId: 'INVX-LI343JFQ',
-        fullName: 'djediai imad eddine',
-        studentId: '39301705',
-        phone: '0671411662',
-        specialization: 'Automation',
-        projectTitle: 'Atmospheic water generator',
-        interests: ['iot', 'electronics'],
-        registrationDate: '2025-04-18T11:03:27'
-    },
-    {
-        registrationId: 'INVX-8XFZSMGD',
-        fullName: 'Hakimi Nourelyakin',
-        studentId: '39047674',
-        phone: '0672720232',
-        specialization: 'Management',
-        projectTitle: 'Startup In progress',
-        interests: ['ai', 'web', 'iot', 'networking'],
-        registrationDate: '2025-04-18T11:04:34'
-    },
-    {
-        registrationId: 'INVX-TCAVTLXB',
-        fullName: 'Djarroudib nour melek',
-        studentId: '39345011',
-        phone: '0558918966',
-        specialization: 'Petroleum instrumentation',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'networking', 'mobile', 'robotics'],
-        registrationDate: '2025-04-18T11:08:17'
-    },
-    {
-        registrationId: 'INVX-KVBKIO7J',
-        fullName: 'DAHEM ABDESSAMED',
-        studentId: '39328619',
-        phone: '0667074149',
-        specialization: 'Instrumentation',
-        projectTitle: 'N/A',
-        interests: ['web', 'cyber'],
-        registrationDate: '2025-04-18T11:08:30'
-    },
-    {
-        registrationId: 'INVX-HEDIG1RS',
-        fullName: 'Nouari',
-        studentId: '22223121',
-        phone: '0772005321',
-        specialization: 'Automatique',
-        projectTitle: 'Plateforme Numérique d\'Assistance au Diagnostic du Cancer à l\'Aide de l\'Intelligence Artificielle',
-        interests: ['ai', 'web'],
-        registrationDate: '2025-04-18T11:11:19'
-    },
-    {
-        registrationId: 'INVX-NH9XXXFV',
-        fullName: 'Hafiane nassim',
-        studentId: '39317904',
-        phone: '0667161926',
-        specialization: 'St',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T11:18:38'
-    },
-    {
-        registrationId: 'INVX-XJMEYHSH',
-        fullName: 'Hafiane nassim',
-        studentId: '39317904',
-        phone: '0667161926',
-        specialization: 'St',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T11:21:42'
-    },
-    {
-        registrationId: 'INVX-BDSQLGYY',
-        fullName: 'Ahmed Boubekri',
-        studentId: '39320413',
-        phone: '0776712544',
-        specialization: 'Hydraulic',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
-        registrationDate: '2025-04-18T11:24:10'
-    },
-    {
-        registrationId: 'INVX-LZOJZCLQ',
-        fullName: 'ARID Mohammed',
-        studentId: '39294704',
-        phone: '0666309813',
-        specialization: 'Instrumentation petroliom',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T11:43:31'
-    },
-    {
-        registrationId: 'INVX-OLVLQIVI',
-        fullName: 'Mohammed Tohami',
-        studentId: '39048821',
-        phone: '0665000800',
-        specialization: 'M2 Auto',
-        projectTitle: 'N/A',
-        interests: ['ai', 'iot', 'electronics', 'robotics'],
-        registrationDate: '2025-04-18T11:48:24'
-    },
-    {
-        registrationId: 'INVX-O4Z9DOWL',
-        fullName: 'Benlahcene abdelaziz',
-        studentId: '39058095',
-        phone: '0542251401',
-        specialization: 'Automation',
-        projectTitle: 'Smart car',
-        interests: ['robotics'],
-        registrationDate: '2025-04-18T11:49:10'
-    },
-    {
-        registrationId: 'INVX-6GGZU8F2',
-        fullName: 'Bekkari ahmed sohaib',
-        studentId: '39306010',
-        phone: '0697505830',
-        specialization: 'L3 instrumentation',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T12:36:35'
-    },
-    {
-        registrationId: 'INVX-FBZUCNOB',
-        fullName: 'Tidjani Mounir',
-        studentId: '35348812',
-        phone: '0697390096',
-        specialization: 'Instrument',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T12:39:46'
-    },
-    {
-        registrationId: 'INVX-R3LYMV5C',
-        fullName: 'Mosbah Nesrine Nada Erraihane',
-        studentId: '39057709',
-        phone: '0698215087',
-        specialization: 'Renewable energies',
-        projectTitle: 'N/A',
-        interests: ['ai'],
-        registrationDate: '2025-04-18T12:43:53'
-    },
-    {
-        registrationId: 'INVX-KBQR88WO',
-        fullName: 'Zeribit Lamia',
-        studentId: '39306520',
-        phone: '0657999995',
-        specialization: 'Télécommunications',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T12:44:55'
-    },
-    {
-        registrationId: 'INVX-T9SR3XEJ',
-        fullName: 'Zeribit dalal',
-        studentId: '39306520',
-        phone: '0657999995',
-        specialization: 'Télécommunications',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T12:46:57'
-    },
-    {
-        registrationId: 'INVX-JMRFLQVK',
-        fullName: 'Farah Ferial Aroua',
-        studentId: '39318215',
-        phone: '0556097756',
-        specialization: 'Electronics',
-        projectTitle: 'N/A',
-        interests: ['ai', 'electronics', 'robotics'],
-        registrationDate: '2025-04-18T12:47:12'
-    },
-    {
-        registrationId: 'INVX-INSCAN0E',
-        fullName: 'Hana Bekhdidja',
-        studentId: '39327404',
-        phone: '0697044399',
-        specialization: 'St',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
-        registrationDate: '2025-04-18T12:50:18'
-    },
-    {
-        registrationId: 'INVX-6FFPYRSH',
-        fullName: 'Zineb chikh biubekeur',
-        studentId: '39645820',
-        phone: '0553305731',
-        specialization: 'Informatique',
-        projectTitle: 'N/A',
-        interests: ['web', 'networking', 'robotics'],
-        registrationDate: '2025-04-18T12:55:51'
-    },
-    {
-        registrationId: 'INVX-69JTZC1K',
-        fullName: 'Boutaina Hamdaoui',
-        studentId: '39351403',
-        phone: '0658154356',
-        specialization: 'Computer Science',
-        projectTitle: 'N/A',
-        interests: ['web'],
-        registrationDate: '2025-04-18T13:06:09'
-    },
-    {
-        registrationId: 'INVX-4VC7O563',
-        fullName: 'Ala Eddie chouiref',
-        studentId: '39092009',
-        phone: '0672585049',
-        specialization: 'Èlectrotèchnique',
-        projectTitle: 'N/A',
-        interests: ['electronics'],
-        registrationDate: '2025-04-18T13:09:17'
-    },
-    {
-        registrationId: 'INVX-DIMQ6ONF',
-        fullName: 'Nada taaba',
-        studentId: '39314812',
-        phone: '0781988882',
-        specialization: 'Informatique',
-        projectTitle: 'N/A',
-        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
-        registrationDate: '2025-04-18T13:14:02'
-    },
-    {
-        registrationId: 'INVX-YJ4PU1ER',
-        fullName: 'ARID Mohammed',
-        studentId: '39294704',
-        phone: '0666309813',
-        specialization: 'Instrumentation petroliom',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T13:15:45'
-    },
-    {
-        registrationId: 'INVX-76I38YG4',
-        fullName: 'Souhaib Tidjani',
-        studentId: '39059508',
-        phone: '0669350263',
-        specialization: 'Instrimontation',
-        projectTitle: 'N/A',
-        interests: ['ai', 'electronics', 'robotics'],
-        registrationDate: '2025-04-18T13:22:38'
-    },
-    {
-        registrationId: 'INVX-A64LEIE6',
-        fullName: 'Hadji Boutheina',
-        studentId: '39306304',
-        phone: '0698141401',
-        specialization: 'Automatique',
-        projectTitle: 'Smart remote control system',
-        interests: ['ai'],
-        registrationDate: '2025-04-18T13:30:42'
-    },
-    {
-        registrationId: 'INVX-9KEQC4SM',
-        fullName: 'خديجة عطالي',
-        studentId: '39581716',
-        phone: '0699500611',
-        specialization: 'المدرسة العليا الاساتذة (استاذة تعليم ثانوي تاريخ وجغرافبا',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T13:30:50'
-    },
-    {
-        registrationId: 'INVX-PSUDAPKD',
-        fullName: 'Asmaa Chettouh',
-        studentId: '12042424',
-        phone: '0778010856',
-        specialization: 'Omp',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T13:33:41'
-    },
-    {
-        registrationId: 'INVX-31IMZ6I0',
-        fullName: 'Bennai Maroua ( بناي مروة)',
-        studentId: '39304814',
-        phone: '0657610818',
-        specialization: '(إعلام ألي( 2 ليسانس',
-        projectTitle: 'فتح ويب بعنوان تعلم الجرافيك للمبتدئين (تطويره مع الوقت)',
-        interests: ['web', 'data', 'networking', 'mobile'],
-        registrationDate: '2025-04-18T13:35:32'
-    },
-    {
-        registrationId: 'INVX-JSXBHXMO',
-        fullName: 'Lylia Benkouider',
-        studentId: '39045995',
-        phone: '0799964146',
-        specialization: 'Énergies renouvelables en mécanique',
-        projectTitle: 'N/A',
-        interests: [],
-        registrationDate: '2025-04-18T13:36:13'
-    },
-    {
-        registrationId: 'INVX-OTPRQA7R',
-        fullName: 'Benkaci Nabil',
-        studentId: '39052077',
-        phone: '0698271230',
-        specialization: 'Network and security',
-        projectTitle: 'N/A',
-        interests: ['ai', 'cyber', 'cloud', 'networking'],
-        registrationDate: '2025-04-18T13:53:59'
-    },
-    {
-        registrationId: 'INVX-KE1G30TO',
-        fullName: 'أولاد هدار حفصة',
-        studentId: '39049888',
-        phone: '0658967052',
-        specialization: 'Accounting and audit',
-        projectTitle: 'N/A',
-        interests: ['networking'],
-        registrationDate: '2025-04-18T14:03:39'
-    },
-    {
-        registrationId: 'INVX-J59EYYOH',
-        fullName: 'Soufiane kafi',
-        studentId: '39055568',
-        phone: '0667689000',
-        specialization: 'Automatique',
-        projectTitle: 'Attendance tracking system using facial recognition',
-        interests: [],
-        registrationDate: '2025-04-18T14:06:10'
-    },
-    {
-        registrationId: 'INVX-RX5UIXC1',
-        fullName: 'Salhi Djouhaina',
-        studentId: '39619006',
-        phone: '0782394567',
-        specialization: 'Métrologie et mesure de la qualité',
-        projectTitle: 'Recyclage',
-        interests: ['web'],
-        registrationDate: '2025-04-18T14:06:12'
-    },
-    {
-        registrationId: 'INVX-SMBIV6YW',
-        fullName: 'HERROUZ salaheddine',
-        studentId: '39048446',
-        phone: '0673233065',
-        specialization: 'Automation',
-        projectTitle: 'N/A',
-        interests: ['ai', 'iot', 'electronics'],
-        registrationDate: '2025-04-18T14:06:59'
-    }
-];
-        // DOM Elements
-        const studentsTableBody = document.getElementById('studentsTableBody');
-        const participantsTableBody = document.getElementById('participantsTableBody');
-        const totalRegistrations = document.getElementById('totalRegistrations');
-        const activeProjects = document.getElementById('activeProjects');
-        const topSpecialization = document.getElementById('topSpecialization');
-        const pendingActions = document.getElementById('pendingActions');
-        const searchInput = document.querySelector('.search-box input');
-        const specializationFilter = document.getElementById('specialization-filter');
-        const interestFilter = document.getElementById('interest-filter');
-        const dateFilter = document.getElementById('date-filter');
-        const prevPageBtn = document.getElementById('prevPage');
-        const nextPageBtn = document.getElementById('nextPage');
-        const currentPageSpan = document.getElementById('currentPage');
-        const startItemSpan = document.getElementById('startItem');
-        const endItemSpan = document.getElementById('endItem');
-        const totalItemsSpan = document.getElementById('totalItems');
-        const studentModal = document.getElementById('studentModal');
-        const closeModalBtn = document.querySelector('.close-modal');
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        // Workshop elements
-        const workshop1Total = document.getElementById('workshop1Total');
-        const workshop1Today = document.getElementById('workshop1Today');
-        const workshop1Participants = document.getElementById('workshop1Participants');
-        const workshop2Total = document.getElementById('workshop2Total');
-        const workshop2Today = document.getElementById('workshop2Today');
-        const workshop2Participants = document.getElementById('workshop2Participants');
-
-        // Pagination variables
-        let currentPage = 1;
-        let participantsCurrentPage = 1;
-        const rowsPerPage = 10;
-
-        // Charts
-        let specializationChart, registrationTrendsChart, interestsChart, projectStatusChart;
-
-        // Initialize dashboard
-        function initDashboard() {
-            updateStats();
-            renderStudentsTable();
-            renderParticipantsTable();
-            setupEventListeners();
-            setupCharts();
-            updateWorkshopStats();
-        }
-
-        // Update dashboard statistics
-        function updateStats() {
-            totalRegistrations.textContent = studentsData.length;
-            
-            // Count active projects (not "N/A" or empty)
-            const activeProjectsCount = studentsData.filter(student => 
-                student.projectTitle && !['N/A', 'No', 'Not specified', ''].includes(student.projectTitle)
-                ).length;
-            activeProjects.textContent = activeProjectsCount;
-            
-            // Find top specialization
-            const specializations = studentsData.reduce((acc, student) => {
-                acc[student.specialization] = (acc[student.specialization] || 0) + 1;
-                return acc;
-            }, {});
-            
-            const topSpec = Object.entries(specializations).sort((a, b) => b[1] - a[1])[0];
-            topSpecialization.textContent = topSpec ? `${topSpec[0]} (${topSpec[1]})` : '-';
-            
-            pendingActions.textContent = '3'; // Placeholder value
-        }
-
-        // Render students table with pagination
-        function renderStudentsTable(filteredData = studentsData) {
-            // Apply filters
-            let filteredStudents = [...filteredData];
-            
-            // Apply specialization filter
-            if (specializationFilter.value !== 'all') {
-                filteredStudents = filteredStudents.filter(
-                    student => student.specialization === specializationFilter.value
-                );
-            }
-            
-            // Apply interest filter
-            if (interestFilter.value !== 'all') {
-                filteredStudents = filteredStudents.filter(
-                    student => student.interests && student.interests.includes(interestFilter.value)
-                );
-            }
-            
-            // Apply date filter
-            if (dateFilter.value !== 'all') {
-                const now = new Date();
-                filteredStudents = filteredStudents.filter(student => {
-                    const regDate = new Date(student.registrationDate);
-                    
-                    switch (dateFilter.value) {
-                        case 'today':
-                            return regDate.toDateString() === now.toDateString();
-                        case 'week':
-                            const weekStart = new Date(now);
-                            weekStart.setDate(now.getDate() - now.getDay());
-                            return regDate >= weekStart;
-                        case 'month':
-                            return regDate.getMonth() === now.getMonth() && 
-                                   regDate.getFullYear() === now.getFullYear();
-                        default:
-                            return true;
-                    }
-                });
-            }
-            
-            // Apply search
-            const searchTerm = searchInput.value.toLowerCase();
-            if (searchTerm) {
-                filteredStudents = filteredStudents.filter(student => 
-                    student.fullName.toLowerCase().includes(searchTerm) ||
-                    (student.studentId && student.studentId.toLowerCase().includes(searchTerm)) ||
-                    student.registrationId.toLowerCase().includes(searchTerm)
-                );
-            }
-            
-            // Calculate pagination
-            const totalItems = filteredStudents.length;
-            const totalPages = Math.ceil(totalItems / rowsPerPage);
-            
-            // Adjust current page if needed
-            if (currentPage > totalPages && totalPages > 0) {
-                currentPage = totalPages;
-            } else if (currentPage < 1) {
-                currentPage = 1;
-            }
-            
-            // Update pagination controls
-            prevPageBtn.disabled = currentPage === 1;
-            nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
-            currentPageSpan.textContent = currentPage;
-            
-            // Calculate start and end indexes
-            const startIndex = (currentPage - 1) * rowsPerPage;
-            const endIndex = Math.min(startIndex + rowsPerPage, totalItems);
-            
-            // Update pagination info
-            startItemSpan.textContent = totalItems > 0 ? startIndex + 1 : 0;
-            endItemSpan.textContent = endIndex;
-            totalItemsSpan.textContent = totalItems;
-            
-            // Clear table
-            studentsTableBody.innerHTML = '';
-            
-            // Add rows for current page
-            filteredStudents.slice(startIndex, endIndex).forEach(student => {
-                const row = document.createElement('tr');
-                
-                row.innerHTML = `
-                    <td>${student.registrationId}</td>
-                    <td>${student.fullName}</td>
-                    <td>${student.studentId || '-'}</td>
-                    <td>${student.specialization || '-'}</td>
-                    <td>${student.projectTitle || '-'}</td>
-                    <td>${student.interests ? student.interests.join(', ') : '-'}</td>
-                    <td>${formatDate(student.registrationDate)}</td>
-                    <td>
-                        <button class="action-btn view-btn" data-id="${student.registrationId}">
-                            <i class="fas fa-eye"></i> View
-                        </button>
-                    </td>
-                `;
-                
-                studentsTableBody.appendChild(row);
-            });
-            
-            // Add event listeners to view buttons
-            document.querySelectorAll('.view-btn').forEach(btn => {
-                btn.addEventListener('click', () => showStudentDetails(btn.dataset.id));
-            });
-        }
-
-        // Render participants table (similar to students table but shows all data)
-        function renderParticipantsTable() {
-            const totalItems = studentsData.length;
-            const totalPages = Math.ceil(totalItems / rowsPerPage);
-            
-            if (participantsCurrentPage > totalPages && totalPages > 0) {
-                participantsCurrentPage = totalPages;
-            } else if (participantsCurrentPage < 1) {
-                participantsCurrentPage = 1;
-            }
-            
-            document.getElementById('participantsPrevPage').disabled = participantsCurrentPage === 1;
-            document.getElementById('participantsNextPage').disabled = participantsCurrentPage === totalPages || totalPages === 0;
-            document.getElementById('participantsCurrentPage').textContent = participantsCurrentPage;
-            
-            const startIndex = (participantsCurrentPage - 1) * rowsPerPage;
-            const endIndex = Math.min(startIndex + rowsPerPage, totalItems);
-            
-            document.getElementById('participantsStartItem').textContent = totalItems > 0 ? startIndex + 1 : 0;
-            document.getElementById('participantsEndItem').textContent = endIndex;
-            document.getElementById('participantsTotalItems').textContent = totalItems;
-            
-            participantsTableBody.innerHTML = '';
-            
-            studentsData.slice(startIndex, endIndex).forEach(student => {
-                const row = document.createElement('tr');
-                
-                row.innerHTML = `
-                    <td>${student.registrationId}</td>
-                    <td>${student.fullName}</td>
-                    <td>${student.studentId || '-'}</td>
-                    <td>${student.specialization || '-'}</td>
-                    <td>${student.projectTitle || '-'}</td>
-                    <td>${student.interests ? student.interests.join(', ') : '-'}</td>
-                    <td>${formatDate(student.registrationDate)}</td>
-                    <td>
-                        <button class="action-btn view-btn" data-id="${student.registrationId}">
-                            <i class="fas fa-eye"></i> View
-                        </button>
-                    </td>
-                `;
-                
-                participantsTableBody.appendChild(row);
-            });
-            
-            document.querySelectorAll('#participantsTableBody .view-btn').forEach(btn => {
-                btn.addEventListener('click', () => showStudentDetails(btn.dataset.id));
-            });
-        }
-
-        // Format date for display
-        function formatDate(dateString) {
-            const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-            return new Date(dateString).toLocaleDateString(undefined, options);
-        }
-
-        // Show student details modal
-        function showStudentDetails(registrationId) {
-            const student = studentsData.find(s => s.registrationId === registrationId);
-            if (!student) return;
-            
-            document.getElementById('modalStudentName').textContent = student.fullName;
-            document.getElementById('modalRegId').textContent = student.registrationId;
-            document.getElementById('modalStudentId').textContent = student.studentId || 'Not specified';
-            document.getElementById('modalPhone').textContent = student.phone || 'Not specified';
-            document.getElementById('modalSpecialization').textContent = student.specialization || 'Not specified';
-            document.getElementById('modalRegDate').textContent = formatDate(student.registrationDate);
-            document.getElementById('modalProjectTitle').textContent = student.projectTitle || 'Not specified';
-            document.getElementById('modalInterests').textContent = student.interests ? student.interests.join(', ') : 'Not specified';
-            
-            studentModal.style.display = 'flex';
-        }
-
-        // Setup charts for analytics
-        function setupCharts() {
-            // Specialization distribution chart
-            const specializationCtx = document.getElementById('specializationChart').getContext('2d');
-            const specializations = studentsData.reduce((acc, student) => {
-                acc[student.specialization] = (acc[student.specialization] || 0) + 1;
-                return acc;
-            }, {});
-            
-            const sortedSpecializations = Object.entries(specializations)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 10);
-            
-            specializationChart = new Chart(specializationCtx, {
-                type: 'bar',
-                data: {
-                    labels: sortedSpecializations.map(item => item[0]),
-                    datasets: [{
-                        label: 'Number of Students',
-                        data: sortedSpecializations.map(item => item[1]),
-                        backgroundColor: '#4e73df',
-                        borderColor: '#4e73df',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                stepSize: 1
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Registration trends chart (last 7 days)
-            const trendsCtx = document.getElementById('registrationTrendsChart').getContext('2d');
-            const now = new Date();
-            const dates = [];
-            const counts = [];
-            
-            for (let i = 6; i >= 0; i--) {
-                const date = new Date(now);
-                date.setDate(now.getDate() - i);
-                const dateStr = date.toISOString().split('T')[0];
-                
-                dates.push(date.toLocaleDateString('en-US', { weekday: 'short' }));
-                counts.push(
-                    studentsData.filter(student => {
-                        const studentDate = new Date(student.registrationDate).toISOString().split('T')[0];
-                        return studentDate === dateStr;
-                    }).length
-                );
-            }
-            
-            registrationTrendsChart = new Chart(trendsCtx, {
-                type: 'line',
-                data: {
-                    labels: dates,
-                    datasets: [{
-                        label: 'Registrations',
-                        data: counts,
-                        backgroundColor: 'rgba(78, 115, 223, 0.05)',
-                        borderColor: '#4e73df',
-                        borderWidth: 2,
-                        tension: 0.4,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                stepSize: 1
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Interests distribution chart
-            const interestsCtx = document.getElementById('interestsChart').getContext('2d');
-            const allInterests = studentsData.flatMap(student => student.interests || []);
-            const interestCounts = allInterests.reduce((acc, interest) => {
-                acc[interest] = (acc[interest] || 0) + 1;
-                return acc;
-            }, {});
-            
-            const sortedInterests = Object.entries(interestCounts)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 8);
-            
-            interestsChart = new Chart(interestsCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: sortedInterests.map(item => item[0]),
-                    datasets: [{
-                        data: sortedInterests.map(item => item[1]),
-                        backgroundColor: [
-                            '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', 
-                            '#e74a3b', '#858796', '#5a5c69', '#3a3b45'
-                        ],
-                        hoverBackgroundColor: [
-                            '#2e59d9', '#17a673', '#2c9faf', '#dda20a', 
-                            '#be2617', '#6c757d', '#4e525c', '#2e3035'
-                        ],
-                        hoverBorderColor: "rgba(234, 236, 244, 1)",
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                        }
-                    }
-                }
-            });
-
-            // Project status chart
-            const projectCtx = document.getElementById('projectStatusChart').getContext('2d');
-            const withProject = studentsData.filter(student => 
-                student.projectTitle && !['N/A', 'No', 'Not specified', ''].includes(student.projectTitle)
-                ).length;
-            const withoutProject = studentsData.length - withProject;
-            
-            projectStatusChart = new Chart(projectCtx, {
-                type: 'pie',
-                data: {
-                    labels: ['With Project', 'Without Project'],
-                    datasets: [{
-                        data: [withProject, withoutProject],
-                        backgroundColor: ['#1cc88a', '#e74a3b'],
-                        hoverBackgroundColor: ['#17a673', '#be2617'],
-                        hoverBorderColor: "rgba(234, 236, 244, 1)",
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                }
-            });
-        }
-
-        // Update workshop statistics
-        function updateWorkshopStats() {
-            // Workshop 1: FPGA & VHDL Programming
-            const workshop1Registrations = studentsData.filter(student => 
-                student.workshop && student.workshop.includes('FPGA & VHDL Programming')
-            );
-            
-            workshop1Total.textContent = workshop1Registrations.length;
-            
-            const today = new Date().toISOString().split('T')[0];
-            const workshop1TodayCount = workshop1Registrations.filter(student => 
-                new Date(student.registrationDate).toISOString().split('T')[0] === today
-            ).length;
-            workshop1Today.textContent = workshop1TodayCount;
-            
-            // Display recent participants for workshop 1
-            workshop1Participants.innerHTML = '';
-            const recentWorkshop1 = workshop1Registrations
-                .sort((a, b) => new Date(b.registrationDate) - new Date(a.registrationDate))
-                .slice(0, 5);
-            
-            recentWorkshop1.forEach(student => {
-                const participant = document.createElement('div');
-                participant.className = 'participant-item';
-                participant.innerHTML = `
-                    <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(student.fullName)}&background=random" alt="${student.fullName}">
-                    <div class="participant-info">
-                        <h5>${student.fullName}</h5>
-                        <p>${student.specialization || 'Not specified'} • ${formatDate(student.registrationDate)}</p>
-                    </div>
-                `;
-                workshop1Participants.appendChild(participant);
-            });
-
-            // Workshop 2: Introduction to AI and Machine Learning
-            const workshop2Registrations = studentsData.filter(student => 
-                student.workshop && student.workshop.includes('AI and Machine Learning')
-            );
-            
-            workshop2Total.textContent = workshop2Registrations.length;
-            
-            const workshop2TodayCount = workshop2Registrations.filter(student => 
-                new Date(student.registrationDate).toISOString().split('T')[0] === today
-            ).length;
-            workshop2Today.textContent = workshop2TodayCount;
-            
-            // Display recent participants for workshop 2
-            workshop2Participants.innerHTML = '';
-            const recentWorkshop2 = workshop2Registrations
-                .sort((a, b) => new Date(b.registrationDate) - new Date(a.registrationDate))
-                .slice(0, 5);
-            
-            recentWorkshop2.forEach(student => {
-                const participant = document.createElement('div');
-                participant.className = 'participant-item';
-                participant.innerHTML = `
-                    <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(student.fullName)}&background=random" alt="${student.fullName}">
-                    <div class="participant-info">
-                        <h5>${student.fullName}</h5>
-                        <p>${student.specialization || 'Not specified'} • ${formatDate(student.registrationDate)}</p>
-                    </div>
-                `;
-                workshop2Participants.appendChild(participant);
-            });
-        }
-
-        // Setup event listeners
-        function setupEventListeners() {
-            // Search input
-            searchInput.addEventListener('input', () => {
-                currentPage = 1;
-                renderStudentsTable();
-            });
-            
-            // Filter dropdowns
-            specializationFilter.addEventListener('change', () => {
-                currentPage = 1;
-                renderStudentsTable();
-            });
-            
-            interestFilter.addEventListener('change', () => {
-                currentPage = 1;
-                renderStudentsTable();
-            });
-            
-            dateFilter.addEventListener('change', () => {
-                currentPage = 1;
-                renderStudentsTable();
-            });
-            
-            // Pagination buttons
-            prevPageBtn.addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderStudentsTable();
-                }
-            });
-            
-            nextPageBtn.addEventListener('click', () => {
-                const totalPages = Math.ceil(studentsData.length / rowsPerPage);
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderStudentsTable();
-                }
-            });
-            
-            // Participants pagination
-            document.getElementById('participantsPrevPage').addEventListener('click', () => {
-                if (participantsCurrentPage > 1) {
-                    participantsCurrentPage--;
-                    renderParticipantsTable();
-                }
-            });
-            
-            document.getElementById('participantsNextPage').addEventListener('click', () => {
-                const totalPages = Math.ceil(studentsData.length / rowsPerPage);
-                if (participantsCurrentPage < totalPages) {
-                    participantsCurrentPage++;
-                    renderParticipantsTable();
-                }
-            });
-            
-            // Close modal
-            closeModalBtn.addEventListener('click', () => {
-                studentModal.style.display = 'none';
-            });
-            
-            window.addEventListener('click', (e) => {
-                if (e.target === studentModal) {
-                    studentModal.style.display = 'none';
-                }
-            });
-            
-            // Export button
-            document.querySelector('.export-btn').addEventListener('click', exportData);
-            
-            // Tab navigation
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all tabs
-                    tabBtns.forEach(tb => tb.classList.remove('active'));
-                    tabContents.forEach(tc => tc.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
-                    btn.classList.add('active');
-                    const tabId = btn.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.add('active');
-                    
-                    // Update charts when analytics tab is shown
-                    if (tabId === 'analytics') {
-                        setupCharts();
-                    }
-                    
-                    // Update workshop stats when workshops tab is shown
-                    if (tabId === 'workshops') {
-                        updateWorkshopStats();
-                    }
-                });
-            });
-        }
-
-        // Export data as CSV
-        function exportData() {
-            // Create CSV content
-            let csvContent = "data:text/csv;charset=utf-8,";
-            
-            // Add header row
-            const headers = [
-                'Registration ID', 'Full Name', 'Student ID', 'Phone', 
-                'Specialization', 'Project Title', 'Interests', 'Registration Date'
-            ];
-            csvContent += headers.join(',') + "\r\n";
-            
-            // Add data rows
-            studentsData.forEach(student => {
-                const row = [
-                    student.registrationId,
-                    student.fullName,
-                    student.studentId || '',
-                    student.phone || '',
-                    student.specialization || '',
-                    student.projectTitle || '',
-                    student.interests ? student.interests.join('; ') : '',
-                    new Date(student.registrationDate).toLocaleString()
-                ].map(field => `"${field}"`).join(',');
-                
-                csvContent += row + "\r\n";
-            });
-            
-            // Create download link
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "innovex_registrations.csv");
-            document.body.appendChild(link);
-            
-            // Trigger download
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // Initialize the dashboard when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initDashboard);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

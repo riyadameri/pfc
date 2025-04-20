@@ -2504,7 +2504,1947 @@ const studentsData = [
         projectTitle: 'N/A',
         interests: ['ai', 'web', 'cyber', 'data', 'mobile'],
         registrationDate: '2025-04-18T20:37:43'
-    }
+    },    {
+        registrationId: 'INVX-SMBIV6YW',
+        fullName: 'HERROUZ salaheddine',
+        studentId: '39048446',
+        phone: '0673233065',
+        specialization: 'Automation',
+        projectTitle: 'N/A',
+        interests: ['ai', 'iot', 'electronics'],
+        registrationDate: '2025-04-18T14:06:59'
+    },
+    { 
+        registrationId: 'INVX-MUAVVOMA',
+        fullName: 'Hadjseyd Narimen',
+        studentId: '39567518',
+        phone: '0675386373',
+        specialization: 'English',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-16T21:42:18',
+        workshop: 'FIRST HOUR: ASALA DOB - SELF BRANDING'
+    },
+    {
+        registrationId: 'INVX-9KSEV4SL',
+        fullName: 'Bahaz manal Nourelhouda',
+        studentId: '39344912',
+        phone: '0667547108',
+        specialization: 'Electronic',
+        projectTitle: 'Dual-axis360°/180°solar tracking system',
+        interests: ['ai', 'electronics', 'robotics'],
+        registrationDate: '2025-04-18T20:41:59'
+    },
+    {
+        registrationId: 'WS-Z157SAL6',
+        fullName: 'Ayet errahmane hadjadj',
+        studentId: '39047458',
+        phone: '0672720811',
+        specialization: 'accounting',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T20:59:52',
+        workshop: 'FIRST HOUR: KARIM KHELIFI - From Classroom to Career'
+    },
+    {
+        registrationId: 'INVX-JLX2RTGK',
+        fullName: 'benderradji Sara',
+        studentId: '39045805',
+        phone: '0771447614',
+        specialization: 'Civil engineering',
+        projectTitle: 'N/A',
+        interests: ['data'],
+        registrationDate: '2025-04-18T21:11:25'
+    },
+    {
+        registrationId: 'INVX-5NDC17IZ',
+        fullName: 'Omar Djafri Abderrahmane',
+        studentId: '39068933',
+        phone: '0668422772',
+        specialization: 'Med student',
+        projectTitle: 'Video editor',
+        interests: ['ai'],
+        registrationDate: '2025-04-18T21:14:24'
+    },
+    {
+        registrationId: 'WS-M9W58A7E',
+        fullName: 'YACINE HAMMI',
+        studentId: '39322603',
+        phone: '0666449592',
+        specialization: 'Géologie',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:14:59',
+        workshop: 'SECOND HOUR: ADEM MELLOUKA - FPGA & VHDL Programming'
+    },
+    {
+        registrationId: 'INVX-YXH3TB08',
+        fullName: 'Bahaz manal Nourelhouda',
+        studentId: '39344912',
+        phone: '0667547108',
+        specialization: 'Electronic',
+        projectTitle: 'Dual-axis360°/180°solar tracking system',
+        interests: ['ai', 'electronics', 'robotics'],
+        registrationDate: '2025-04-18T21:16:18'
+    },
+    {
+        registrationId: 'INVX-U22P5227',
+        fullName: 'Amira Abderrahmane',
+        studentId: '39336110',
+        phone: '0655647290',
+        specialization: 'Ing informatique',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'networking', 'mobile'],
+        registrationDate: '2025-04-18T21:16:19'
+    },
+    {
+        registrationId: 'INVX-4JBWW6TZ',
+        fullName: 'Ben guehza med el bachir',
+        studentId: '20170720',
+        phone: '0540028435',
+        specialization: 'Système télécommunications',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:16:42'
+    },
+    {
+        registrationId: 'INVX-ANKHYL2E',
+        fullName: 'Bahaz manal Nourelhouda',
+        studentId: '39344912',
+        phone: '0667547108',
+        specialization: 'Electronic',
+        projectTitle: 'Dual-axis360°/180°solar tracking system',
+        interests: ['ai', 'electronics', 'robotics'],
+        registrationDate: '2025-04-18T21:19:50'
+    },
+    {
+        registrationId: 'WS-HXBPC1NB',
+        fullName: 'Aya bedada',
+        studentId: '39298406',
+        phone: '0675026039',
+        specialization: 'Informatique',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:22:45',
+        workshop: 'SECOND HOUR: ADEM MELLOUKA - FPGA & VHDL Programming'
+    },
+    {
+        registrationId: 'INVX-IWNT2DRL',
+        fullName: 'أمجد كيند',
+        studentId: '39576014',
+        phone: '0796570605',
+        specialization: 'MIASHS',
+        projectTitle: 'N/A',
+        interests: ['ai', 'data'],
+        registrationDate: '2025-04-18T21:24:06'
+    },
+    {
+        registrationId: 'INVX-X13S02EZ',
+        fullName: 'Taibi Roumaissa',
+        studentId: '39053381',
+        phone: '0665851681',
+        specialization: 'M1 telecom',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:28:11'
+    },
+    {
+        registrationId: 'INVX-GYVXPUNU',
+        fullName: 'ijtihadlatamen',
+        studentId: '39337412',
+        phone: '0698479291',
+        specialization: 'telecominication',
+        projectTitle: 'القفل الدكي لحماية الممتلكات عن بعد',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T21:36:24'
+    },
+    {
+        registrationId: 'INVX-TREB11T7',
+        fullName: 'SMAHI MANSOURI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'HSE',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'networking'],
+        registrationDate: '2025-04-18T21:43:22'
+    },
+    {
+        registrationId: 'INVX-WX6X4JT3',
+        fullName: 'Mohammed Ramzi Lamniai',
+        studentId: '39051718',
+        phone: '0796353010',
+        specialization: 'Embedded system',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T21:43:34'
+    },
+    {
+        registrationId: 'INVX-XWQ7VHGA',
+        fullName: 'Bismilla raounek elbatoul',
+        studentId: '39354120',
+        phone: '0655397939',
+        specialization: 'Electronique',
+        projectTitle: 'Solar powered wifi irrigation',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T21:45:07'
+    },
+    {
+        registrationId: 'WS-KD20GOYA',
+        fullName: 'SMAHI MANSOURI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'HSE',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:45:17',
+        workshop: 'FIRST HOUR: ASALA DOB - SELF BRANDING'
+    },
+    {
+        registrationId: 'WS-5BAO6BJ5',
+        fullName: 'MANSOURI SMAHI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'HSE',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:46:08',
+        workshop: 'FIRST HOUR: KARIM KHELIFI - From Classroom to Career'
+    },
+    {
+        registrationId: 'WS-HRLSOS2I',
+        fullName: 'MANSOURI SMAHI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'HSE',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:46:40',
+        workshop: 'SECOND HOUR: FARID HADJ SAID - From Home Town to the World'
+    },
+    {
+        registrationId: 'INVX-ZB8UBE0F',
+        fullName: 'MANSOURI SMAHI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'Hse',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'data', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-18T21:50:43'
+    },
+    {
+        registrationId: 'INVX-SZERWX37',
+        fullName: 'sarra ateitallah',
+        studentId: '39306518',
+        phone: '0791790693',
+        specialization: 'Médecine',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-18T22:04:05'
+    },
+    {
+        registrationId: 'WS-IJ6MUZ8M',
+        fullName: 'Daoudamal',
+        studentId: '39290519',
+        phone: '0659329913',
+        specialization: 'Eln',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T22:22:41',
+        workshop: 'FIRST HOUR: ASALA DOB - SELF BRANDING'
+    },
+    {
+        registrationId: 'INVX-HPD71JNW',
+        fullName: 'TOUILI MOHAMMED TAYEB',
+        studentId: '39056662',
+        phone: '0656465592',
+        specialization: 'Energy renewables',
+        projectTitle: 'N/A',
+        interests: ['networking'],
+        registrationDate: '2025-04-18T22:25:58'
+    },
+    {
+        registrationId: 'INVX-SCG7TOIC',
+        fullName: 'AHMED MAHER Boughaba',
+        studentId: '39050266',
+        phone: '0657142683',
+        specialization: 'Electronic system embedded',
+        projectTitle: 'N/A',
+        interests: ['web', 'electronics'],
+        registrationDate: '2025-04-18T22:29:12'
+    },
+    {
+        registrationId: 'INVX-QS94XGHL',
+        fullName: 'Briki abdellah',
+        studentId: '39308102',
+        phone: '0658506454',
+        specialization: 'Electronic',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'networking'],
+        registrationDate: '2025-04-18T22:29:19'
+    },
+    {
+        registrationId: 'INVX-I8UF0ZA8',
+        fullName: 'Hemmi Mohamed Islam',
+        studentId: '39045868',
+        phone: '0668352733',
+        specialization: 'Machine électrique',
+        projectTitle: 'Gaze safe',
+        interests: ['robotics'],
+        registrationDate: '2025-04-18T22:33:06'
+    },
+    {
+        registrationId: 'INVX-RBC4I4HP',
+        fullName: 'Zegheb maroua',
+        studentId: '39310806',
+        phone: '0552876893',
+        specialization: 'Electronics',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'electronics', 'robotics'],
+        registrationDate: '2025-04-18T22:42:14'
+    },
+    {
+        registrationId: 'INVX-2D2GR89C',
+        fullName: 'Yahia bouanane',
+        studentId: '20233953',
+        phone: '0656133124',
+        specialization: 'الية',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T22:59:52'
+    },
+    {
+        registrationId: 'INVX-WMT6ROFQ',
+        fullName: 'Ziane debba',
+        studentId: '39536613',
+        phone: '0656798582',
+        specialization: 'الية',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T23:02:52'
+    },
+    {
+        registrationId: 'INVX-TYFVG8PW',
+        fullName: 'Rezka kaoutar',
+        studentId: '39338103',
+        phone: '0792059652',
+        specialization: 'Computer science engineering',
+        projectTitle: 'N/A',
+        interests: ['web'],
+        registrationDate: '2025-04-18T23:03:45'
+    },
+    {
+        registrationId: 'INVX-WWYV3SNX',
+        fullName: 'Kadri Romeila Sandra',
+        studentId: '39289606',
+        phone: '0674262654',
+        specialization: 'English student',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'iot', 'mobile'],
+        registrationDate: '2025-04-18T23:07:25'
+    },
+    {
+        registrationId: 'INVX-B9DT20K8',
+        fullName: 'Rezka kaoutar',
+        studentId: '39338103',
+        phone: '0792059652',
+        specialization: 'Computer science engineering',
+        projectTitle: 'N/A',
+        interests: ['web', 'networking'],
+        registrationDate: '2025-04-18T23:09:34'
+    },
+    {
+        registrationId: 'INVX-QMKRWVHW',
+        fullName: 'Belal mohammed',
+        studentId: '39052048',
+        phone: '0675703253',
+        specialization: 'Telecom',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T23:11:51'
+    },
+    {
+        registrationId: 'INVX-SMMFH7OD',
+        fullName: 'ABDLKAHHAR',
+        studentId: '39049130',
+        phone: '0675979198',
+        specialization: 'اقتصاد وتسير مؤسسات',
+        projectTitle: 'محطة ارصاد',
+        interests: ['iot'],
+        registrationDate: '2025-04-18T23:16:16'
+    },
+    {
+        registrationId: 'INVX-GJLOCVD4',
+        fullName: 'ABDERAOUF',
+        studentId: '39053890',
+        phone: '0663591928',
+        specialization: 'hydraulique',
+        projectTitle: 'نظام إنذار ضد السرقة',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T23:33:03'
+    },
+    {
+        registrationId: 'INVX-23A1D5D1',
+        fullName: 'Semra Mohammed Houssam',
+        studentId: '39329116',
+        phone: '0676991224',
+        specialization: 'Automation',
+        projectTitle: 'Smart medical appointment booking',
+        interests: ['ai', 'web'],
+        registrationDate: '2025-04-18T23:34:52'
+    },
+    {
+        registrationId: 'INVX-CW2H9PS4',
+        fullName: 'مريم عزيزي',
+        studentId: '39050780',
+        phone: '0656563762',
+        specialization: 'ريادة أعمال',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'iot'],
+        registrationDate: '2025-04-19T00:01:08'
+    },
+    {
+        registrationId: 'INVX-VNFL4CCI',
+        fullName: 'ZITONUI AHEAD YACINE',
+        studentId: '39307402',
+        phone: '0557746778',
+        specialization: 'علوم اقتصادية والتسيير وعلوم تجارية',
+        projectTitle: 'تجارة الكترونيه',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T00:10:19'
+    },
+    {
+        registrationId: 'INVX-YW2342X2',
+        fullName: 'KACEM AHMED',
+        studentId: '39046920',
+        phone: '0661454542',
+        specialization: 'Technical English (UFC)',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T00:40:04'
+    },
+    {
+        registrationId: 'INVX-7RBX1A2B',
+        fullName: 'بناي فيروز ريان',
+        studentId: '39048511',
+        phone: '0675948444',
+        specialization: 'الية وانظمة',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
+        registrationDate: '2025-04-19T00:48:35'
+    },
+    {
+        registrationId: 'INVX-8P5TMQKG',
+        fullName: 'Bada ahmed siradj',
+        studentId: '39051870',
+        phone: '0563462538',
+        specialization: 'electronics',
+        projectTitle: 'Smart Irrigation System',
+        interests: ['iot', 'electronics'],
+        registrationDate: '2025-04-19T00:52:26'
+    },
+    {
+        registrationId: 'WS-KRYGSNFB',
+        fullName: 'بناي فيروز ريان',
+        studentId: '39048511',
+        phone: '0675948444',
+        specialization: 'الية وانظمة',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T00:54:18',
+        workshop: 'الساعة الثانية: فريد حاج سعيد - من مسقط رأسه إلى العالم'
+    },
+    {
+        registrationId: 'INVX-3TSVYCA4',
+        fullName: 'Daoudamal',
+        studentId: '39290519',
+        phone: '0659329913',
+        specialization: 'Eln',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'data', 'iot', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T01:15:46'
+    },
+    {
+        registrationId: 'INVX-AZGFN8OF',
+        fullName: 'Ben nana roumissa',
+        studentId: '39050794',
+        phone: '0667964283',
+        specialization: 'Physician medical',
+        projectTitle: 'Plaza event',
+        interests: ['ai', 'web', 'cyber', 'data'],
+        registrationDate: '2025-04-19T01:20:51'
+    },
+    {
+        registrationId: 'INVX-LVLPU7IJ',
+        fullName: 'Mammadi Ahmed Djabrane',
+        studentId: '39056979',
+        phone: '0665030610',
+        specialization: 'Info',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T01:21:23'
+    },
+    {
+        registrationId: 'INVX-M1FED7E1',
+        fullName: 'BOUGUENNOUR MOHAMMED SADOK',
+        studentId: '39053174',
+        phone: '0665883194',
+        specialization: 'Ressources hydraulique',
+        projectTitle: 'Smart réseaux',
+        interests: ['ai', 'data', 'iot', 'networking'],
+        registrationDate: '2025-04-19T02:46:13'
+    },
+    {
+        registrationId: 'INVX-3KSU88U1',
+        fullName: 'Talbi mohammed anis',
+        studentId: '39334817',
+        phone: '0776585687',
+        specialization: 'Automatic',
+        projectTitle: 'Smart Medical Appointment Booking',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T07:28:19'
+    },
+    {
+        registrationId: 'INVX-DXUEDFOH',
+        fullName: 'عبد الرحيم بن زازه',
+        studentId: '39058851',
+        phone: '0551298593',
+        specialization: 'Gestion of agrocultur systeme',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T07:49:21'
+    },
+    {
+        registrationId: 'INVX-N75W1D1H',
+        fullName: 'Matallah Nerdjes',
+        studentId: '39057174',
+        phone: '0674247200',
+        specialization: 'langue française',
+        projectTitle: 'N/A',
+        interests: ['networking'],
+        registrationDate: '2025-04-19T08:02:49'
+    },
+    {
+        registrationId: 'INVX-SMBIV6YW',
+        fullName: 'HERROUZ salaheddine',
+        studentId: '39048446',
+        phone: '0673233065',
+        specialization: 'Automation',
+        projectTitle: 'N/A',
+        interests: ['ai', 'iot', 'electronics'],
+        registrationDate: '2025-04-18T14:06:59'
+    },
+    { 
+        registrationId: 'INVX-MUAVVOMA',
+        fullName: 'Hadjseyd Narimen',
+        studentId: '39567518',
+        phone: '0675386373',
+        specialization: 'English',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-16T21:42:18',
+        workshop: 'FIRST HOUR: ASALA DOB - SELF BRANDING'
+    },
+    {
+        registrationId: 'INVX-9KSEV4SL',
+        fullName: 'Bahaz manal Nourelhouda',
+        studentId: '39344912',
+        phone: '0667547108',
+        specialization: 'Electronic',
+        projectTitle: 'Dual-axis360°/180°solar tracking system',
+        interests: ['ai', 'electronics', 'robotics'],
+        registrationDate: '2025-04-18T20:41:59'
+    },
+    {
+        registrationId: 'WS-Z157SAL6',
+        fullName: 'Ayet errahmane hadjadj',
+        studentId: '39047458',
+        phone: '0672720811',
+        specialization: 'accounting',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T20:59:52',
+        workshop: 'FIRST HOUR: KARIM KHELIFI - From Classroom to Career'
+    },
+    {
+        registrationId: 'INVX-JLX2RTGK',
+        fullName: 'benderradji Sara',
+        studentId: '39045805',
+        phone: '0771447614',
+        specialization: 'Civil engineering',
+        projectTitle: 'N/A',
+        interests: ['data'],
+        registrationDate: '2025-04-18T21:11:25'
+    },
+    {
+        registrationId: 'INVX-5NDC17IZ',
+        fullName: 'Omar Djafri Abderrahmane',
+        studentId: '39068933',
+        phone: '0668422772',
+        specialization: 'Med student',
+        projectTitle: 'Video editor',
+        interests: ['ai'],
+        registrationDate: '2025-04-18T21:14:24'
+    },
+    {
+        registrationId: 'WS-M9W58A7E',
+        fullName: 'YACINE HAMMI',
+        studentId: '39322603',
+        phone: '0666449592',
+        specialization: 'Géologie',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:14:59',
+        workshop: 'SECOND HOUR: ADEM MELLOUKA - FPGA & VHDL Programming'
+    },
+    {
+        registrationId: 'INVX-YXH3TB08',
+        fullName: 'Bahaz manal Nourelhouda',
+        studentId: '39344912',
+        phone: '0667547108',
+        specialization: 'Electronic',
+        projectTitle: 'Dual-axis360°/180°solar tracking system',
+        interests: ['ai', 'electronics', 'robotics'],
+        registrationDate: '2025-04-18T21:16:18'
+    },
+    {
+        registrationId: 'INVX-U22P5227',
+        fullName: 'Amira Abderrahmane',
+        studentId: '39336110',
+        phone: '0655647290',
+        specialization: 'Ing informatique',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'networking', 'mobile'],
+        registrationDate: '2025-04-18T21:16:19'
+    },
+    {
+        registrationId: 'INVX-4JBWW6TZ',
+        fullName: 'Ben guehza med el bachir',
+        studentId: '20170720',
+        phone: '0540028435',
+        specialization: 'Système télécommunications',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:16:42'
+    },
+    {
+        registrationId: 'INVX-ANKHYL2E',
+        fullName: 'Bahaz manal Nourelhouda',
+        studentId: '39344912',
+        phone: '0667547108',
+        specialization: 'Electronic',
+        projectTitle: 'Dual-axis360°/180°solar tracking system',
+        interests: ['ai', 'electronics', 'robotics'],
+        registrationDate: '2025-04-18T21:19:50'
+    },
+    {
+        registrationId: 'WS-HXBPC1NB',
+        fullName: 'Aya bedada',
+        studentId: '39298406',
+        phone: '0675026039',
+        specialization: 'Informatique',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:22:45',
+        workshop: 'SECOND HOUR: ADEM MELLOUKA - FPGA & VHDL Programming'
+    },
+    {
+        registrationId: 'INVX-IWNT2DRL',
+        fullName: 'أمجد كيند',
+        studentId: '39576014',
+        phone: '0796570605',
+        specialization: 'MIASHS',
+        projectTitle: 'N/A',
+        interests: ['ai', 'data'],
+        registrationDate: '2025-04-18T21:24:06'
+    },
+    {
+        registrationId: 'INVX-X13S02EZ',
+        fullName: 'Taibi Roumaissa',
+        studentId: '39053381',
+        phone: '0665851681',
+        specialization: 'M1 telecom',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:28:11'
+    },
+    {
+        registrationId: 'INVX-GYVXPUNU',
+        fullName: 'ijtihadlatamen',
+        studentId: '39337412',
+        phone: '0698479291',
+        specialization: 'telecominication',
+        projectTitle: 'القفل الدكي لحماية الممتلكات عن بعد',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T21:36:24'
+    },
+    {
+        registrationId: 'INVX-TREB11T7',
+        fullName: 'SMAHI MANSOURI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'HSE',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'networking'],
+        registrationDate: '2025-04-18T21:43:22'
+    },
+    {
+        registrationId: 'INVX-WX6X4JT3',
+        fullName: 'Mohammed Ramzi Lamniai',
+        studentId: '39051718',
+        phone: '0796353010',
+        specialization: 'Embedded system',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T21:43:34'
+    },
+    {
+        registrationId: 'INVX-XWQ7VHGA',
+        fullName: 'Bismilla raounek elbatoul',
+        studentId: '39354120',
+        phone: '0655397939',
+        specialization: 'Electronique',
+        projectTitle: 'Solar powered wifi irrigation',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T21:45:07'
+    },
+    {
+        registrationId: 'WS-KD20GOYA',
+        fullName: 'SMAHI MANSOURI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'HSE',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:45:17',
+        workshop: 'FIRST HOUR: ASALA DOB - SELF BRANDING'
+    },
+    {
+        registrationId: 'WS-5BAO6BJ5',
+        fullName: 'MANSOURI SMAHI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'HSE',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:46:08',
+        workshop: 'FIRST HOUR: KARIM KHELIFI - From Classroom to Career'
+    },
+    {
+        registrationId: 'WS-HRLSOS2I',
+        fullName: 'MANSOURI SMAHI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'HSE',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T21:46:40',
+        workshop: 'SECOND HOUR: FARID HADJ SAID - From Home Town to the World'
+    },
+    {
+        registrationId: 'INVX-ZB8UBE0F',
+        fullName: 'MANSOURI SMAHI',
+        studentId: '39524916',
+        phone: '0658922484',
+        specialization: 'Hse',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'data', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-18T21:50:43'
+    },
+    {
+        registrationId: 'INVX-SZERWX37',
+        fullName: 'sarra ateitallah',
+        studentId: '39306518',
+        phone: '0791790693',
+        specialization: 'Médecine',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-18T22:04:05'
+    },
+    {
+        registrationId: 'WS-IJ6MUZ8M',
+        fullName: 'Daoudamal',
+        studentId: '39290519',
+        phone: '0659329913',
+        specialization: 'Eln',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T22:22:41',
+        workshop: 'FIRST HOUR: ASALA DOB - SELF BRANDING'
+    },
+    {
+        registrationId: 'INVX-HPD71JNW',
+        fullName: 'TOUILI MOHAMMED TAYEB',
+        studentId: '39056662',
+        phone: '0656465592',
+        specialization: 'Energy renewables',
+        projectTitle: 'N/A',
+        interests: ['networking'],
+        registrationDate: '2025-04-18T22:25:58'
+    },
+    {
+        registrationId: 'INVX-SCG7TOIC',
+        fullName: 'AHMED MAHER Boughaba',
+        studentId: '39050266',
+        phone: '0657142683',
+        specialization: 'Electronic system embedded',
+        projectTitle: 'N/A',
+        interests: ['web', 'electronics'],
+        registrationDate: '2025-04-18T22:29:12'
+    },
+    {
+        registrationId: 'INVX-QS94XGHL',
+        fullName: 'Briki abdellah',
+        studentId: '39308102',
+        phone: '0658506454',
+        specialization: 'Electronic',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'networking'],
+        registrationDate: '2025-04-18T22:29:19'
+    },
+    {
+        registrationId: 'INVX-I8UF0ZA8',
+        fullName: 'Hemmi Mohamed Islam',
+        studentId: '39045868',
+        phone: '0668352733',
+        specialization: 'Machine électrique',
+        projectTitle: 'Gaze safe',
+        interests: ['robotics'],
+        registrationDate: '2025-04-18T22:33:06'
+    },
+    {
+        registrationId: 'INVX-RBC4I4HP',
+        fullName: 'Zegheb maroua',
+        studentId: '39310806',
+        phone: '0552876893',
+        specialization: 'Electronics',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'electronics', 'robotics'],
+        registrationDate: '2025-04-18T22:42:14'
+    },
+    {
+        registrationId: 'INVX-2D2GR89C',
+        fullName: 'Yahia bouanane',
+        studentId: '20233953',
+        phone: '0656133124',
+        specialization: 'الية',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T22:59:52'
+    },
+    {
+        registrationId: 'INVX-WMT6ROFQ',
+        fullName: 'Ziane debba',
+        studentId: '39536613',
+        phone: '0656798582',
+        specialization: 'الية',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-18T23:02:52'
+    },
+    {
+        registrationId: 'INVX-TYFVG8PW',
+        fullName: 'Rezka kaoutar',
+        studentId: '39338103',
+        phone: '0792059652',
+        specialization: 'Computer science engineering',
+        projectTitle: 'N/A',
+        interests: ['web'],
+        registrationDate: '2025-04-18T23:03:45'
+    },
+    {
+        registrationId: 'INVX-WWYV3SNX',
+        fullName: 'Kadri Romeila Sandra',
+        studentId: '39289606',
+        phone: '0674262654',
+        specialization: 'English student',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'iot', 'mobile'],
+        registrationDate: '2025-04-18T23:07:25'
+    },
+    {
+        registrationId: 'INVX-B9DT20K8',
+        fullName: 'Rezka kaoutar',
+        studentId: '39338103',
+        phone: '0792059652',
+        specialization: 'Computer science engineering',
+        projectTitle: 'N/A',
+        interests: ['web', 'networking'],
+        registrationDate: '2025-04-18T23:09:34'
+    },
+    {
+        registrationId: 'INVX-QMKRWVHW',
+        fullName: 'Belal mohammed',
+        studentId: '39052048',
+        phone: '0675703253',
+        specialization: 'Telecom',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T23:11:51'
+    },
+    {
+        registrationId: 'INVX-SMMFH7OD',
+        fullName: 'ABDLKAHHAR',
+        studentId: '39049130',
+        phone: '0675979198',
+        specialization: 'اقتصاد وتسير مؤسسات',
+        projectTitle: 'محطة ارصاد',
+        interests: ['iot'],
+        registrationDate: '2025-04-18T23:16:16'
+    },
+    {
+        registrationId: 'INVX-GJLOCVD4',
+        fullName: 'ABDERAOUF',
+        studentId: '39053890',
+        phone: '0663591928',
+        specialization: 'hydraulique',
+        projectTitle: 'نظام إنذار ضد السرقة',
+        interests: ['electronics'],
+        registrationDate: '2025-04-18T23:33:03'
+    },
+    {
+        registrationId: 'INVX-23A1D5D1',
+        fullName: 'Semra Mohammed Houssam',
+        studentId: '39329116',
+        phone: '0676991224',
+        specialization: 'Automation',
+        projectTitle: 'Smart medical appointment booking',
+        interests: ['ai', 'web'],
+        registrationDate: '2025-04-18T23:34:52'
+    },
+    {
+        registrationId: 'INVX-CW2H9PS4',
+        fullName: 'مريم عزيزي',
+        studentId: '39050780',
+        phone: '0656563762',
+        specialization: 'ريادة أعمال',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'iot'],
+        registrationDate: '2025-04-19T00:01:08'
+    },
+    {
+        registrationId: 'INVX-VNFL4CCI',
+        fullName: 'ZITONUI AHEAD YACINE',
+        studentId: '39307402',
+        phone: '0557746778',
+        specialization: 'علوم اقتصادية والتسيير وعلوم تجارية',
+        projectTitle: 'تجارة الكترونيه',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T00:10:19'
+    },
+    {
+        registrationId: 'INVX-YW2342X2',
+        fullName: 'KACEM AHMED',
+        studentId: '39046920',
+        phone: '0661454542',
+        specialization: 'Technical English (UFC)',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T00:40:04'
+    },
+    {
+        registrationId: 'INVX-7RBX1A2B',
+        fullName: 'بناي فيروز ريان',
+        studentId: '39048511',
+        phone: '0675948444',
+        specialization: 'الية وانظمة',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking'],
+        registrationDate: '2025-04-19T00:48:35'
+    },
+    {
+        registrationId: 'INVX-8P5TMQKG',
+        fullName: 'Bada ahmed siradj',
+        studentId: '39051870',
+        phone: '0563462538',
+        specialization: 'electronics',
+        projectTitle: 'Smart Irrigation System',
+        interests: ['iot', 'electronics'],
+        registrationDate: '2025-04-19T00:52:26'
+    },
+    {
+        registrationId: 'WS-KRYGSNFB',
+        fullName: 'بناي فيروز ريان',
+        studentId: '39048511',
+        phone: '0675948444',
+        specialization: 'الية وانظمة',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T00:54:18',
+        workshop: 'الساعة الثانية: فريد حاج سعيد - من مسقط رأسه إلى العالم'
+    },
+    {
+        registrationId: 'INVX-3TSVYCA4',
+        fullName: 'Daoudamal',
+        studentId: '39290519',
+        phone: '0659329913',
+        specialization: 'Eln',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'data', 'iot', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T01:15:46'
+    },
+    {
+        registrationId: 'INVX-AZGFN8OF',
+        fullName: 'Ben nana roumissa',
+        studentId: '39050794',
+        phone: '0667964283',
+        specialization: 'Physician medical',
+        projectTitle: 'Plaza event',
+        interests: ['ai', 'web', 'cyber', 'data'],
+        registrationDate: '2025-04-19T01:20:51'
+    },
+    {
+        registrationId: 'INVX-LVLPU7IJ',
+        fullName: 'Mammadi Ahmed Djabrane',
+        studentId: '39056979',
+        phone: '0665030610',
+        specialization: 'Info',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T01:21:23'
+    },
+    {
+        registrationId: 'INVX-M1FED7E1',
+        fullName: 'BOUGUENNOUR MOHAMMED SADOK',
+        studentId: '39053174',
+        phone: '0665883194',
+        specialization: 'Ressources hydraulique',
+        projectTitle: 'Smart réseaux',
+        interests: ['ai', 'data', 'iot', 'networking'],
+        registrationDate: '2025-04-19T02:46:13'
+    },
+    {
+        registrationId: 'INVX-3KSU88U1',
+        fullName: 'Talbi mohammed anis',
+        studentId: '39334817',
+        phone: '0776585687',
+        specialization: 'Automatic',
+        projectTitle: 'Smart Medical Appointment Booking',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T07:28:19'
+    },
+    {
+        registrationId: 'INVX-DXUEDFOH',
+        fullName: 'عبد الرحيم بن زازه',
+        studentId: '39058851',
+        phone: '0551298593',
+        specialization: 'Gestion of agrocultur systeme',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T07:49:21'
+    },
+    {
+        registrationId: 'INVX-N75W1D1H',
+        fullName: 'Matallah Nerdjes',
+        studentId: '39057174',
+        phone: '0674247200',
+        specialization: 'langue française',
+        projectTitle: 'N/A',
+        interests: ['networking'],
+        registrationDate: '2025-04-19T08:02:49'
+    },
+    
+    {
+        registrationId: 'INVX-P0V4O1M8',
+        fullName: 'Ouchene fateh',
+        studentId: '22021986',
+        phone: '0770863117',
+        specialization: 'Telecom',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T08:02:49'
+    },
+    {
+        registrationId: 'INVX-YFGC9OHU',
+        fullName: 'زروقي أحمد فوزي',
+        studentId: '39310602',
+        phone: '0660457081',
+        specialization: 'اعلام الي مهندس دولة',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T14:26:02'
+    },
+    {
+        registrationId: 'INVX-XTEWUFGI',
+        fullName: 'wedad afissa',
+        studentId: '39641215',
+        phone: '0672255514',
+        specialization: 'informatique ing',
+        projectTitle: 'N/A',
+        interests: ['web', 'data', 'cloud', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T14:25:08'
+    },
+    {
+        registrationId: 'INVX-U8VVSSJL',
+        fullName: 'بن قويدر عبد المؤمن',
+        studentId: '39318404',
+        phone: '0699996826',
+        specialization: 'اعلام الي مهندس دولة',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T14:26:45'
+    },
+    {
+        registrationId: 'INVX-Z17O1URV',
+        fullName: 'Ben kaddour abd ennour',
+        studentId: '39047010',
+        phone: '0795683071',
+        specialization: 'Technologie',
+        projectTitle: 'FTTH',
+        interests: ['cyber'],
+        registrationDate: '2025-04-19T14:31:47'
+    },
+    {
+        registrationId: 'INVX-38JSPZVX',
+        fullName: 'Salah Edin Lakbichi',
+        studentId: '39540518',
+        phone: '0667380905',
+        specialization: 'Computer Science Engineer',
+        projectTitle: 'N/A',
+        interests: ['ai', 'electronics', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T14:35:54'
+    },
+    {
+        registrationId: 'INVX-BX1MJ31J',
+        fullName: 'Laouar Mohammad abderrahmane',
+        studentId: '39092011',
+        phone: '0775551050',
+        specialization: 'Instrument',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T15:11:28'
+    },
+    {
+        registrationId: 'INVX-VHMWDK7Z',
+        fullName: 'Laouisset ahmed yacine',
+        studentId: '39300910',
+        phone: '0669362712',
+        specialization: 'Automatic',
+        projectTitle: 'fruits counter',
+        interests: ['ai', 'robotics'],
+        registrationDate: '2025-04-19T15:14:40'
+    },
+    {
+        registrationId: 'INVX-YNL06CRG',
+        fullName: 'Akram Gueziz',
+        studentId: '39295105',
+        phone: '0697093868',
+        specialization: 'Auto',
+        projectTitle: "Contrôle de l'irrigation par axe à distance",
+        interests: ['robotics'],
+        registrationDate: '2025-04-19T16:43:34'
+    },
+    {
+        registrationId: 'WS-9JR3ULU7',
+        fullName: 'maou mayar malak',
+        studentId: '39344917',
+        phone: '0559436999',
+        specialization: 'petroleum instrumentation',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T16:51:43',
+        workshop: 'FIRST HOUR: KARIM KHELIFI - From Classroom to Career'
+    },
+    {
+        registrationId: 'WS-26VCN88X',
+        fullName: 'DJARROUDIB NOUR MELEK',
+        studentId: '39345011',
+        phone: '0558918966',
+        specialization: 'Petroleum instrumentation',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T16:52:36',
+        workshop: 'FIRST HOUR: ASALA DOB - SELF BRANDING'
+    },
+    {
+        registrationId: 'WS-961IT2TD',
+        fullName: 'DJARROUDIB NOUR MELEK',
+        studentId: '39345011',
+        phone: '0558918966',
+        specialization: 'Petroleum instrumentation',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T16:53:01',
+        workshop: 'FIRST HOUR: KARIM KHELIFI - From Classroom to Career'
+    },
+    {
+        registrationId: 'WS-PFZTICTP',
+        fullName: 'DJARROUDIB NOUR MELEK',
+        studentId: '39345011',
+        phone: '0558918966',
+        specialization: 'Petroleum instrumentation',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T16:53:18',
+        workshop: 'SECOND HOUR: FARID HADJ SAID - From Home Town to the World'
+    },
+    {
+        registrationId: 'WS-X5NII7GI',
+        fullName: 'DJARROUDIB NOUR MELEK',
+        studentId: '39345011',
+        phone: '0558918966',
+        specialization: 'Petroleum instrumentation',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T16:53:32',
+        workshop: 'SECOND HOUR: ADEM MELLOUKA - FPGA & VHDL Programming'
+    },
+    {
+        registrationId: 'WS-I0ZST5SV',
+        fullName: 'Boukechouiou loibna',
+        studentId: '39058275',
+        phone: '0665251581',
+        specialization: 'Automatique',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T17:58:22',
+        workshop: 'SECOND HOUR: FARID HADJ SAID - From Home Town to the World'
+    },
+    {
+        registrationId: 'INVX-STJMGI3N',
+        fullName: 'Bouafia mohammed amine',
+        studentId: '35087817',
+        phone: '0676083491',
+        specialization: '2nd year geengineering mecanique',
+        projectTitle: 'Visitor',
+        interests: [],
+        registrationDate: '2025-04-19T18:10:55'
+    },
+    {
+        registrationId: 'INVX-ZR7MBJVL',
+        fullName: 'Nouifdi rayene',
+        studentId: '31201013',
+        phone: '0668440889',
+        specialization: '1st year science and technologie',
+        projectTitle: 'Visitor',
+        interests: [],
+        registrationDate: '2025-04-19T18:13:58'
+    },
+    {
+        registrationId: 'INVX-3QTZD506',
+        fullName: 'Houari alaa eddine',
+        studentId: '38348212',
+        phone: '0549201566',
+        specialization: '2nd year engineering mecanique',
+        projectTitle: 'Visitor',
+        interests: [],
+        registrationDate: '2025-04-19T18:16:25'
+    },
+    {
+        registrationId: 'INVX-OTD3ZBLL',
+        fullName: 'Ballah meriem',
+        studentId: '39400306',
+        phone: '0668398577',
+        specialization: 'Géne de procéder',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T18:16:26'
+    },
+    {
+        registrationId: 'INVX-6634TWXY',
+        fullName: 'Bentebba malak',
+        studentId: '39322204',
+        phone: '0783199258',
+        specialization: 'Travaux public',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T18:20:06'
+    },
+    {
+        registrationId: 'INVX-ALQL1AF0',
+        fullName: 'HADJ AISSA BAELHADJ',
+        studentId: '39083773',
+        phone: '0659625281',
+        specialization: 'Mechanical Engineering',
+        projectTitle: 'N/A',
+        interests: ['ai', 'cyber', 'networking'],
+        registrationDate: '2025-04-19T18:22:51'
+    },
+    {
+        registrationId: 'INVX-8I9IKIK2',
+        fullName: 'Sadek amine djebaili',
+        studentId: '39304310',
+        phone: '0663015873',
+        specialization: 'Mechanical engineering',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'electronics', 'networking', 'robotics'],
+        registrationDate: '2025-04-19T18:30:55'
+    },
+    {
+        registrationId: 'INVX-1A9V8Y0C',
+        fullName: 'benyahia',
+        studentId: '39055806',
+        phone: '0665114874',
+        specialization: 'G mécanique',
+        projectTitle: 'N/A',
+        interests: ['networking'],
+        registrationDate: '2025-04-19T18:32:27'
+    },
+    {
+        registrationId: 'INVX-LEED2SL4',
+        fullName: 'Benesseddik Razika',
+        studentId: '39397516',
+        phone: '0665998040',
+        specialization: 'Aoutamatiqu',
+        projectTitle: '3D scanner',
+        interests: [],
+        registrationDate: '2025-04-19T18:39:11'
+    },
+    {
+        registrationId: 'INVX-ZHEIKFCL',
+        fullName: 'Almadani Mohi Eddin',
+        studentId: '39050156',
+        phone: '0778768502',
+        specialization: 'Telecommunications',
+        projectTitle: 'Dalil go',
+        interests: ['networking'],
+        registrationDate: '2025-04-19T18:47:24'
+    },
+    {
+        registrationId: 'INVX-4247ZDQ9',
+        fullName: 'Assia Benbelkacem',
+        studentId: '39051856',
+        phone: '0655807822',
+        specialization: 'Telecommunications',
+        projectTitle: 'Dalil go',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T18:50:52'
+    },
+    {
+        registrationId: 'INVX-01GZGGH8',
+        fullName: 'Radja Benddine',
+        studentId: '39300302',
+        phone: '0660719897',
+        specialization: 'مدرسة عليا للأساتذة',
+        projectTitle: 'N/A',
+        interests: ['web', 'data', 'electronics', 'networking', 'mobile'],
+        registrationDate: '2025-04-19T18:55:09'
+    },
+    {
+        registrationId: 'INVX-9J550NRG',
+        fullName: 'Toumi soundes',
+        studentId: '39051627',
+        phone: '0667165466',
+        specialization: 'Petrochemicale',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T18:56:17'
+    },
+    {
+        registrationId: 'INVX-L5PKYEXC',
+        fullName: 'Ayat errahman Debbakh',
+        studentId: '39320411',
+        phone: '0656802281',
+        specialization: 'Telecommunications',
+        projectTitle: 'Dalil go',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T19:06:15'
+    },
+    {
+        registrationId: 'INVX-OKUHH5AM',
+        fullName: 'بالحبيب محمد الطاهر',
+        studentId: '39354402',
+        phone: '0555471218',
+        specialization: 'الكترونيك',
+        projectTitle: 'مستشعر المطر',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T19:16:57'
+    },
+    {
+        registrationId: 'INVX-2P9VIZSV',
+        fullName: 'Mohamed firas bekkari',
+        studentId: '39304805',
+        phone: '0696744372',
+        specialization: 'Electronic',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T19:20:17'
+    },
+    {
+        registrationId: 'WS-UFP7BCXJ',
+        fullName: 'MERABET SALSABIL',
+        studentId: '33292413',
+        phone: '0668702596',
+        specialization: 'ENS Français',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T19:34:58',
+        workshop: 'SECOND HOUR: FARID HADJ SAID - From Home Town to the World'
+    },
+    {
+        registrationId: 'INVX-J7QLFYKL',
+        fullName: 'KORICHI MOAHMED AYOUB',
+        studentId: '39312210',
+        phone: '0660696913',
+        specialization: 'Telecommunications',
+        projectTitle: 'Dalil go',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T19:42:00'
+    },
+    {
+        registrationId: 'INVX-8TRH7GD4',
+        fullName: 'Meriem toubakh',
+        studentId: '39586110',
+        phone: '0660907683',
+        specialization: 'St',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T19:48:13'
+    },
+    {
+        registrationId: 'INVX-IY35Q9B9',
+        fullName: 'Rayane Bedoui',
+        studentId: '39051601',
+        phone: '0698003984',
+        specialization: 'Etude et contrôle bâtîmes et routes',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T19:54:21'
+    },
+    {
+        registrationId: 'INVX-0T9L0YFO',
+        fullName: 'Kara roumaissa',
+        studentId: '39340714',
+        phone: '0541820217',
+        specialization: 'Biologie',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T19:57:09'
+    },
+    {
+        registrationId: 'INVX-AY1REQW2',
+        fullName: 'Nadir hidaya',
+        studentId: '39541104',
+        phone: '0675254220',
+        specialization: 'Informatique',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T20:14:49'
+    },
+    {
+        registrationId: 'INVX-IWM5JZ91',
+        fullName: 'ZITOUNI ABDILLAH ANISS',
+        studentId: '39307910',
+        phone: '0670978419',
+        specialization: 'علوم اقتصادية والتسيير وعلوم التجارية',
+        projectTitle: 'تجارة الكترونية',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T20:30:32'
+    },
+    {
+        registrationId: 'INVX-6E2BAASY',
+        fullName: 'Khaled RAHMA',
+        studentId: '29315318',
+        phone: '0674848696',
+        specialization: 'Informatique (ingenieur)',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'robotics'],
+        registrationDate: '2025-04-19T20:34:47'
+    },
+    {
+        registrationId: 'INVX-HEYX76SW',
+        fullName: 'Mechri Safia',
+        studentId: '39050084',
+        phone: '0664369498',
+        specialization: 'Électronique',
+        projectTitle: 'Hand tracking',
+        interests: [],
+        registrationDate: '2025-04-19T20:51:59'
+    },
+    {
+        registrationId: 'INVX-LRUZUAV8',
+        fullName: 'Benchabana Ahmed Zakaria',
+        studentId: '39056448',
+        phone: '0662807578',
+        specialization: 'Electronic',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T20:55:28'
+    },
+    {
+        registrationId: 'WS-LBMNOAGU',
+        fullName: 'Belaribi Lidia',
+        studentId: '39318302',
+        phone: '0541009930',
+        specialization: 'Renewable energies',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T21:15:22',
+        workshop: 'FIRST HOUR: KARIM KHELIFI - From Classroom to Career'
+    },
+    {
+        registrationId: 'WS-W1QPOWJR',
+        fullName: 'Younsi Rahil',
+        studentId: '32029013',
+        phone: '0540473302',
+        specialization: 'Hydrocarbons',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T21:16:49',
+        workshop: 'FIRST HOUR: KARIM KHELIFI - From Classroom to Career'
+    },
+    {
+        registrationId: 'INVX-ZPEURXBN',
+        fullName: 'Meissa israa',
+        studentId: '39046787',
+        phone: '0659087575',
+        specialization: 'Étude et contrôle bâtiment et routes',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T21:24:10'
+    },
+    {
+        registrationId: 'INVX-UH1GJ35G',
+        fullName: 'Gana dhiya',
+        studentId: '39059369',
+        phone: '0666700572',
+        specialization: 'ميكانيك',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T21:31:05'
+    },
+    {
+        registrationId: 'INVX-Z4UJ4SNL',
+        fullName: 'Khouloud messaoudi',
+        studentId: '39290710',
+        phone: '0562719177',
+        specialization: 'Hydraulique',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T21:31:54'
+    },
+    {
+        registrationId: 'INVX-EX9JPMDI',
+        fullName: 'Ben hammouda RIHAN',
+        studentId: '39328015',
+        phone: '0673299540',
+        specialization: 'Agricultural Sciences',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T21:32:44'
+    },
+    {
+        registrationId: 'INVX-WPR2C2RO',
+        fullName: 'Bouasria dia elhak',
+        studentId: '39349311',
+        phone: '0674570139',
+        specialization: 'Informatique',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T21:39:18'
+    },
+    {
+        registrationId: 'INVX-67ITS866',
+        fullName: 'Ben guehza med el bachir',
+        studentId: '39047617',
+        phone: '0540028435',
+        specialization: 'Télécommunications',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T21:40:07'
+    },
+    {
+        registrationId: 'INVX-L74Z54ZA',
+        fullName: 'Benarif Nesrine',
+        studentId: '39294305',
+        phone: '0669259970',
+        specialization: 'Electronics',
+        projectTitle: 'New Gen Absence',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T21:47:27'
+    },
+    {
+        registrationId: 'INVX-XQ62E2S5',
+        fullName: 'Lamine HADJSEYD',
+        studentId: '39311623',
+        phone: '0559423515',
+        specialization: 'Hydrocarbures',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T21:51:17'
+    },
+    {
+        registrationId: 'INVX-0BJVZPO2',
+        fullName: 'Ikram bedjadj',
+        studentId: '39306207',
+        phone: '0698665757',
+        specialization: 'Computer science',
+        projectTitle: 'Implementing Ann model for speech emotion recognition',
+        interests: ['ai', 'cyber', 'networking'],
+        registrationDate: '2025-04-19T21:51:34'
+    },
+    {
+        registrationId: 'INVX-E5DUJ06Y',
+        fullName: 'Mohammed siad',
+        studentId: '39323114',
+        phone: '0654472177',
+        specialization: 'Automatique',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T21:52:01'
+    },
+    {
+        registrationId: 'INVX-BY6JQ0WC',
+        fullName: 'Massinissa Ait Ounas',
+        studentId: '39313311',
+        phone: '0770842608',
+        specialization: 'Pilote',
+        projectTitle: 'N/A',
+        interests: ['cyber', 'electronics', 'robotics'],
+        registrationDate: '2025-04-19T21:54:46'
+    },
+    {
+        registrationId: 'INVX-22U14YC7',
+        fullName: 'Allali mohammed idris',
+        studentId: '39338118',
+        phone: '0675724698',
+        specialization: 'Electronic',
+        projectTitle: 'Rain Sensor',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T22:00:38'
+    },
+    {
+        registrationId: 'WS-X3PSYQ09',
+        fullName: 'Gana Abdelbari',
+        studentId: '39054406',
+        phone: '0675312109',
+        specialization: 'Embedded Systems',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T22:10:19',
+        workshop: 'SECOND HOUR: ADEM MELLOUKA - FPGA & VHDL Programming'
+    },
+    {
+        registrationId: 'WS-8JWQWRAN',
+        fullName: 'Gana Abdelbari',
+        studentId: '39054406',
+        phone: '0675312109',
+        specialization: 'Embedded Systems',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T22:11:35',
+        workshop: 'SECOND HOUR: FARID HADJ SAID - From Home Town to the World'
+    },
+    {
+        registrationId: 'INVX-98GIX1F4',
+        fullName: 'Boussaid asma',
+        studentId: '39053524',
+        phone: '0661161820',
+        specialization: 'Elctronic',
+        projectTitle: 'New gen absence',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T22:37:31'
+    },
+    {
+        registrationId: 'INVX-E1OIBEEY',
+        fullName: 'Hayat arfa',
+        studentId: '39313804',
+        phone: '0670875785',
+        specialization: 'Informatique',
+        projectTitle: 'N/A',
+        interests: ['data'],
+        registrationDate: '2025-04-19T22:44:27'
+    },
+    {
+        registrationId: 'INVX-HSUZZ54Z',
+        fullName: 'هني ايناس',
+        studentId: '20213905',
+        phone: '0698533679',
+        specialization: 'أدب عربي',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T22:44:45'
+    },
+    {
+        registrationId: 'INVX-D3V7THLB',
+        fullName: 'Ammour Doua',
+        studentId: '39053367',
+        phone: '0667159451',
+        specialization: 'Telecommunication',
+        projectTitle: 'N/A',
+        interests: ['web'],
+        registrationDate: '2025-04-19T22:46:56'
+    },
+    {
+        registrationId: 'INVX-66M20PVE',
+        fullName: 'Boughaba Ines',
+        studentId: '39053333',
+        phone: '0669775093',
+        specialization: 'Telecommunication',
+        projectTitle: 'N/A',
+        interests: ['ai'],
+        registrationDate: '2025-04-19T22:48:01'
+    },
+    {
+        registrationId: 'INVX-SO61DSUT',
+        fullName: 'Mohammed Laid kouidri',
+        studentId: '39047629',
+        phone: '0698334849',
+        specialization: 'ELECTRONIC',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T22:50:02'
+    },
+    {
+        registrationId: 'INVX-JHN68DMZ',
+        fullName: 'Nihad djadla bentebbal',
+        studentId: '39051376',
+        phone: '0677497683',
+        specialization: 'M1 electronic systems embedded',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T22:50:56'
+    },
+    {
+        registrationId: 'INVX-Z3LRM7CH',
+        fullName: 'Aouachir mohammed yacine',
+        studentId: '39290213',
+        phone: '0666849206',
+        specialization: 'Telecommunications',
+        projectTitle: 'Dalil go',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T23:09:13'
+    },
+    {
+        registrationId: 'WS-8ER092HU',
+        fullName: 'AGGAL MOHAMMED DRISS',
+        studentId: '39380609',
+        phone: '0671720179',
+        specialization: 'Électrotechnique',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T23:13:50',
+        workshop: 'الساعة الأولى: أصالة تاريخ الميلاد - بناء العلامة التجارية الذاتية'
+    },
+    {
+        registrationId: 'WS-KWSEKXQL',
+        fullName: 'AGGAL MOHAMMED DRISS',
+        studentId: '39380609',
+        phone: '0671720179',
+        specialization: 'Électrotechnique',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T23:14:30',
+        workshop: 'الساعة الثانية: آدم ميلوكا - برمجة FPGA وVHDL'
+    },
+    {
+        registrationId: 'WS-X2Y3W7YC',
+        fullName: 'AGGAL MOHAMMED DRISS',
+        studentId: '39380609',
+        phone: '0671720179',
+        specialization: 'Électrotechnique',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T23:14:53',
+        workshop: 'الساعة الأولى: كريم خليفي - من قاعة الدراسة إلى المهنة'
+    },
+    {
+        registrationId: 'INVX-NYL9GVUJ',
+        fullName: 'ZIDI SAFA',
+        studentId: '39315519',
+        phone: '1111111111',
+        specialization: 'Geology',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'electronics', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T23:17:37'
+    },
+    {
+        registrationId: 'INVX-VUG4INJ1',
+        fullName: 'برابح ياسين',
+        studentId: '39047677',
+        phone: '0658807501',
+        specialization: 'الكتروتقني',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T23:21:03'
+    },
+    {
+        registrationId: 'WS-KTM5AZ8B',
+        fullName: 'برابح ياسين',
+        studentId: '39047677',
+        phone: '0658807501',
+        specialization: 'الكتروتقني',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T23:22:04',
+        workshop: 'الساعة الثانية: آدم ميلوكا - برمجة FPGA وVHDL'
+    },
+    {
+        registrationId: 'INVX-U8N49SIN',
+        fullName: 'Remdani Safia',
+        studentId: '20223039',
+        phone: '2222222222',
+        specialization: 'Geology',
+        projectTitle: 'N/A',
+        interests: ['ai', 'cyber', 'data', 'iot', 'electronics', 'networking', 'robotics'],
+        registrationDate: '2025-04-19T23:27:21'
+    },
+    {
+        registrationId: 'INVX-ZB2HICEA',
+        fullName: 'Besmalasenoussaoui',
+        studentId: '30397606',
+        phone: '0000000000',
+        specialization: 'Geology',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T23:28:47'
+    },
+    {
+        registrationId: 'INVX-Z49TIYNI',
+        fullName: 'Aiad Abdelchakour',
+        studentId: '39046882',
+        phone: '0676196446',
+        specialization: 'Geology of hydrocarbons',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T23:49:30'
+    },
+    {
+        registrationId: 'INVX-9T6KXJ5T',
+        fullName: 'CHAFOU BAHA EDDINE',
+        studentId: '39060393',
+        phone: '0655871017',
+        specialization: 'hydrocodone geology',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-19T23:53:02'
+    },
+    {
+        registrationId: 'INVX-SW0CNY2I',
+        fullName: 'ACHOURI haroune',
+        studentId: '39049621',
+        phone: '0773196462',
+        specialization: 'Electrotechnique',
+        projectTitle: 'N/A',
+        interests: ['ai', 'web', 'cyber', 'data', 'iot', 'cloud', 'electronics', 'networking', 'mobile', 'robotics'],
+        registrationDate: '2025-04-19T23:55:05'
+    },
+    {
+        registrationId: 'INVX-YXYGIW4D',
+        fullName: 'Saidi amel',
+        studentId: '39059187',
+        phone: '0611111111',
+        specialization: 'Geology',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-19T23:57:36'
+    },
+    {
+        registrationId: 'WS-DON2W4VK',
+        fullName: 'Henni Dikra',
+        studentId: '39306420',
+        phone: '0667528128',
+        specialization: "Système d'information",
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-20T00:04:38',
+        workshop: 'FIRST HOUR: ASALA DOB - SELF BRANDING'
+    },
+    {
+        registrationId: 'INVX-SHG4UJOG',
+        fullName: 'كاتب آية الرحمان',
+        studentId: '39318810',
+        phone: '0697647979',
+        specialization: 'حقوق و علوم سياسية',
+        projectTitle: 'N/A',
+        interests: ['web', 'iot', 'mobile', 'robotics'],
+        registrationDate: '2025-04-20T00:09:42'
+    },
+    {
+        registrationId: 'INVX-9VDHO2DC',
+        fullName: 'Abderrhman',
+        studentId: '20223930',
+        phone: '0797525813',
+        specialization: 'Telecommunication',
+        projectTitle: 'Rank eysi',
+        interests: ['web'],
+        registrationDate: '2025-04-20T00:29:06'
+    },
+    {
+        registrationId: 'INVX-4PSA1J6J',
+        fullName: 'BENSALEM NOUR EL HOUDA',
+        studentId: '39058670',
+        phone: '0667120363',
+        specialization: 'INDUSTRIAL ELECTROTECHNICS',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-20T00:25:54'
+    },
+    {
+        registrationId: 'INVX-II74N3JC',
+        fullName: 'Maroua Bouab',
+        studentId: '39305602',
+        phone: '0696177016',
+        specialization: 'Telecommunications',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-20T00:33:10'
+    },
+    {
+        registrationId: 'INVX-YOSN4WGT',
+        fullName: 'بوعزة فاطيمة bouaza fatima',
+        studentId: '37004792',
+        phone: '0664546894',
+        specialization: 'صيانة صناعية',
+        projectTitle: 'صندوق تبريد -40C',
+        interests: ['ai', 'web', 'electronics', 'robotics'],
+        registrationDate: '2025-04-20T00:42:32'
+    },
+    {
+        registrationId: 'INVX-0R6EKNT9',
+        fullName: 'Bassou Mohammed fouad',
+        studentId: '39056047',
+        phone: '0541896503',
+        specialization: 'Automatic',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-20T01:18:09'
+    },
+    {
+        registrationId: 'INVX-XP4HYYML',
+        fullName: 'Chouaib Bouras',
+        studentId: '39055605',
+        phone: '0696432746',
+        specialization: 'Instrumentation',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-20T01:37:03',
+        workshops: "FIRST HOUR: ASALA DOB - SELF BRANDING",
+    },    {
+        registrationId: 'INVX-XP4HYYML',
+        fullName: 'Chouaib Bouras',
+        studentId: '39055605',
+        phone: '0696432746',
+        specialization: 'Instrumentation',
+        projectTitle: 'N/A',
+        interests: [],
+        registrationDate: '2025-04-20T01:37:03',
+        workshops: "FIRST HOUR: ASALA DOB - SELF BRANDING",
+    },
+    {
+        registrationId: 'INVX-HXWO56UQ',
+        fullName: 'Tobchi Alaa',
+        studentId: '39049719',
+        phone: '0675465085',
+        specialization: 'electtonics',
+        projectTitle: 'N/A',
+        interests: ['electronics'],
+        registrationDate: '2025-04-20T01:37:03',
+    },
+    {
+        registrationId: 'INVX-BTLN49AC',
+        fullName: 'ARAR NADIR',
+        studentId: '39331515',
+        phone: '0666517242',
+        specialization: 'Génie proside',
+        projectTitle: 'N/A',
+        interests: ['mobile'],
+        registrationDate: '2025-04-20T01:37:03',
+    },
+    
+    
+
+
+
 ];
 
 // Workshop definitions
@@ -2537,7 +4477,11 @@ const workshops = [
         description: 'Learn the fundamentals of FPGA design and VHDL programming for embedded systems.',
         capacity: 50,
         time: 'SECOND HOUR'
-    }
+    },
+
+
+    
+
 ];
 
 // DOM Elements
